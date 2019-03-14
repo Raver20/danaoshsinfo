@@ -197,6 +197,14 @@ function autogen()
     
     
 }
+
+function get_by_id($school_id)
+{
+    $this->load->model('mdl_requirements');
+    $requirements_query = $this->mdl_requirements->get_by_id($school_id);
+    return $requirements_query;
+}
+
 function get($order_by)
 {
     $this->load->model('mdl_requirements');

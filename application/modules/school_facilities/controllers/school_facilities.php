@@ -14,6 +14,7 @@ function view($update_id)
         redirect('site_security/not_allowed');
     }
 
+
     //fetch the facility details
 
     $data = $this->fetch_data_from_db($update_id);
@@ -348,16 +349,18 @@ function create()
 function manage() 
 {
     $this->load->module('site_security');
-    $this->site_security->_make_sure_is_school_admin();
+    $this->load->module('requirements');
     
+    $this->site_security->_make_sure_is_school_admin();
 
     $school_id = ($this->session->userdata['schooladmin']['school_id']);
-   
+    
     $data['flash'] = $this->session->flashdata('facility');
-    $data['facility_query'] = $this->get($school_id);
+    $data['facility_query'] = $this->get_by_id($school_id);
+    $data['requirements_query'] = $this->requirements->get_by_id($school_id);
     $data['view_file'] = "manage";
     $this->load->module('templates');
-    $this->templates->schooladmin($data); 
+    $this->templates->schooladmin($data);   
 }
 
 
@@ -402,6 +405,13 @@ function get($order_by)
 {
     $this->load->model('mdl_school_facilities');
     $facility_query = $this->mdl_school_facilities->get($order_by);
+    return $facility_query;
+}
+
+function get_by_id($school_id)
+{
+    $this->load->model('mdl_school_facilities');
+    $facility_query = $this->mdl_school_facilities->get_by_id($school_id);
     return $facility_query;
 }
 

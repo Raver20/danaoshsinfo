@@ -26,9 +26,9 @@ function get_with_limit($limit, $offset, $order_by) {
     return $query;
 }
 
-function get_where($school_id){
+function get_where($schoolname){
     $table = $this->get_table();
-    $this->db->where('school_id', $school_id);
+    $this->db->where('schoolname', $schoolname);
     $query=$this->db->get($table);
     return $query;
 }

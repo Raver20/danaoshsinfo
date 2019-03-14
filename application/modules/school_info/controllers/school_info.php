@@ -23,6 +23,20 @@ function profile()
     $this->templates->public_bootstrap($data);
 }
 
+
+
+function dashboard()
+{
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_school_admin();
+
+    $data['schoolname'] = $this->session->userdata['schooladmin']['schoolname'];
+    $data['view_module'] = "School_info";
+    $data['view_file'] = "dashboard";
+    $this->load->module('templates');
+    $this->templates->schooladmin($data);
+}
+
 function get($order_by)
 {
     $this->load->model('Mdl_school_info');
@@ -41,14 +55,14 @@ function get_with_limit($limit, $offset, $order_by)
     return $query;
 }
 
-function get_where($school_id)
+function get_where($schoolname)
 {
-    if (!is_numeric($school_id)) {
+    if (!is_numeric($schoolname)) {
         die('Non-numeric variable!');
     }
 
     $this->load->model('Mdl_school_info');
-    $query = $this->Mdl_school_info->get_where($school_id);
+    $query = $this->Mdl_school_info->get_where($schoolname);
     return $query;
 }
 

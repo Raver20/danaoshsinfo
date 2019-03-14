@@ -33,7 +33,7 @@
                     </thead>
                     <tbody>
                     	<?php
-                    		foreach ($query->result() as $row) {
+                    		foreach ($requirements_query->result() as $row) {
                     			$edit_requiremtns_url = base_url()."requirements/create/".$row->requirement_id;
                                
                     	?>

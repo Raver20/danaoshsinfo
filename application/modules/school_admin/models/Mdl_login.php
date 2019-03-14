@@ -13,15 +13,21 @@ function get_table() {
 
 function check_user()
 {
-    $q= "";
+    $q = array();
 
     $this->db->where("user",$this->user);
     $this->db->where("password",$this->password);
     $c = $this->db->get('school_info');
   
     if($c->num_rows() > 0 ){
-        $q = $c->row()->school_id;         
+        $q = array(
+            'username' => $c->row()->username,
+            'school_id' => $c->row()->school_id,
+            'emailaddress' => $c->row()->emailaddress,
+            'schoolname' => $c->row()->schoolname,
+        );
         
+
     }
     return $q;
 }

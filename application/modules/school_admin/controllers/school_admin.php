@@ -57,16 +57,13 @@ public function auth()
             $this->load->model("mdl_login");
             $this->mdl_login->user = $user;
             $this->mdl_login->password = $password;
-            
             if($this->mdl_login->check_user())
                 {
 
-                $session_data = array(
-                'username' => $user,
-                'school_id' => $this->mdl_login->check_user(),
-                );
+                $session_data = $this->mdl_login->check_user();
+                
                 $this->session->set_userdata("schooladmin",$session_data);
-                redirect('school_facilities/manage');
+                redirect('school_info/dashboard');
 
                 }
             else

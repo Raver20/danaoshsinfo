@@ -132,7 +132,8 @@ function manage()
 {
     $this->load->module('site_security');
     $this->site_security->_make_sure_is_school_admin();
-    $data['query'] = $this->get('requirement_name');
+    $school_id = ($this->session->userdata['schooladmin']['school_id']);
+    $data['requirements_query'] = $this->get_by_id($school_id);
     $data['view_module'] = "requirements";
     $data['view_file'] = "manage";
     $this->load->module('templates');
@@ -141,7 +142,8 @@ function manage()
 
 function fetch_data_from_post()
 {
-    $data['school_id'] = 1;
+    $school_id = ($this->session->userdata['schooladmin']['school_id']);
+    $data['school_id'] = $school_id;
     $data['requirement_id'] = $this->input->post('requirement_id', TRUE);
     $data['requirement_name'] = $this->input->post('requirement_name', TRUE);
     $data['requirement_desc'] = $this->input->post('requirement_desc', TRUE);

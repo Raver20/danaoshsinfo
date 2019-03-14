@@ -11,6 +11,16 @@ function get_table() {
     return $table;
 }
 
+function get_by_id($school_id){
+    $table = $this->get_table();
+    $q = $this->db->select('*')->from($table)->where('school_id', $school_id)->get();
+    return $q;
+}
+
+
+
+
+
 function get($order_by){
     $table = $this->get_table();
     $this->db->order_by($order_by);

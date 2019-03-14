@@ -13,6 +13,10 @@ function profile()
     $this->site_security->_make_sure_is_school_admin();
 
     $data['query'] = $this->get('school_id');
+
+    $this->load->module('requirements');
+    $data['query_requirements'] = $this->requirements->get('school_id');
+
     $data['view_module'] = "School_info";
     $data['view_file'] = "profile";
     $this->load->module('templates');

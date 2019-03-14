@@ -58,7 +58,7 @@
                                                 foreach ($strands_query->result() as $row) {
                                                     
                                             ?>
-                                            <li><a href="<?= $row->strand_url ?>"><?= $row->strand_name ?></a></li>;
+                                            <li><a href="<?= base_url()."pages/strand/".$row->strand_url ?>"><?= $row->strand_name ?></a></li>;
                                             <?php
                                                 }
                                             ?>

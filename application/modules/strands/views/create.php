@@ -93,7 +93,7 @@
        		 	<h2>Strand Logo</h2>
        		</div>
             <div class="card-body">
-                <img src="<?= base_url() ?>facility_pic/big_pic/<?= $big_pic ?>">
+                <img src="<?= base_url() ?>strand_pic/big_pic/<?= $big_pic ?>">
                 
             </div>
         </div>

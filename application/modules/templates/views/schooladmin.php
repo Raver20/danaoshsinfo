@@ -107,6 +107,12 @@
                             <span>Manage Requirement</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>school_privileges/manage">
+                            <i class="material-icons">offer</i>
+                            <span>Manage Privileges</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->

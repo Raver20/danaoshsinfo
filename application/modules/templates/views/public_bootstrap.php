@@ -20,7 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cardo:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:300,700,900,500' rel='stylesheet' type='text/css'>
-
+    
     <link href="<?php echo base_url() ?>public_bootstrap/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public_bootstrap/assets/pe-icons/css/pe-icon-7-stroke.css" rel="stylesheet">
 

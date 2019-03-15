@@ -11,6 +11,14 @@ function get_table() {
     return $table;
 }
 
+function get_by_privilege_by_id($school_id){
+    $table = $this->get_table();
+    $q = $this->db->select('*')->from($table)->where('school_id', $school_id)->get();
+    return $q;
+}
+
+
+
 function get($order_by){
     $table = $this->get_table();
     $this->db->order_by($order_by);
@@ -26,9 +34,9 @@ function get_with_limit($limit, $offset, $order_by) {
     return $query;
 }
 
-function get_where($id){
+function get_where($privilege_id){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('privilege_id', $privilege_id);
     $query=$this->db->get($table);
     return $query;
 }
@@ -45,15 +53,15 @@ function _insert($data){
     $this->db->insert($table, $data);
 }
 
-function _update($id, $data){
+function _update($privilege_id, $data){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('privilege_id', $privilege_id);
     $this->db->update($table, $data);
 }
 
-function _delete($id){
+function _delete($privilege_id){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('privilege_id', $privilege_id);
     $this->db->delete($table);
 }
 
@@ -74,11 +82,11 @@ function count_all() {
 
 function get_max() {
     $table = $this->get_table();
-    $this->db->select_max('id');
+    $this->db->select_max('privilege_id');
     $query = $this->db->get($table);
     $row=$query->row();
-    $id=$row->id;
-    return $id;
+    $privilege_id=$row->privilege_id;
+    return $privilege_id;
 }
 
 function _custom_query($mysql_query) {

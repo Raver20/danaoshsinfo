@@ -1,14 +1,14 @@
-<h1>Manage Requirements</h1>
+<h1>Manage Privileges</h1>
 
 
 <?php
-	$create_requirement_url = base_url()."requirements/create";
-     $view_requiremtns_url = base_url()."pages/requirement/";
+	$create_privileges_url = base_url()."school_privileges/create";
+    
 ?>
 <p style="margin-bottom: 10px;">
-<a href="<?= $create_requirement_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">add</i><span>Add New Requirements</span></button></a>
+<a href="<?= $create_privileges_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">add</i><span>Add New Privilege</span></button></a>
 
-<a href="<?= $view_requiremtns_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">visibility</i></button></a>
+
 </p>
 <!-- Bordered Table -->
 <div class="row clearfix">
@@ -25,26 +25,25 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Requirement Name</th>
-                            <th>Description</th>
+                            <th>Privilege Name</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                     	<?php
-                    		foreach ($requirements_query->result() as $row) {
-                    			$edit_requiremtns_url = base_url()."requirements/create/".$row->requirement_id;
+                    		foreach ($privileges_query->result() as $row) {
+                    			$edit_privilege_url = base_url()."school_privileges/create/".$row->privilege_id;
                                
                     	?>
                     
                         <tr>
-                           	<td><?= $row->requirement_name ?></td>
-                            <td><?= $row->requirement_desc ?></td>
+                           	<td><?= $row->privilege_name ?></td>
+                            
                             
                             <td>
                               
                                     
-                            	<a href="<?= $edit_requiremtns_url ?>"><button type="button" class="btn btn-success waves-effect"><i class="material-icons">call_made</i></button></a>
+                            	<a href="<?= $edit_privilege_url ?>"><button type="button" class="btn btn-success waves-effect"><i class="material-icons">call_made</i></button></a>
                             
                             </td>
                         </tr>

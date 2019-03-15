@@ -173,7 +173,7 @@ function fetch_data_from_db($update_id)
 
 function autogen() 
 {
-    $mysql_query = "show columns from school_requirements";
+    $mysql_query = "show columns from school_privileges";
     $query = $this->_custom_query($mysql_query);
     foreach ($query->result() as $row) 
     {

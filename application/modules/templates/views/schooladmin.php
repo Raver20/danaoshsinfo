@@ -109,7 +109,7 @@
                     </li>
                     <li>
                         <a href="<?php echo base_url(); ?>school_privileges/manage">
-                            <i class="material-icons">offer</i>
+                            <i class="material-icons">local_offer</i>
                             <span>Manage Privileges</span>
                         </a>
                     </li>

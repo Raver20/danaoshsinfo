@@ -80,8 +80,8 @@ function _process_delete($update_id)
     $big_pic = $data['big_pic'];
     $small_pic = $data['small_pic'];
 
-    $big_pic_path = './strand_p/big_pic/'.$big_pic;
-    $small_pic_path = './strand_p/small_pic/'.$small_pic;  
+    $big_pic_path = './strand_pic/big_pic/'.$big_pic;
+    $small_pic_path = './strand_pic/small_pic/'.$small_pic;  
     
     if (file_exists($big_pic_path))
     {
@@ -163,8 +163,8 @@ function delete_image($update_id)
     $big_pic = $data['big_pic'];
     $small_pic = $data['small_pic'];
 
-    $big_pic_path = './strand_p/big_pic/'.$big_pic;
-    $small_pic_path = './strand_p/small_pic/'.$small_pic;   
+    $big_pic_path = './strand_pic/big_pic/'.$big_pic;
+    $small_pic_path = './strand_pic/small_pic/'.$small_pic;   
 
 
     //attempt to remove the images
@@ -193,8 +193,8 @@ function delete_image($update_id)
 function _generate_thumbnail($file_name) 
 {
     $config['image_library']    = 'gd2';
-    $config['source_image']     = './strand_p/big_pic/'.$file_name;
-    $config['new_image']        = './strand_p/small_pic/'.$file_name;
+    $config['source_image']     = './strand_pic/big_pic/'.$file_name;
+    $config['new_image']        = './strand_pic/small_pic/'.$file_name;
     $config['maintain_ratio']   =  TRUE;
     $config['width']            =  200;
     $config['height']           =  200;
@@ -223,7 +223,7 @@ function do_upload($update_id)
         redirect('Strands/create/'.$update_id);
     }
 
-    $config['upload_path']      ='./strand_p/big_pic';
+    $config['upload_path']      ='./strand_pic/big_pic';
     $config['allowed_types']    ='jpg|png';
     $config['max_size']         = 100;
     $config['max_width']        = 512;

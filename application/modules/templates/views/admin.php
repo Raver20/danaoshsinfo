@@ -90,7 +90,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="../../index.html">
+                        <a href="<?php echo base_url(); ?>admin/dashboard">
                             <i class="material-icons">home</i>
                             <span>Dashboard</span>
                         </a>

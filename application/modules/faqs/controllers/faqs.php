@@ -28,6 +28,36 @@ function view($update_id)
     $this->templates->public_bootstrap($data); 
 }
 
+function _process_delete($update_id)
+{
+    //attempt to delete the facility options
+
+    $data = $this->fetch_data_from_db($update_id);
+   
+    $this->_delete($update_id);
+
+    //delete the faciitiy record from store_items
+}
+function delete($update_id)
+{
+    if (!is_numeric($update_id))
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_admin();
+
+  
+        $this->_process_delete($update_id);
+        $flash_msg = "The strand was successfully deleted";
+        $value = '<div class="alert alert-success" role="alert">'.$flash_msg.'</div>';
+        $this->session->set_flashdata('faqs', $value);
+        redirect('faqs/manage');
+   
+}
+
 function _get_faq_id($faq_title)
 {
     $faq_query = $this->get_where_custom('faq_title', $faq_title);

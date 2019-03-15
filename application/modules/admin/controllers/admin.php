@@ -89,7 +89,18 @@ public function auth()
             
 
     }
+function dashboard()
+{
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_admin();
 
+    $data['username'] = $this->session->userdata['admin']['username'];
+    $data['view_module'] = "admin";
+    $data['view_file'] = "dashboard";
+    $this->load->module('templates');
+    $this->templates->admin($data);
+}
+    
 
 // function test()
 // {

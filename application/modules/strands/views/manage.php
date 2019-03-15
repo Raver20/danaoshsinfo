@@ -26,7 +26,7 @@
                                         <th>Strand Title</th>
                                         <th>Description</th>
                                         <th>RCIC</th>
-                                        <th class="col-sm-2">Actions</th>
+                                        <th style="text-align: center;" class="col-sm-2">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,8 +38,18 @@
                                 
                                     <tr >
                                        	<td><?= $row->strand_name ?></td>
-                                        <td><?= $row->description ?></td>
-                                        <td><?= $row->rcic ?></td>
+                                        <td style=" white-space: nowrap;
+                                                    max-width: 300px;
+                                                    background: white;
+                                                    padding: 0.5em 1em;
+                                                    overflow: hidden;">
+                                        <?= $row->description ?></td>
+                                        <td style=" white-space: nowrap;
+                                                    max-width: 300px;
+                                                    background: white;
+                                                    padding: 0.5em 1em;
+                                                    overflow: hidden;">
+                                                    <?= $row->rcic ?></td>
                                         <td style="text-align: center;">
                                             <a href="<?= $view_strand_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">visibility</i></button></a>
                                          

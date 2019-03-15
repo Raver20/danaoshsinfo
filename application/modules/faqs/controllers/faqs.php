@@ -166,10 +166,7 @@ function manage()
     $data['view_module'] = "Faqs";
     $data['view_file'] = "manage";
     $this->load->module('templates');
-    $this->templates->admin($data);
-
-
-    
+    $this->templates->admin($data);    
 }
 
 function fetch_data_from_post()

@@ -49,7 +49,7 @@
                     <div class="col-xs-9">
                         <div class="collapse navbar-collapse" id="navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="contact-us.html">Home</a></li>
+                                <li><a href="#">Home</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Strands <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
@@ -67,13 +67,10 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Schools <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                      <li><a href="news-list.html">News List</a></li>
-                                      <li><a href="news-grid.html">News Grid</a></li>
-                                      <li><a href="single-post.html">Single Post</a></li>
-                                      <li><a href="single-post-no-sidebar.html">Single Post No Sidebar</a></li>
-                                    </ul>
+                                      <li><a href="#">Public</a></li>
+                                      <li><a href="#">Private</a></li> </ul>
                                 </li>
-                                <li><a href="contact-us.html">About Us</a></li>
+                                <li><a href="#">About Us</a></li>
                                 <li><a href="<?php echo base_url() ?>pages/faq">Faq's</a></li>
                                 
                             </ul>

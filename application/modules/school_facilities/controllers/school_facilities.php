@@ -170,8 +170,8 @@ function _generate_thumbnail($file_name)
     $config['source_image']     = './facility_pic/big_pic/'.$file_name;
     $config['new_image']        = './facility_pic/small_pic/'.$file_name;
     $config['maintain_ratio']   =  TRUE;
-    $config['width']            =  200;
-    $config['height']           =  200;
+    $config['width']            =  600;
+    $config['height']           =  600;
 
     $this->load->library('image_lib', $config);
     $this->image_lib->resize();

@@ -33,7 +33,8 @@
                     <tbody>
                     	<?php
                     		foreach ($requirements_query->result() as $row) {
-                    			$edit_requiremtns_url = base_url()."requirements/create/".$row->requirement_id;
+                                $edit_requiremtns_url = base_url()."requirements/create/".$row->requirement_id;
+                                $delete_requiremtns_url = base_url()."requirements/delete/".$row->requirement_id;
                                
                     	?>
                     
@@ -43,7 +44,7 @@
                             
                             <td>
                               
-                                    
+                                <a href="<?= $delete_requiremtns_url ?>"><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
                             	<a href="<?= $edit_requiremtns_url ?>"><button type="button" class="btn btn-success waves-effect"><i class="material-icons">call_made</i></button></a>
                             
                             </td>

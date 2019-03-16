@@ -1,5 +1,6 @@
 .dark-overlay, .dark-overlay.fill-right:after, .dark-overlay.fill-left:after {
-  background-color: rgba(102, 51, 153, 0.8);
+  background-color: rgba(216, 216, 216, 0.274);
+  
 }
 
 .styled-accordion .panel-default>.panel-heading {

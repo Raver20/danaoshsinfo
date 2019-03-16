@@ -32,7 +32,8 @@
                     <tbody>
                     	<?php
                     		foreach ($privileges_query->result() as $row) {
-                    			$edit_privilege_url = base_url()."school_privileges/create/".$row->privilege_id;
+                                $edit_privilege_url = base_url()."school_privileges/create/".$row->privilege_id;
+                                $delete_privilege_url = base_url()."school_privileges/delete/".$row->privilege_id;
                                
                     	?>
                     
@@ -42,7 +43,7 @@
                             
                             <td>
                               
-                                    
+                                <a href="<?= $delete_privilege_url ?>"><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
                             	<a href="<?= $edit_privilege_url ?>"><button type="button" class="btn btn-success waves-effect"><i class="material-icons">call_made</i></button></a>
                             
                             </td>

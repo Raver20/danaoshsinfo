@@ -18,8 +18,8 @@ function view($update_id)
     //fetch the facility details
 
     $data = $this->fetch_data_from_db($update_id);
-
-    $data['query'] = $this->get('requirement_name');
+    $school_id = ($this->session->userdata['schooladmin']['school_id']);
+    $data['requirement_query'] = $this->get_by_id($school_id);
     $data['update_id'] = $update_id;
     $data['flash'] = $this->session->flashdata('requirements');
     $data['view_module'] = "requirements";
@@ -27,7 +27,36 @@ function view($update_id)
     $this->load->module('templates');
     $this->templates->public_bootstrap($data); 
 }
+function _process_delete($update_id)
+{
+    //attempt to delete the facility options
 
+    $data = $this->fetch_data_from_db($update_id);
+   
+    $this->_delete($update_id);
+
+    //delete the faciitiy record from store_items
+}
+function delete($update_id)
+{
+    if (!is_numeric($update_id))
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_school_admin();
+
+  
+        
+        $flash_msg = "The requirement was successfully deleted";
+        $value = '<div class="alert alert-success" role="alert">'.$flash_msg.'</div>';
+        $this->session->set_flashdata('requirements', $value);
+        $this->_process_delete($update_id);
+        redirect('requirements/manage');
+   
+}
 function _get_requirement_id_from_requirement_name($requirement_name)
 {
     $query = $this->get_where_custom('requirement_name', $requirement_name);
@@ -90,7 +119,7 @@ function create()
                 $flash_msg = "A new requirements were successfully added";
                 $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
                 $this->session->set_flashdata('requirements', $value);
-                redirect('requirements/create/'.$update_id);
+                redirect('requirements/manage/'.$update_id);
             }
         }
         else

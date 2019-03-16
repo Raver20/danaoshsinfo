@@ -7,11 +7,23 @@ parent::__construct();
 }
 
 
+function _get_school_info_id_from_school_info($school_id)
+{
+    $query = $this->get_where_custom('school_id', $school_id);
+    foreach ($query->result() as $row) {
+        $school_id = $row->school_id;
+    }
+
+    if (!isset($school_id))
+    {
+        $school_id = 0;
+    }
+    return $school_id;
+}
+
+
 function profile()
 {
-    $this->load->module('site_security');
-    $this->site_security->_make_sure_is_school_admin();
-
     $data['query'] = $this->get('school_id');
 
     $this->load->module('requirements');
@@ -148,8 +160,20 @@ function fetch_data_from_post()
 {
     $admin_id = ($this->session->userdata['admin']['userid']);
     $data['admin_id'] = $admin_id;
-    $data['info_ans'] = $this->input->post('info_ans', TRUE);
-    $data['info_title'] = $this->input->post('info_title', TRUE);
+    $data['school_id'] = $this->input->post('school_id', TRUE);
+    $data['schoolname'] = $this->input->post('schoolname', TRUE);
+    $data['user'] = $this->input->post('user', TRUE);
+    $data['password'] = $this->input->post('password', TRUE);
+    $data['status'] = $this->input->post('status', TRUE);
+    $data['address'] = $this->input->post('address', TRUE);
+    $data['telno'] = $this->input->post('telno', TRUE);
+    $data['emailaddress'] = $this->input->post('emailaddress', TRUE);
+    $data['typeofschool'] = $this->input->post('typeofschool', TRUE);
+    $data['contactperson'] = $this->input->post('contactperson', TRUE);
+    $data['principal'] = $this->input->post('principal', TRUE);
+    $data['locationurl'] = $this->input->post('locationurl', TRUE);
+    $data['calendar'] = $this->input->post('calendar', TRUE);
+    $data['avetuition'] = $this->input->post('avetuition', TRUE);
     
     return $data;
 }
@@ -176,8 +200,8 @@ function fetch_data_from_db($update_id)
 function autogen() 
 {
     $mysql_info_query = "show columns from school_info";
-    $query = $this->_custom_info_query($mysql_info_query);
-    foreach ($query->result() as $row) 
+    $info_query = $this->_custom_info_query($mysql_info_query);
+    foreach ($info_query->result() as $row) 
     {
         $column_name = $row->Field;
         if ($column_name!="id")
@@ -188,7 +212,7 @@ function autogen()
     }
 
     echo "<hr/>" ;
-    foreach ($query->result() as $row) 
+    foreach ($info_query->result() as $row) 
     {
         $column_name = $row->Field;
         if ($column_name!="id")

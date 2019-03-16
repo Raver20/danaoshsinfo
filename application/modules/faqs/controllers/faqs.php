@@ -19,7 +19,7 @@ function view($update_id)
     $this->load->module('Strands');
     $data = $this->fetch_data_from_db($update_id);
 
-    $data['faq_query'] = $this->get('faq_title');
+    $data['faq_query'] = $this->get('faq_id');
     $data['update_id'] = $update_id;
     $data['flash'] = $this->session->flashdata('faqs');
     $data['view_module'] = "Faqs";
@@ -162,7 +162,7 @@ function manage()
 {
     $this->load->module('site_security');
     $this->site_security->_make_sure_is_admin();
-    $data['faq_query'] = $this->get('faq_title');
+    $data['faq_query'] = $this->get('faq_id');
     $data['view_module'] = "Faqs";
     $data['view_file'] = "manage";
     $this->load->module('templates');

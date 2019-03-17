@@ -168,7 +168,7 @@ function fetch_data_from_db($update_id)
 function get_by_id($school_id)
 {
     $this->load->model('mdl_school_privileges');
-    $privileges_query = $this->mdl_school_privileges->get_by_privilege_by_id($school_id);
+    $privileges_query = $this->mdl_school_privileges->get_by_id($school_id);
     return $privileges_query;
 }
 

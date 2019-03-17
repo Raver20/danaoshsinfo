@@ -24,10 +24,15 @@ function _get_school_info_id_from_school_info($school_id)
 
 function profile()
 {
-    $data['query'] = $this->get('school_id');
-
+    $this->load->module('school_facilities');
     $this->load->module('requirements');
-    $data['query_requirements'] = $this->requirements->get('school_id');
+    $this->load->module('school_privileges');
+    $school_id = ($this->session->userdata['schooladmin']['school_id']);
+    //query
+    $data['facility_query'] = $this->school_facilities->get_by_id($school_id);
+    $data['requirement_query'] = $this->requirements->get_by_id($school_id);
+    $data['privilege_query'] = $this->school_privileges->get_by_id($school_id);
+
 
     $data['view_module'] = "School_info";
     $data['view_file'] = "profile";

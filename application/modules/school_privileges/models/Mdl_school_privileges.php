@@ -11,7 +11,7 @@ function get_table() {
     return $table;
 }
 
-function get_by_privilege_by_id($school_id){
+function get_by_id($school_id){
     $table = $this->get_table();
     $q = $this->db->select('*')->from($table)->where('school_id', $school_id)->get();
     return $q;

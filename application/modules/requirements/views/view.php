@@ -5,8 +5,6 @@
         	<?php
         		foreach ($requirement_query->result() as $row) {
         			$requirement_id = $row->requirement_id;
-        		
-			    
 			?>
             <h5 style="color: #707070" class="mt0 mb40"><?= $row->requirement_name ?></h5>
             

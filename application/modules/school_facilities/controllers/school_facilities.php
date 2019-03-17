@@ -349,15 +349,12 @@ function create()
 function manage() 
 {
     $this->load->module('site_security');
-    $this->load->module('requirements');
-    
     $this->site_security->_make_sure_is_school_admin();
 
     $school_id = ($this->session->userdata['schooladmin']['school_id']);
     
     $data['flash'] = $this->session->flashdata('facility');
     $data['facility_query'] = $this->get_by_id($school_id);
-    $data['requirements_query'] = $this->requirements->get_by_id($school_id);
     $data['view_file'] = "manage";
     $this->load->module('templates');
     $this->templates->schooladmin($data);   

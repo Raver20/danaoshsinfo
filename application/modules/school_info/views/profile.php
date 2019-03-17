@@ -29,155 +29,172 @@
 </div>
 <!-- TABS SECTION -->
 <section id="our-courses">
-      <div class="section-inner">
-          <div class="container">
-              <div class="row">
-                  <div class="col-sm-12">
-                      <div class="row">
-                          <div class="col-xs-12" role="tabpanel">
-                              <div class="row">
-                                  <div class="col-sm-12">
-                                      <!-- Nav tabs -->
-                                      <ul class="nav nav-justified image-tabs" id="course-tabs" role="tablist">
-                                          <li role="presentation" class="summer-term active">
-                                              <a href="#overview" aria-controls="summer-term" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
-                                                  <span>Overview</span>
-                                              </a>
-                                          </li>
-                                          <li role="presentation" class="winter-term">
-                                              <a href="#school-strands" aria-controls="winter-term" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
-                                                  <span>Strands</span>
-                                              </a>
-                                          </li>
-                                          <li role="presentation" class="online-learning">
-                                              <a href="#school-facilities" aria-controls="online-learning" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
-                                                  <span>Facilities</span>
-                                              </a>
-                                          </li>
-                                          <li role="presentation" class="online-learning">
-                                              <a href="#requirements" aria-controls="online-learning" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
-                                                  <span>Requirements</span>
-                                              </a>
-                                          </li>
-                                          <li role="presentation" class="online-learning">
-                                              <a href="#privileges" aria-controls="online-learning" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
-                                                  <span>Privileges</span>
-                                              </a>
-                                          </li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-xs-12">
-                                     <!-- overview SECTION -->
-                                      <div class="tab-content pt60" id="tabs-collapse">            
-                                          <div role="tabpanel" class="tab-pane fade in active" id="overview">
-                                              <div class="tab-inner">     
-                                                  <div class="row">               
-                                                      <div class="col-sm-12 mb40">
-                                                          <div class="row">
-                                                              <div class="col-sm-10 col-xs-12">
-                                                                  <h5><span>Photography for Beginners</span></h5>
-                                                                  <p class="lead">16 week course.</p>
-                                                                  <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                                  <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
-                                                              </div>
-                                                              <div class="col-sm-2 col-xs-12 text-right">
-                                                                  <h1><span>P120 </span></h1>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  </div>               
-                                              </div>
-                                          </div>
-                                          <!-- school-strands SECTION -->
-                                          <div role="tabpanel" class="tab-pane fade" id="school-strands">
-                                              <div class="tab-inner">
-                                                  <div class="row">
-                                                      <div class="col-sm-12 mb40">
-                                                          <div class="row">
-                                                              <div class="col-sm-10 col-xs-12">
-                                                                  <h5><span>Photography for Beginners</span></h5>
-                                                                  <p class="lead">16 week course.</p>
-                                                                  <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                                  <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
-                                                              </div>
-                                                              <div class="col-sm-2 col-xs-12 text-right">
-                                                                  <h1><span>$199</span></h1>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  </div>  
-                                              </div>
-                                          </div>
-                                          <!-- school-facilities SECTION -->
-                                          <div role="tabpanel" class="tab-pane fade" id="school-facilities">
-                                              <div class="tab-inner">
-                                                  <div class="row">
-                                                      <div class="col-sm-12 mb40">
-                                                          <div class="row">
-                                                              <div class="col-sm-10 col-xs-12">
-                                                                  <h5><span>Photoshop Basics</span></h5>
-                                                                  <p class="lead">16 week course.</p>
-                                                                  <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                                  <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
-                                                              </div>
-                                                              <div class="col-sm-2 col-xs-12 text-right">
-                                                                  <h1><span>$599</span></h1>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div> 
-                                          </div>
-                                          <!-- requirements SECTION -->  
-                                          <div role="tabpanel" class="tab-pane fade" id="requirements">
-                                              <div class="tab-inner">
-                                                  <div class="row">
-                                                      <div class="col-sm-12 mb40">
-                                                          <div class="row">
-                                                              <div class="col-sm-10 col-xs-12">
-                                                                  <h5><span>Photoshop Basics</span></h5>
-                                                                  <p class="lead">16 week course.</p>
-                                                                  <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                                  <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
-                                                              </div>
-                                                              <div class="col-sm-2 col-xs-12 text-right">
-                                                                  <h1><span>$59</span></h1>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div> 
-                                          </div>
-                                          <!-- privileges SECTION -->
-                                          <div role="tabpanel" class="tab-pane fade" id="privileges">
-                                              <div class="tab-inner">
-                                                  <div class="row">
-                                                      <div class="col-sm-12 mb40">
-                                                          <div class="row">
-                                                              <div class="col-sm-10 col-xs-12">
-                                                                  <h5><span>Photoshop Basics</span></h5>
-                                                                  <p class="lead">16 week course.</p>
-                                                                  <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                                  <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
-                                                              </div>
-                                                              <div class="col-sm-2 col-xs-12 text-right">
-                                                                  <h1><span>$679</span></h1>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div> 
-                                          </div>  
-                                          <!-- End of tabpanel -->                                 
-                                      </div>
-                                  </div>  
-                              </div>       
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-12" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-justified image-tabs" id="course-tabs" role="tablist">
+                                        <li role="presentation" class="summer-term active">
+                                            <a href="#overview" aria-controls="summer-term" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Overview</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="winter-term">
+                                            <a href="#strands" aria-controls="winter-term" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Strands</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="online-learning">
+                                            <a href="#facilities" aria-controls="online-learning" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Facilities</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="online-learning">
+                                            <a href="#requirements" aria-controls="online-learning" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Requirements</span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" class="online-learning">
+                                            <a href="#privileges" aria-controls="online-learning" role="tab" data-toggle="tab" class="dark-overlay .half-opacity ">
+                                                <span>Privileges</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <!-- overview SECTION -->
+                                    <div class="tab-content pt60" id="tabs-collapse">  
+                                        <div role="tabpanel" class="tab-pane fade in active" id="overview">
+                                            <div class="tab-inner">     
+                                                <div class="row">               
+                                                    <div class="col-sm-12 mb40">
+                                                        <div class="row">
+                                                            <div class="col-sm-10 col-xs-12">
+                                                                <h5><span>Photography for Beginners</span></h5>
+                                                                <p class="lead">16 week course.</p>
+                                                                <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
+                                                                <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
+                                                            </div>
+                                                            <div class="col-sm-2 col-xs-12 text-right">
+                                                                <h1><span>$19\9</span></h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>               
+                                            </div>
+                                        </div>
+                                        <!-- strand SECTION -->
+                                        <div role="tabpanel" class="tab-pane fade" id="strands">
+                                            <div class="tab-inner">     
+                                                <div class="row">               
+                                                    <div class="col-sm-12 mb40">
+                                                        <div class="row">
+                                                            <div class="col-sm-10 col-xs-12">
+                                                                <h5><span>Photography for Beginners</span></h5>
+                                                                <p class="lead">16 week course.</p>
+                                                                <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
+                                                                <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
+                                                            </div>
+                                                            <div class="col-sm-2 col-xs-12 text-right">
+                                                                <h1><span>$49</span></h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>               
+                                            </div>
+                                        </div>
+                                        <!-- facilities SECTION -->
+                                        <div role="tabpanel" class="tab-pane fade" id="facilities">
+                                            <div class="tab-inner">
+                                                <div class="row">
+                                                    <div class="col-sm-12 mb40">
+                                                        <div class="row">
+                                                        <section id="our-courses">
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+            <?php
+                foreach ($facility_query->result() as $row) {
+                    $facility_id = $row->facility_id; 
+            ?>
+                <div class="col-md-4 mb40 match-height">
+                    <div class="hover-effect smoothie">
+                        
+                        <img alt="Image" class="img-responsive smoothie" src="<?= base_url() ?>facility_pic/small_pic/<?= $row->small_pic ?>" alt="Profile image example"/>
+                        <div class="hover-overlay smoothie text-center">
+                            <div class="vertical-center-js">
+                                <h4><?= $row->facility_name ?></h4>
+                            </div>
+                        </div>
+                        <div class="hover-caption dark-overlay smoothie text-center">
+                            <div class="vertical-center-js">
+                                <p class="mb20"><small><?= nl2br($row->description) ?></small></p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+           
+        </div>
+    </div>
+</section>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                        <!-- requirements SECTION -->
+                                        <div role="tabpanel" class="tab-pane fade" id="requirements">
+                                            <div class="tab-inner">
+                                                <div class="row">
+                                                    <div class="col-sm-12 mb40">
+                                                        <div class="row">
+                                                        <?php
+                                                            foreach ($requirement_query->result() as $row) {
+                                                                $requirement_id = $row->requirement_id;
+                                                        ?>
+                                                        <h5 style="color: #707070" class="mt0 mb40"><?= $row->requirement_name ?></h5>
+                                                        <p class="mb20" style="text-align: justify; text-indent: 2em; padding-left: 50px;"><small><?= nl2br($row->requirement_desc) ?></small></p>
+                                                        <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                        <!-- privileges SECTION -->
+                                        <div role="tabpanel" class="tab-pane fade" id="privileges">
+                                            <div class="tab-inner">
+                                                <div class="row">
+                                                    <div class="col-sm-12 mb40">
+                                                        <div class="row">
+                                                            <?php
+                                                                foreach ($privilege_query->result() as $row) {
+                                                                    $privilege_id = $row->privilege_id;
+                                                            ?>
+                                                            <h5 style="color: #707070" class="mt0 mb40"><?= $row->privilege_name ?></h5>
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>  
+                                        <!-- End of tabpanel -->                                 
+                                    </div>
+                                </div>  
+                            </div>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

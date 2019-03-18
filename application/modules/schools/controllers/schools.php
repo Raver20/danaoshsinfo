@@ -1,19 +1,54 @@
 <?php
-class School_page extends MX_Controller 
+class Schools extends MX_Controller 
 {
 
 function __construct() {
 parent::__construct();
 }
 
-function schools()
+function search()
+{
+    $submit = $this->input->post('submit', TRUE);
+    if ($submit=="Submit")
+    {
+        $typeofschool = $this->input->post('typeofschool', TRUE);
+        $search = $this->input->post('search', TRUE);
+        redirect('schools?type='.$typeofschool."&search=".$search);
+    }
+}
+
+function index()
 {
     $this->load->module('school_info');
-    $data['page_query'] = $this->school_info->get('schoolname');
-    $data['view_module'] = "school_page";
+    
+    $typeofschool = $this->input->get('type', TRUE);
+    $search = $this->input->get('search', TRUE);
+
+    if ($typeofschool=="public" || $typeofschool=="private")
+    {
+        $query = $this->get_where_custom('typeofschool', $typeofschool);
+    }
+    elseif ($search)
+    {
+        $query = $this->get_like_custom('schoolname', $search);
+    }
+    else
+    {
+        $query = $this->get('schoolname');
+    }
+    
+    $data['page_query'] = $query;
+    $data['view_module'] = "schools";
     $data['view_file'] = "schools";
     $this->load->module('templates');
     $this->templates->public_bootstrap($data);
+}
+
+function get_like_custom($col, $value)
+{
+    $this->load->model('mdl_school_page');
+    $query = $this->mdl_school_page->get_like_custom($col, $value);
+    return $query;
 }
 
 function get($order_by)

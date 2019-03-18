@@ -7,8 +7,16 @@ parent::__construct();
 }
 
 function get_table() {
-    $table = "tablename";
+    $table = "school_info";
     return $table;
+}
+
+function get_like_custom($col, $value)
+{
+    $table = $this->get_table();
+    $this->db->like($col, $value);
+    $query=$this->db->get($table);
+    return $query;
 }
 
 function get($order_by){

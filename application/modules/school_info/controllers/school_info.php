@@ -7,27 +7,14 @@ parent::__construct();
 }
 
 
-function _get_school_info_id_from_school_info($school_id)
-{
-    $query = $this->get_where_custom('school_id', $school_id);
-    foreach ($query->result() as $row) {
-        $school_id = $row->school_id;
-    }
-
-    if (!isset($school_id))
-    {
-        $school_id = 0;
-    }
-    return $school_id;
-}
-
-
 function profile()
 {
     $this->load->module('school_facilities');
     $this->load->module('requirements');
     $this->load->module('school_privileges');
-    $school_id = ($this->session->userdata['schooladmin']['school_id']);
+    
+    $school_url = $this->uri->segment(3);
+    $school_id = $this->_get_school_id_from_school_name_url($school_url);
     //query
     $data['facility_query'] = $this->school_facilities->get_by_id($school_id);
     $data['requirement_query'] = $this->requirements->get_by_id($school_id);
@@ -40,7 +27,19 @@ function profile()
     $this->templates->public_bootstrap($data);
 }
 
+function _get_school_id_from_school_name_url($school_name_url)
+{
+    $query = $this->get_where_custom('school_name_url', $school_name_url);
+    foreach ($query->result() as $row) {
+        $school_id = $row->school_id;
+    }
 
+    if (!isset($school_id))
+    {
+        $school_id = 0;
+    }
+    return $school_id;
+}
 
 function dashboard()
 {
@@ -62,7 +61,7 @@ function create()
 
     $update_id = $this->uri->segment(3);
     $submit = $this->input->post('submit', TRUE);
-
+    
     if ($submit=="Cancel")
     {
         redirect('school_info/manage');
@@ -71,20 +70,18 @@ function create()
     if ($submit=="Submit")
     {
         //process the form
+       
         $this->load->library('form_validation');
         $this->form_validation->set_rules('schoolname', "School Name" , 'required|trim');
         $this->form_validation->set_rules('user', "User" , 'required|trim');
         $this->form_validation->set_rules('password', "Password" , 'required|trim');
-        $this->form_validation->set_rules('user', "User" , 'required|trim');
-        $this->form_validation->set_rules('status', "Status" , 'required|trim');
         $this->form_validation->set_rules('address', "Address" , 'required|trim');
         $this->form_validation->set_rules('telno', "Telephone Number" , 'required|trim');
         $this->form_validation->set_rules('emailaddress', "Email Address" , 'required|trim');
         $this->form_validation->set_rules('typeofschool', "Type of School" , 'required|trim');
         $this->form_validation->set_rules('contactperson', "Contact Person" , 'required|trim');
         $this->form_validation->set_rules('principal', "Principal" , 'required|trim');
-       // $this->form_validation->set_rules('latitude', "User" , 'required|trim');
-       // $this->form_validation->set_rules('laongitude', "User" , 'required|trim');
+        $this->form_validation->set_rules('locationurl', "Location URL" , 'required|trim');
         $this->form_validation->set_rules('calendar', "Calendar" , 'required|trim');
         $this->form_validation->set_rules('avetuition', "Average Tuition" , 'required|trim');
 
@@ -94,7 +91,7 @@ function create()
 
             $data = $this->fetch_data_from_post();
             
-            
+            $data['school_name_url'] = url_title($data['schoolname']);
 
             if (is_numeric($update_id)) 
             {
@@ -154,7 +151,7 @@ function manage()
 {
     $this->load->module('site_security');
     $this->site_security->_make_sure_is_admin();
-    $data['info_query'] = $this->get('schoolname');
+    $data['info_query'] = $this->get('school_id');
     $data['view_module'] = "School_info";
     $data['view_file'] = "manage";
     $this->load->module('templates');
@@ -165,11 +162,9 @@ function fetch_data_from_post()
 {
     $admin_id = ($this->session->userdata['admin']['userid']);
     $data['admin_id'] = $admin_id;
-    $data['school_id'] = $this->input->post('school_id', TRUE);
     $data['schoolname'] = $this->input->post('schoolname', TRUE);
     $data['user'] = $this->input->post('user', TRUE);
     $data['password'] = $this->input->post('password', TRUE);
-    $data['status'] = $this->input->post('status', TRUE);
     $data['address'] = $this->input->post('address', TRUE);
     $data['telno'] = $this->input->post('telno', TRUE);
     $data['emailaddress'] = $this->input->post('emailaddress', TRUE);
@@ -190,10 +185,22 @@ function fetch_data_from_db($update_id)
     foreach ($info_query->result() as $row) 
     {
         $data['admin_id'] = $row->admin_id;
-        $data['info_id'] = $row->info_id;
-        $data['info_ans'] = $row->info_ans;
-        $data['info_title'] = $row->info_title;
-        
+        $data['school_id'] = $row->school_id;
+        $data['schoolname'] = $row->schoolname;
+        $data['school_name_url'] = $row->school_name_url;
+        $data['user'] = $row->user;
+        $data['password'] = $row->password;
+        $data['address'] = $row->address;
+        $data['telno'] = $row->telno;
+        $data['emailaddress'] = $row->emailaddress;
+        $data['typeofschool'] = $row->typeofschool;
+        $data['contactperson'] = $row->contactperson;
+        $data['principal'] = $row->principal;
+        $data['locationurl'] = $row->locationurl;
+        $data['calendar'] = $row->calendar;
+        $data['avetuition'] = $row->avetuition;
+        $data['logoname'] = $row->logoname;
+        $data['slogoname'] = $row->slogoname;
 
     }
     if (!isset($data))

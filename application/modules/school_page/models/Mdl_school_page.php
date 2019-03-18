@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class faqs extends CI_Model
+class Mdl_school_page extends CI_Model
 {
 
 function __construct() {
@@ -7,7 +7,7 @@ parent::__construct();
 }
 
 function get_table() {
-    $table = "faq";
+    $table = "tablename";
     return $table;
 }
 
@@ -26,9 +26,9 @@ function get_with_limit($limit, $offset, $order_by) {
     return $query;
 }
 
-function get_where($faq_id){
+function get_where($id){
     $table = $this->get_table();
-    $this->db->where('faq_id', $faq_id);
+    $this->db->where('id', $id);
     $query=$this->db->get($table);
     return $query;
 }
@@ -45,15 +45,15 @@ function _insert($data){
     $this->db->insert($table, $data);
 }
 
-function _update($faq_id, $data){
+function _update($id, $data){
     $table = $this->get_table();
-    $this->db->where('faq_id', $faq_id);
+    $this->db->where('id', $id);
     $this->db->update($table, $data);
 }
 
-function _delete($faq_id){
+function _delete($id){
     $table = $this->get_table();
-    $this->db->where('faq_id', $faq_id);
+    $this->db->where('id', $id);
     $this->db->delete($table);
 }
 
@@ -74,11 +74,11 @@ function count_all() {
 
 function get_max() {
     $table = $this->get_table();
-    $this->db->select_max('faq_id');
+    $this->db->select_max('id');
     $query = $this->db->get($table);
     $row=$query->row();
-    $faq_id=$row->faq_id;
-    return $faq_id;
+    $id=$row->id;
+    return $id;
 }
 
 function _custom_query($mysql_query) {

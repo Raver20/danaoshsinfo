@@ -11,8 +11,13 @@ function public_bootstrap($data) {
     if (!isset($data['view_module'])) {
         $data['view_module'] = $this->uri->segment(1);
     }
-    $data['strands_query'] = $this->get('strand_name');
-    $data['faqs_query'] = $this->getfaq('faq_title');
+    $this->load->module('strands');
+    $this->load->module('faqs');
+    $this->load->module('school_info');
+
+    $data['info_query'] = $this->school_info->get('schoolname');
+    $data['strands_query'] = $this->strands->get('strand_name');
+    $data['faqs_query'] = $this->faqs->get('faq_title');
     $this->load->view('public_bootstrap', $data);
 }
 function public_jqm($data) {
@@ -45,16 +50,5 @@ function register($data) {
     }
     $this->load->view('register', $data);
 }
-function get($order_by)
-{
-    $this->load->model('strands');
-    $query = $this->strands->get($order_by);
-    return $query;
-}
-function getfaq($order_by)
-{
-    $this->load->model('faqs');
-    $query = $this->faqs->get($order_by);
-    return $query;
-}
+
 }

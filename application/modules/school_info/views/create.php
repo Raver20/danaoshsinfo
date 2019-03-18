@@ -16,96 +16,105 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <h2>Input FAQ</h2>
+                <h2>Input School Info</h2>
             </div>
             <div class="body">
             	<?php
-					$form_url = base_url()."faqs/create/".$update_id;
-					
+					$form_url = base_url()."school_info/create/".$update_id;
 				?>
-                <form id="form_validation" method="POST" action="<?= $form_url ?>">
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="schoolname" value="<?= $schoolname ?>">
-                            <label class="form-label">School Name</label>
+                <form id="form_validation" method="post" action="<?= $form_url ?>">
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="schoolname" value="<?= $schoolname ?>" placeholder="School Name" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="user" value="<?= $user ?>" placeholder="User" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="password" class="form-control" name="password" value="<?= $password ?>" placeholder="Password" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="user" value="<?= $user ?>">
-                            <label class="form-label">User</label>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="address" value="<?= $address ?>" placeholder="Address" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="telno" value="<?= $telno ?>" placeholder="Tel. Number" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="emailaddress" value="<?= $emailaddress ?>" placeholder="Email Address" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="password" value="<?= $password ?>">
-                            <label class="form-label">Password</label>
+                    <div class="row clearfix">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="typeofschool" value="<?= $typeofschool ?>" placeholder="Type of School" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="contactperson" value="<?= $contactperson ?>" placeholder="Contact Person" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="principal" value="<?= $principal ?>" placeholder="Principal" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="status" value="<?= $status ?>">
-                            <label class="form-label">Status</label>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="locationurl" value="<?= $locationurl ?>" placeholder="Location Url" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="address" value="<?= $address ?>">
-                            <label class="form-label">Address</label>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="calendar" value="<?= $calendar ?>" placeholder="School Calendar" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="telno" value="<?= $telno ?>">
-                            <label class="form-label">Telephone Number</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="emailaddress" value="<?= $emailaddress ?>">
-                            <label class="form-label">Email Address</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="typeofschool" value="<?= $typeofschool ?>">
-                            <label class="form-label">Type of School</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="contactperson" value="<?= $contactperson ?>">
-                            <label class="form-label">Contact Person</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="principal" value="<?= $principal?>">
-                            <label class="form-label">Principal</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control">
-                            <label class="form-label">Latitude</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control">
-                            <label class="form-label">Longitude</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="calendar" value="<?= $calendar ?>">
-                            <label class="form-label">Calendar</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="avetuition" value="<?= $avetuition ?>">
-                            <label class="form-label">Average Tuition</label>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="avetuition" value="<?= $avetuition ?>" placeholder="Average Tuition" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     

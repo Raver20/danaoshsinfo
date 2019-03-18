@@ -46,10 +46,11 @@ function requirement()
 function school_profile()
 {
     //figure out what the faq id is
-    $school_id = $this->uri->segment(3);
+    $school_name_url = $this->uri->segment(3);
     $this->load->module('school_info');
-    $school_id = $this->school_info->_get_school_info_id_from_school_info($school_id);
+    $school_id = $this->school_info->_get_school_id_from_school_name_url($school_name_url);
     $this->school_info->profile($school_id);
 
 }
+
 }

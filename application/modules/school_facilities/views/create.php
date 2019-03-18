@@ -29,11 +29,9 @@
 	                {
 	            ?>
             	<a href="<?= base_url() ?>school_facilities/delete_image/<?= $update_id ?>"><button class="btn btn-danger waves-effect" type="submit" name="submit" value="Submit">Delete Logo </button></a>
-            	 <?php        
+            	<?php        
 	                } 
 	            ?>
-	            
-	            <a href="<?= base_url() ?>pages/facility/<?= $facility_url ?>"><button class="btn btn-primary waves-effect" type="submit" name="submit" value="Submit">View Facility In Page</button></a>
             	<a href="<?= base_url() ?>school_facilities/deleteconf/<?= $update_id ?>"><button class="btn btn-danger waves-effect" type="submit" name="submit" value="Submit">Delete Facility </button></a>
             </div>
         </div>

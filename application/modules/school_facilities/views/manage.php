@@ -25,7 +25,7 @@
                                     <tr>
                                         <th>Facilitiy Name</th>
                                         <th>Description</th>
-                                        <th class="col-sm-2">Actions</th>
+                                        <th class="col-sm-2" style="text-align: center;">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,7 +40,7 @@
                                        	<td><?= $row->facility_name?></td>
                                         <td><?= $row->description ?></td>
                                         <td style="text-align: center;">
-                                            <a href="<?= $view_facility_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">visibility</i></button></a>
+                                            
                                          
                                         	<a href="<?= $edit_facility_url ?>"><button type="button" class="btn btn-success waves-effect"><i class="material-icons">launch</i></button></a>
                                         

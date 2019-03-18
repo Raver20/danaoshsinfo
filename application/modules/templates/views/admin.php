@@ -107,6 +107,12 @@
                             <span>Manage FAQ's</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>school_info/manage">
+                            <i class="material-icons">assignment</i>
+                            <span>Manage Schools Accounts</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->

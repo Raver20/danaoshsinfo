@@ -22,22 +22,9 @@ function index()
     $this->load->module('school_info');
     
     $typeofschool = $this->input->get('type', TRUE);
-    $search = $this->input->get('search', TRUE);
-
-    if ($typeofschool=="public" || $typeofschool=="private")
-    {
-        $query = $this->get_where_custom('typeofschool', $typeofschool);
-    }
-    elseif ($search)
-    {
-        $query = $this->get_like_custom('schoolname', $search);
-    }
-    else
-    {
-        $query = $this->get('schoolname');
-    }
+    $schoolname = $this->input->get('search', TRUE);
     
-    $data['page_query'] = $query;
+    $data['page_query'] = $this->get_school_search('schoolname', $schoolname, $typeofschool);
     $data['view_module'] = "schools";
     $data['view_file'] = "schools";
     $this->load->module('templates');
@@ -48,6 +35,13 @@ function get_like_custom($col, $value)
 {
     $this->load->model('mdl_school_page');
     $query = $this->mdl_school_page->get_like_custom($col, $value);
+    return $query;
+}
+
+function get_school_search($order_by_key,$schoolname, $typeofschool)
+{
+    $this->load->model('mdl_school_page');
+    $query = $this->mdl_school_page->get_school_search($order_by_key,$schoolname, $typeofschool);
     return $query;
 }
 

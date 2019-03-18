@@ -26,7 +26,7 @@
             			}
             		}
             	?>
-                <p style="margin-top: 24px; text-align: center;">Please choose a file from your computer and then press 'Upload'.</p>
+                <p style="margin-top: 24px; text-align: center;">Please choose a file from your computer that is 600x600 filesize and then press 'Upload'.</p>
                 <div class="row clearfix">
                     <div class="col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
                     <input name="userfile" type="file" multiple  style="padding-left: 15px;" />

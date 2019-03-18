@@ -6,12 +6,12 @@
 ?>
     <div class="panel-group styled-accordion" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
-            <div class="panel-heading panel-open smoothie" role="tab" id="headingOne">
+            <div class="panel-heading smoothie" role="tab" id="headingOne">
                 <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><?= $row->faq_title ?></a>
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<?= $row->faq_id ?>" aria-expanded="false" aria-controls="collapseOne"><?= $row->faq_title ?></a>
                 </h4>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div id="collapseOne<?= $row->faq_id ?>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                     <p><?= nl2br($row->faq_ans) ?></p>
                 </div>

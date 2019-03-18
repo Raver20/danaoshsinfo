@@ -1,4 +1,4 @@
-<section class="search-sec" style="margin-left: 220px; margin-top: 80px;">
+<section class="search-sec" style="margin-left: 100px; margin-top: 80px;">
     <div class="container">
     <?php
         $school_url = base_url()."schools/search";
@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                        <div class="col-lg-5 col-md-5 col-sm-12 p-0">
                             <input type="text" name="search" class="form-control search-slt" placeholder="Enter School Name">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">

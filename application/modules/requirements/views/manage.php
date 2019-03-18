@@ -8,7 +8,7 @@
 <p style="margin-bottom: 10px;">
 <a href="<?= $create_requirement_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">add</i><span>Add New Requirements</span></button></a>
 
-<a href="<?= $view_requiremtns_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">visibility</i></button></a>
+
 </p>
 <!-- Bordered Table -->
 <div class="row clearfix">

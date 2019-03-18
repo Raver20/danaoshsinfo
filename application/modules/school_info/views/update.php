@@ -19,14 +19,14 @@
             </div>
             <div class="body">
             	<?php
-					$form_url = base_url()."school_info/create/".$update_id;
+					$form_url = base_url()."school_info/update/".$update_id;
 				?>
                 <form id="form_validation" method="post" action="<?= $form_url ?>">
                     <div class="row clearfix">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="schoolname" value="<?= $schoolname ?>" placeholder="School Name" />
+                                    <input type="text" class="form-control" name="schoolname" value="<?= $schoolname ?>" placeholder="School Name" disabled />
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="locationurl" value="<?= $locationurl ?>" placeholder="Location Url" />
+                                    <input type="text" class="form-control" name="locationurl" value="<?= $locationurl ?>" placeholder="Location Url"  />
                                 </div>
                             </div>
                         </div>
@@ -118,7 +118,6 @@
                     </div>
                     
                     <button class="btn btn-primary waves-effect" type="submit" name="submit" value="Submit">SUBMIT</button>
-                    <button class="btn btn-default waves-effect" type="submit" name="submit" value="Cancel">CANCEL</button>
                 </form>
             </div>
         </div>

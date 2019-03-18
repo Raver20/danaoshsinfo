@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Mdl_school_page extends CI_Model
+class Mdl_about_us extends CI_Model
 {
 
 function __construct() {
@@ -7,34 +7,8 @@ parent::__construct();
 }
 
 function get_table() {
-    $table = "school_info";
+    $table = "tablename";
     return $table;
-}
-
-function get_like_custom($col, $value)
-{
-    $table = $this->get_table();
-    $this->db->like($col, $value);
-    $query=$this->db->get($table);
-    return $query;
-}
-
-function get_school_search($order_by_key,$schoolname, $typeofschool)
-{
-    $table = $this->get_table();
-
-    $this->db->order_by($order_by_key);
-    if ($typeofschool)
-    {
-        $this->db->where('typeofschool', $typeofschool);
-    }
-    if ($schoolname)
-    {
-        $this->db->like('schoolname', $schoolname);
-    }
-
-    $query=$this->db->get($table);
-    return $query;
 }
 
 function get($order_by){

@@ -64,20 +64,7 @@
                                             ?>
                                     </ul>
                                 </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Schools <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <?php
-                                                    
-                                            foreach ($info_query->result() as $row) {
-                                                
-                                        ?>
-                                        <li><a href="<?= base_url().$row->school_name_url ?>"><?= $row->schoolname ?></a></li>;
-                                        <?php
-                                            }
-                                        ?>
-                                    </ul>
-                                </li>
+                                <li><a href="<?php echo base_url() ?>schools">Schools</a></li>
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="<?php echo base_url() ?>pages/faq">Faq's</a></li>
                                 

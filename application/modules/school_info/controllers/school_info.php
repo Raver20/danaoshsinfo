@@ -20,7 +20,6 @@ function profile()
     $data['requirement_query'] = $this->requirements->get_by_id($school_id);
     $data['privilege_query'] = $this->school_privileges->get_by_id($school_id);
 
-
     $data['view_module'] = "School_info";
     $data['view_file'] = "profile";
     $this->load->module('templates');

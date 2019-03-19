@@ -59,9 +59,10 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <h6 class="mt0"><a href="<?= $school_url ?>"><?= $row->schoolname ?></a></h6>
+                        <h4 class="mt0"><a href="<?= $school_url ?>"><?= $row->schoolname ?></a></h4>
                         <p><?= $row->address ?></p>
-                        <p><?= $row->emailaddress ?></p>
+                        <p style="color: gray;">Telephone No.: <?= $row->telno ?></p>
+                        <p style="color: gray;">Email: <?= $row->emailaddress ?></p>
                     </div>
                 </div>
             </div>    

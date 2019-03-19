@@ -49,7 +49,7 @@
                     <div class="col-xs-9">
                         <div class="collapse navbar-collapse" id="navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Home</a></li>
+                                <li><a href="<?php echo base_url() ?>home">Home</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Strands <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
@@ -58,14 +58,14 @@
                                                 foreach ($strands_query->result() as $row) {
                                                     
                                             ?>
-                                            <li><a href="<?= base_url()."pages/strand/".$row->strand_url ?>"><?= $row->strand_name ?></a></li>;
+                                            <li><a href="<?= base_url()."pages/strand/".$row->strand_url ?>"><?= $row->strand_name ?></a></li>
                                             <?php
                                                 }
                                             ?>
                                     </ul>
                                 </li>
                                 <li><a href="<?php echo base_url() ?>schools">Schools</a></li>
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="<?php echo base_url() ?>about_us">About Us</a></li>
                                 <li><a href="<?php echo base_url() ?>pages/faq">Faq's</a></li>
                                 
                             </ul>
@@ -88,13 +88,10 @@
                 </div>
             </div>
         </section>
-     <footer>
+        <footer>
             <div class="container">
-                <div class="row ">
-                    
-                <div class="row">                
-                  
-                    <div class="col-md-6 text-right">
+                <div class="row">         
+                    <div class="col-md-12 text-right">
                         <p class="copyright"><small>© 2019. Designed and Developed by <a href="http://www.distinctivethemes.com" target="_blank">Distinctive Themes</a></small></p>
                     </div>
                 </div>

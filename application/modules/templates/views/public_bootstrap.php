@@ -75,19 +75,13 @@
             </div>
         </div>
 
-        
-        <section>
-            <div class="section-inner">
-                <div class="container">
                       <?php 
                         if (isset($view_file)) 
                         {
                             $this->load->view($view_module.'/'.$view_file);
                         }
                       ?>
-                </div>
-            </div>
-        </section>
+           
         <footer>
             <div class="container">
                 <div class="row">         

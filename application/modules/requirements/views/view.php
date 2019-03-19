@@ -1,3 +1,6 @@
+<section>
+    <div class="section-inner">
+        <div class="container">
 
 <div class="col-md-12 mb40">
 	<div class="row">
@@ -14,3 +17,7 @@
        
     </div>
 </div>
+
+        </div>
+    </div>
+</section>

@@ -15,6 +15,9 @@
     <!-- Bootstrap Core Css -->
     <link href="<?php echo base_url(); ?>adminfiles/assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+    <!-- Bootstrap Select Css -->
+    <link href="<?php echo base_url(); ?>adminfiles/assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
     <!-- Waves Effect Css -->
     <link href="<?php echo base_url(); ?>adminfiles/assets/plugins/node-waves/waves.css" rel="stylesheet" />
 
@@ -151,6 +154,7 @@
 
     <!-- Bootstrap Core Js -->
     <script src="<?php echo base_url(); ?>adminfiles/assets/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>adminfiles/assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Select Plugin Js -->
     <script src="<?php echo base_url(); ?>adminfiles/assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>

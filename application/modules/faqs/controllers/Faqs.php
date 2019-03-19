@@ -7,6 +7,14 @@ parent::__construct();
 
 }
 
+function index()
+{
+    //figure out what the faq id is
+    $faq_title = $this->uri->segment(3);
+    $this->load->module('faqs');
+    $faq_id = $this->faqs->_get_faq_id($faq_title);
+    $this->faqs->view($faq_id);
+}
 
 function view($update_id)
 {

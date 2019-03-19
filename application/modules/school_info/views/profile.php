@@ -106,7 +106,7 @@
                                                                             </div>
                                                                         </div>
                                                                     <div style="width: 100%">
-                                                                        <iframe width="80%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=P.G%20Almendras%20St.%2C%20Danao%20City+(Your%20Business%20Name)&ie=UTF8&t=&z=16&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                                                        <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=P.G%20Almendras%20St.%2C%20Danao%20City+(Your%20Business%20Name)&ie=UTF8&t=&z=16&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                                                                         <a href="https://www.mapsdirections.info/en/custom-google-maps/">Create Google Map</a> by 
                                                                         <a href="https://www.mapsdirections.info/en/">Measure area on map</a>
                                                                         </iframe>

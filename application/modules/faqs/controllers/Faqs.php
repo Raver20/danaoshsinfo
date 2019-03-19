@@ -10,30 +10,13 @@ parent::__construct();
 function index()
 {
     //figure out what the faq id is
-    $faq_title = $this->uri->segment(3);
-    $this->load->module('faqs');
-    $faq_id = $this->faqs->_get_faq_id($faq_title);
-    $this->faqs->view($faq_id);
-}
+      //fetch the facility details
 
-function view($update_id)
-{
-    if (!is_numeric($update_id))
-    {
-        redirect('site_security/not_allowed');
-    }
-
-    //fetch the facility details
-    $this->load->module('Strands');
-    $data = $this->fetch_data_from_db($update_id);
-
-    $data['faq_query'] = $this->get('faq_id');
-    $data['update_id'] = $update_id;
-    $data['flash'] = $this->session->flashdata('faqs');
-    $data['view_module'] = "faqs";
-    $data['view_file'] = "view";
-    $this->load->module('templates');
-    $this->templates->public_bootstrap($data); 
+      $data['faq_query'] = $this->get('faq_id');
+      $data['view_module'] = "faqs";
+      $data['view_file'] = "view";
+      $this->load->module('templates');
+      $this->templates->public_bootstrap($data); 
 }
 
 function _process_delete($update_id)

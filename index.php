@@ -55,6 +55,8 @@
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
+	define('DOMAIN_NAME', $_SERVER['HTTP_HOST']);
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 // Database config for Development
-if (ENVIRONMENT !== 'production')
+if (DOMAIN_NAME == 'localhost')
 {
 	$db['default'] = array(
 		'dsn'	=> '',

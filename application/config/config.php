@@ -23,7 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://danaoshs.ml/';
+if (DOMAIN_NAME == "localhost")
+{
+    $config['base_url'] = 'http://localhost/danao.shs.info/';
+}
+else
+{
+    $config['base_url'] = 'http://danaoshs.ml/';
+}
 
 /*
 |--------------------------------------------------------------------------

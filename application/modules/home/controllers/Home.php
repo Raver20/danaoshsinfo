@@ -8,7 +8,7 @@ parent::__construct();
 
 function index()
 {
-    $data['view_module'] = "Home";
+    $data['view_module'] = "home";
     $data['view_file'] = "homepage";
     $this->load->module('templates');
     $this->templates->public_bootstrap($data);

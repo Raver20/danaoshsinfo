@@ -6,6 +6,14 @@ function __construct() {
 parent::__construct();
 }
 
+function index()
+{
+    $data['view_module'] = "About_us";
+    $data['view_file'] = "about_us";
+    $this->load->module('templates');
+    $this->templates->public_bootstrap($data);
+}
+
 function get($order_by)
 {
     $this->load->model('mdl_about_us');

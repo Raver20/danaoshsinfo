@@ -1,5 +1,5 @@
 
-<div class="col-sm-12">
+<div class="col-sm-8" style="margin-left: 15%">
 <?php
     foreach ($faq_query->result() as $row) {
         $faq_id = $row->faq_id;

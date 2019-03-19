@@ -11,14 +11,12 @@
                     <div class="container" >
 
                         <h3><?= $schoolname ?></h3>
-                        <p><?= $address ?></p>
+                        <p style="margin-left: 50px;"><?= $address ?></p>
 
                     </div>
-                        <hr>
-                    <ul class="container details" >
-                        <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span><?= $telno ?></p></li>
-                        <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?= $emailaddress ?></p></li>
-                    </ul>
+                    <hr>
+                    <p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span><?= $telno ?></p>
+                    <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?= $emailaddress ?></p>
                     <hr>
                     
                 </div>
@@ -64,21 +62,64 @@
                                                         <div class="container">
                                                         
                                                             <div class="row">
-                                                                <div class="col-sm-6">
+                                                                <div class="col-sm-8">
                                                                     <div class="row">
-                                                                        <div class="col-sm-12 col-xs-12">
-                                                                            <h5><span>Photography for Beginners</span></h5>
-                                                                            <p class="lead">16 week course.</p>
-                                                                            <p class="mb20">Proactively parallel task vertical products for collaborative ideas. Monotonectally visualize functional functionalities vis-a-vis efficient products. Globally matrix bleeding-edge e-business with professional.</p>
-                                                                            <a href="single-course.html" class="btn btn-primary btn-green">View Details</a>
+                                                                        <div class="wrapper row3">
+                                                                            <div class="content sl">
+                                                                                <div class="group btmspace-50 demo">
+                                                                       
+                                                                                <div class="one_third first ">
+                                                                                    <div class="col-sm-4 col-md-4 details">
+                                                                                        <div class="avatar" >
+                                                                                        <img alt="School Type" src="<?php echo base_url() ?>public_bootstrap/assets/public.png">
+                                                                                        </div>
+                                                                                        <div class="text">
+                                                                                        <h5 style="margin-left: 7px;">School Type</h5>
+                                                                                        <p  style="margin-left: 35px;"><?= $typeofschool ?></p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="one_third">
+                                                                                    <div class="col-sm-4 col-md-4 details">
+                                                                                        <div class="avatar"  style="margin-left: 20px;">
+                                                                                        <img alt="Academic Calendar" src="<?php echo base_url() ?>public_bootstrap/assets/calendar.png">
+                                                                                        </div>
+                                                                                        <div class="text">
+                                                                                        <h5>Academic Calendar</h5>
+                                                                                        <p  style="margin-left: 40px;"><?= $calendar ?></p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="one_third">
+                                                                                    <div class="col-sm-4 col-md-4 details">
+                                                                                        <div class="avatar"  style="margin-left: 20px;">
+                                                                                        <img alt="Average Tuition" src="<?php echo base_url() ?>public_bootstrap/assets/php.png">
+                                                                                        </div>
+                                                                                        <div class="text">
+                                                                                        <h5>Average Tuition Fee</h5>
+                                                                                        <p style="margin-left: 50px;">
+                                                                                        <span>&#8369; <?= $avetuition ?></span>
+                                                                                        </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
+                                                                    <div style="width: 100%">
+                                                                        <iframe width="80%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=P.G%20Almendras%20St.%2C%20Danao%20City+(Your%20Business%20Name)&ie=UTF8&t=&z=16&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                                                        <a href="https://www.mapsdirections.info/en/custom-google-maps/">Create Google Map</a> by 
+                                                                        <a href="https://www.mapsdirections.info/en/">Measure area on map</a>
+                                                                        </iframe>
+                                                                    </div>
+                                                                </div>
                                                                         
                                                                     </div>
 
                                                                     
                                                                 </div>
 
-                                                                <div class="col-sm-6">
+                                                                <div class="col-sm-4">
+                                                                    
                                                                     <div class="panel-group styled-accordion" id="accordion" role="tablist" aria-multiselectable="true">
                                                                         <div class="panel panel-default">
                                                                             <div class="panel-heading smoothie" role="tab" id="headingOne">

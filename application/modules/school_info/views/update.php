@@ -26,7 +26,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="schoolname" value="<?= $schoolname ?>" placeholder="School Name" disabled />
+                                    <input type="text" class="form-control" name="schoolname" value="<?= $schoolname ?>" placeholder="School Name" readonly />
                                 </div>
                             </div>
                         </div>

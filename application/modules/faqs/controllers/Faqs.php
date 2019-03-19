@@ -22,7 +22,7 @@ function view($update_id)
     $data['faq_query'] = $this->get('faq_id');
     $data['update_id'] = $update_id;
     $data['flash'] = $this->session->flashdata('faqs');
-    $data['view_module'] = "Faqs";
+    $data['view_module'] = "faqs";
     $data['view_file'] = "view";
     $this->load->module('templates');
     $this->templates->public_bootstrap($data); 
@@ -151,7 +151,7 @@ function create()
 
     $data['update_id'] = $update_id;
     $data['flash'] =  $this->session->flashdata('faqs');
-    $data['view_module'] = "Faqs";
+    $data['view_module'] = "faqs";
     $data['view_file'] = "create";
     $this->load->module('templates');
     $this->templates->admin($data);
@@ -163,7 +163,7 @@ function manage()
     $this->load->module('site_security');
     $this->site_security->_make_sure_is_admin();
     $data['faq_query'] = $this->get('faq_id');
-    $data['view_module'] = "Faqs";
+    $data['view_module'] = "faqs";
     $data['view_file'] = "manage";
     $this->load->module('templates');
     $this->templates->admin($data);    

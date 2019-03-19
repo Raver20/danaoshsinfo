@@ -48,7 +48,7 @@ function view($update_id)
     $data['query'] = $this->get('strand_name');
     $data['update_id'] = $update_id;
     $data['flash'] = $this->session->flashdata('strand');
-    $data['view_module'] = "Strands";
+    $data['view_module'] = "strands";
     $data['view_file'] = "view";
     $this->load->module('templates');
     $this->templates->public_bootstrap($data); 
@@ -365,7 +365,7 @@ function create()
 
     $data['update_id'] = $update_id;
     $data['flash'] =  $this->session->flashdata('strand');
-    $data['view_module'] = "Strands";
+    $data['view_module'] = "strands";
     $data['view_file'] = "create";
     $this->load->module('templates');
     $this->templates->admin($data);
@@ -380,7 +380,7 @@ function manage()
     $this->load->module('site_security');
     $this->site_security->_make_sure_is_admin();
     $data['query'] = $this->get('strand_name');
-    $data['view_module'] = "Strands";
+    $data['view_module'] = "strands";
     $data['view_file'] = "manage";
     $this->load->module('templates');
     $this->templates->admin($data);

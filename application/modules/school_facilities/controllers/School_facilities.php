@@ -22,7 +22,7 @@ function view($update_id)
     $data['facility_query'] = $this->get('school_id');
     $data['update_id'] = $update_id;
     $data['flash'] = $this->session->flashdata('facility');
-    $data['view_module'] = "School_facilities";
+    $data['view_module'] = "school_facilities";
     $data['view_file'] = "view";
     $this->load->module('templates');
     $this->templates->public_bootstrap($data); 
@@ -339,7 +339,7 @@ function create()
 
     $data['update_id'] = $update_id;
     $data['flash'] =  $this->session->flashdata('facility');
-    $data['view_module'] = "School_facilities";
+    $data['view_module'] = "school_facilities";
     $data['view_file'] = "create";
     $this->load->module('templates');
     $this->templates->schooladmin($data);

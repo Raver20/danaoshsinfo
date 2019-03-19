@@ -1,3 +1,6 @@
+<section>
+    <div class="section-inner">
+        <div class="container">
 <section class="search-sec" style="margin-left: 100px; margin-top: 80px;">
     <div class="container">
     <?php
@@ -71,3 +74,6 @@
         <!-- END OF LIST SECTION -->
     </div>
 </div>
+        </div>
+    </div>
+</section>

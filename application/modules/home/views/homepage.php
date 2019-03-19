@@ -1,21 +1,23 @@
-<section id="band-member-1" class="hover-shift smoothie match-height" data-mh="page-splitter">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 col-sm-offset-8 col-xs-12 dark-overlay fill-right smoothie match-height" data-mh="page-splitter">
-                <div class="section-inner">
-                    <div class="row">
-                        <div class="col-md-offset-1 col-md-10">
-                            <h3>Searching for School?</h3>
-                            <h5 class="section-sub-title mb40">Let us explain.</h5>
-                            <p class="mb40">Holisticly orchestrate superior total linkage rather than end-to-end internal or "organic" sources. Seamlessly procrastinate client-based ROI without long-term high-impact.</p>
-                            <a href="<?= base_url() ?>schools" class="btn btn-primary btn-green btn-lg">Browse schools</a>
-                        </div>
-                    </div>
-                </div>
+
+<header id="home" class="backstretched fullheight max-600">
+    <div class="dark-overlay fullheight max-600">
+        <div class="container fullheight max-600">                   
+            <div class="jumbotron">
+                <h1><small>We offer the</small><br>
+                Best Education</h1>
+                <p>
+                    <a class="btn btn-white btn-lg page-scroll" href="#about-us" role="button">Why?</a> 
+                    <a class="btn btn-lg btn-primary btn-green page-scroll" href="#our-team" role="button">Browse Courses</a>
+                </p>
             </div>
         </div>
     </div>
-</section>
+</header>
+
+<section>
+    <div class="section-inner">
+        <div class="container">
+
 <section id="our-team">
     <div class="section-inner">
         <div class="container">
@@ -148,6 +150,9 @@
                     </div>                                             
                 </div>
             </div>
+        </div>
+    </div>
+</section>
         </div>
     </div>
 </section>

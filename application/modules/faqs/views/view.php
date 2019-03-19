@@ -1,5 +1,10 @@
+<section>
+    <div class="section-inner">
+        <div class="container">
 
-<div class="col-sm-8" style="margin-left: 15%">
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
 <?php
     foreach ($faq_query->result() as $row) {
         $faq_id = $row->faq_id;
@@ -20,3 +25,10 @@
         <?php } ?>      
     </div>
 </div>
+
+<div class="col-md-2">
+</div>
+
+        </div>
+    </div>
+</section>

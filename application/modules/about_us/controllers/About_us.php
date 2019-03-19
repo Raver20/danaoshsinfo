@@ -8,6 +8,14 @@ parent::__construct();
 
 function index()
 {
+    $this->load->library('email');
+    $this->email->from('email@example.com', 'Identification');
+    $this->email->to('emailto@example.com');
+    $this->email->subject('Send Email Codeigniter');
+    $this->email->message('The email send using codeigniter library');
+
+    $this->email->send();
+
     $data['view_module'] = "about_us";
     $data['view_file'] = "about_us";
     $this->load->module('templates');

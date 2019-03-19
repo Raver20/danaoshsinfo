@@ -1,3 +1,6 @@
+<section>
+    <div class="section-inner">
+        <div class="container">
 
 <section id="our-courses">
     <div class="section-inner">
@@ -27,6 +30,10 @@
                 <?php } ?>
             </div>
            
+        </div>
+    </div>
+</section>
+
         </div>
     </div>
 </section>

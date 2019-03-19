@@ -1,4 +1,6 @@
-
+<section>
+    <div class="section-inner">
+        <div class="container">
 <div class="col-md-12 mb40">
 	<div class="row">
 		<div class="col-xs-4">
@@ -24,3 +26,7 @@
         </div>
     </div>
 </div>
+
+        </div>
+    </div>
+</section>

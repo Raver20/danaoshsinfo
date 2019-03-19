@@ -22,7 +22,7 @@ function profile()
     $data['requirement_query'] = $this->requirements->get_by_id($school_id);
     $data['privilege_query'] = $this->school_privileges->get_by_id($school_id);
 
-    $data['view_module'] = "School_info";
+    $data['view_module'] = "school_info";
     $data['view_file'] = "profile";
     $this->load->module('templates');
     $this->templates->public_bootstrap($data);
@@ -48,7 +48,7 @@ function dashboard()
     $this->site_security->_make_sure_is_school_admin();
 
     $data['schoolname'] = $this->session->userdata['schooladmin']['schoolname'];
-    $data['view_module'] = "School_info";
+    $data['view_module'] = "school_info";
     $data['view_file'] = "dashboard";
     $this->load->module('templates');
     $this->templates->schooladmin($data);
@@ -127,7 +127,7 @@ function update()
 
     $data['update_id'] = $update_id;
     $data['flash'] =  $this->session->flashdata('school_info');
-    $data['view_module'] = "School_info";
+    $data['view_module'] = "school_info";
     $data['view_file'] = "update";
     $this->load->module('templates');
     $this->templates->schooladmin($data);
@@ -223,7 +223,7 @@ function create()
 
     $data['update_id'] = $update_id;
     $data['flash'] =  $this->session->flashdata('school_info');
-    $data['view_module'] = "School_info";
+    $data['view_module'] = "school_info";
     $data['view_file'] = "create";
     $this->load->module('templates');
     $this->templates->admin($data);
@@ -233,7 +233,7 @@ function manage()
     $this->load->module('site_security');
     $this->site_security->_make_sure_is_admin();
     $data['info_query'] = $this->get('school_id');
-    $data['view_module'] = "School_info";
+    $data['view_module'] = "school_info";
     $data['view_file'] = "manage";
     $this->load->module('templates');
     $this->templates->admin($data);    

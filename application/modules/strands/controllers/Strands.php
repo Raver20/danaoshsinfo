@@ -453,6 +453,14 @@ function autogen()
     
 }
 
+
+function get_by_id($school_id)
+{
+    $this->load->model('mdl_strands');
+    $strands_query = $this->mdl_strands->get_by_id($school_id);
+    return $strands_query;
+}
+
 function get($order_by)
 {
     $this->load->model('mdl_Strands');

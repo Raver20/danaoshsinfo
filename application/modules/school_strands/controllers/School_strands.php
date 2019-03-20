@@ -6,97 +6,53 @@ function __construct() {
 parent::__construct();
 }
 
-function create()
-{   
-
-    $this->load->library('session');
+function manage()
+{
     $this->load->module('site_security');
+    $this->load->module('strands');
     $this->site_security->_make_sure_is_school_admin();
+    $school_id = ($this->session->userdata['schooladmin']['school_id']);
 
-    $update_id = $this->uri->segment(3);
+
     $submit = $this->input->post('submit', TRUE);
-
-    if ($submit=="Cancel")
-    {
-        redirect('requirements/manage');
-    }
-
     if ($submit=="Submit")
     {
         //process the form
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('requirement_name', "Requirement Name" , 'required|trim');
-        $this->form_validation->set_rules('requirement_desc', "Requirement Description" , 'required|trim');
+        $this->form_validation->set_rules('strand_id', "Strand ID" , 'required|trim');
 
         if ($this->form_validation->run() == TRUE)
         {
             //get the variables
-
             $data = $this->fetch_data_from_post();
-            
-            
-
-            if (is_numeric($update_id)) 
-            {
-                //update the strand details
-                $this->_update($update_id, $data);
-                $flash_msg = "The requirements details were successfully updated";
-                $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
-                $this->session->set_flashdata('requirements', $value);
-                redirect('requirements/create/'.$update_id);
-                
-
-            }
-            else
-            {
-                $this->_insert($data);
-                $update_id = $this->get_max(); //get the idof the new strand
-                $flash_msg = "A new requirements were successfully added";
-                $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
-                $this->session->set_flashdata('requirements', $value);
-                redirect('requirements/manage/'.$update_id);
-            }
+        
+            $this->_insert($data);
+            $update_id = $this->get_max(); //get the idof the new strand
+            $flash_msg = "A new strand were successfully added";
+            $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
+            $this->session->set_flashdata('school_strand', $value);
+            redirect('school_strands/manage');
+           
         }
         else
         {
 
         }
     }
-
-    if ((is_numeric($update_id)) && ($submit!="Submit"))
-    {
-        $data = $this->fetch_data_from_db($update_id);
-    }
-    else
-    {
-        $data = $this->fetch_data_from_post();
     
-    }
-
-    if (!is_numeric($update_id))
-    {
-        $data['headline'] = "Add Requirement";
-    }
-    else
-    {
-        $data['headline'] = "Update Requirement Details";   
-    } 
-    
-
-    $data['update_id'] = $update_id;
-    $data['flash'] =  $this->session->flashdata('requirements');
-    $data['view_module'] = "requirements";
-    $data['view_file'] = "create";
-    $this->load->module('templates');
-    $this->templates->schooladmin($data);
-}
-
-function manage()
-{
-    $this->load->module('site_security');
-    $this->site_security->_make_sure_is_school_admin();
+    $data['school_strands_query'] = $this->strands->get('strand_name');//dropdown
     $school_id = ($this->session->userdata['schooladmin']['school_id']);
-    $data['school_strands_query'] = $this->get_by_id($school_id);
+    
+    $school_strands = $this->get_by_school_id($school_id);
+    $strands_list = array();
+    foreach ($school_strands->result() as $row)
+    {
+       $strands = $this->strands->get_by_id($row->strand_id)->result()[0];
+       array_push($strands_list, $strands);
+    }
+    $data['strands_by_query'] = $strands_list;
+
+    $this->session->set_flashdata('school_strand');
     $data['view_module'] = "school_strands";
     $data['view_file'] = "manage";
     $this->load->module('templates');
@@ -107,9 +63,7 @@ function fetch_data_from_post()
 {
     $school_id = ($this->session->userdata['schooladmin']['school_id']);
     $data['school_id'] = $school_id;
-    $data['requirement_id'] = $this->input->post('requirement_id', TRUE);
-    $data['requirement_name'] = $this->input->post('requirement_name', TRUE);
-    $data['requirement_desc'] = $this->input->post('requirement_desc', TRUE);
+    $data['strand_id'] = $this->input->post('strand_id', TRUE);
     
     return $data;
 }
@@ -121,9 +75,8 @@ function fetch_data_from_db($update_id)
     foreach ($query->result() as $row) 
     {
         $data['school_id'] = $row->school_id;
-        $data['requirement_id'] = $row->requirement_id;
-        $data['requirement_name'] = $row->requirement_name;
-        $data['requirement_desc'] = $row->requirement_desc;
+        $data['school_strand_id'] = $row->school_strand_id;
+        $data['strand_id'] = $row->strand_id;
         
 
     }
@@ -133,11 +86,17 @@ function fetch_data_from_db($update_id)
     }
     return $data;
 }
-
-function get_by_id($school_id)
+function get_by_school_id($school_id)
 {
     $this->load->model('mdl_school_strands');
-    $school_strands_query = $this->mdl_school_strands->get_by_id($school_id);
+    $school_strands_query = $this->mdl_school_strands->get_by_school_id($school_id);
+    return $school_strands_query;
+}
+
+function get_by_id($school_strand_id)
+{
+    $this->load->model('mdl_school_strands');
+    $school_strands_query = $this->mdl_school_strands->get_by_id($school_strand_id);
     return $school_strands_query;
 }
 
@@ -159,14 +118,14 @@ function get_with_limit($limit, $offset, $order_by)
     return $query;
 }
 
-function get_where($id)
+function get_where($school_strand_id)
 {
-    if (!is_numeric($id)) {
+    if (!is_numeric($school_strand_id)) {
         die('Non-numeric variable!');
     }
 
     $this->load->model('mdl_school_strands');
-    $query = $this->mdl_school_strands->get_where($id);
+    $query = $this->mdl_school_strands->get_where($school_strand_id);
     return $query;
 }
 
@@ -183,24 +142,24 @@ function _insert($data)
     $this->mdl_school_strands->_insert($data);
 }
 
-function _update($id, $data)
+function _update($school_strand_id, $data)
 {
-    if (!is_numeric($id)) {
+    if (!is_numeric($school_strand_id)) {
         die('Non-numeric variable!');
     }
 
     $this->load->model('mdl_school_strands');
-    $this->mdl_school_strands->_update($id, $data);
+    $this->mdl_school_strands->_update($school_strand_id, $data);
 }
 
-function _delete($id)
+function _delete($school_strand_id)
 {
-    if (!is_numeric($id)) {
+    if (!is_numeric($school_strand_id)) {
         die('Non-numeric variable!');
     }
 
     $this->load->model('mdl_school_strands');
-    $this->mdl_school_strands->_delete($id);
+    $this->mdl_school_strands->_delete($school_strand_id);
 }
 
 function count_where($column, $value) 

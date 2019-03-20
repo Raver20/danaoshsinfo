@@ -116,6 +116,12 @@
                             <span>Manage Privileges</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>school_strands/manage">
+                            <i class="material-icons">school</i>
+                            <span>Manage Strands</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->

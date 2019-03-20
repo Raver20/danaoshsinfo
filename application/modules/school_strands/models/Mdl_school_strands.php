@@ -11,9 +11,15 @@ function get_table() {
     return $table;
 }
 
-function get_by_id($school_id){
+function get_by_school_id($school_id){
     $table = $this->get_table();
     $q = $this->db->select('*')->from($table)->where('school_id', $school_id)->get();
+    return $q;
+}
+
+function get_by_id($school_strand_id){
+    $table = $this->get_table();
+    $q = $this->db->select('*')->from($table)->where('school_strand_id', $school_strand_id)->get();
     return $q;
 }
 
@@ -32,9 +38,9 @@ function get_with_limit($limit, $offset, $order_by) {
     return $query;
 }
 
-function get_where($id){
+function get_where($school_strand_id){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('school_strand_id', $school_strand_id);
     $query=$this->db->get($table);
     return $query;
 }
@@ -51,15 +57,15 @@ function _insert($data){
     $this->db->insert($table, $data);
 }
 
-function _update($id, $data){
+function _update($school_strand_id, $data){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('school_strand_id', $school_strand_id);
     $this->db->update($table, $data);
 }
 
-function _delete($id){
+function _delete($school_strand_id){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('school_strand_id', $school_strand_id);
     $this->db->delete($table);
 }
 
@@ -80,11 +86,11 @@ function count_all() {
 
 function get_max() {
     $table = $this->get_table();
-    $this->db->select_max('id');
+    $this->db->select_max('school_strand_id');
     $query = $this->db->get($table);
     $row=$query->row();
-    $id=$row->id;
-    return $id;
+    $school_strand_id=$row->school_strand_id;
+    return $school_strand_id;
 }
 
 function _custom_query($mysql_query) {

@@ -2,8 +2,7 @@
 
 
 <?php
-	$create_requirement_url = base_url()."school_strands/create";
-     $view_requiremtns_url = base_url()."pages/requirement/";
+	$add_school_strand_url = base_url()."school_strands/manage";
 ?>
 <!-- Advanced Select -->
 <div class="row clearfix">
@@ -16,18 +15,22 @@
                         </div>
                         <div class="body">
                             <div class="row clearfix">
-                                
-                                <div class="col-md-3">
-                                    
-                                    <select class="form-control show-tick" data-live-search="true">
-                                        <option>Hot Dog, Fries and a Soda</option>
-                                        <option>Burger, Shake and a Smile</option>
-                                        <option>Sugar, Spice and all things nice</option>
+                                <form method="post" action="<?= $add_school_strand_url ?>" >
+                                <div class="col-md-6">
+                               
+                                    <select class="form-control show-tick" name="strand_id" data-live-search="true">
+                                    <?php
+                                        foreach ($school_strands_query->result() as $row) {
+                                    ?>
+                                        <option value="<?= $row->strand_id ?>"><?= $row->strand_name ?></option>
+                                    <?php } ?>
                                     </select>
+                                
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="<?= $create_requirement_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">add</i><span>Add New Strand</span></button></a>
+                                    <button type="submit" name="submit" value="Submit" class="btn btn-primary waves-effect"><i class="material-icons">add</i><span>Add New Strand</span></button>
                                 </div>
+                            </form>
                             </div>
                             
                         </div>
@@ -59,20 +62,15 @@
                     </thead>
                     <tbody>
                     	<?php
-                    		foreach ($school_strands_query->result() as $row) {
+                    		foreach ($strands_by_query as $row) {
                                
-                                $delete_requiremtns_url = base_url()."requirements/delete/".$row->requirement_id;
-                               
+                             
                     	?>
                     
                         <tr>
-                           	<td><?= $row->strand_name ?></td>
-                            
+                           	<td><?= $row->strand_name; ?></td>
                             <td>
-                              
-                                <a href="<?= $delete_requiremtns_url ?>"><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
-                            	
-                            
+                                <a href=""><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
                             </td>
                         </tr>
                     	<?php } ?>

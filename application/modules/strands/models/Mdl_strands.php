@@ -10,6 +10,11 @@ function get_table() {
     $table = "strands";
     return $table;
 }
+function get_by_id($strand_id){
+    $table = $this->get_table();
+    $q = $this->db->select('*')->from($table)->where('strand_id', $strand_id)->get();
+    return $q;
+}
 
 function get($order_by){
     $table = $this->get_table();

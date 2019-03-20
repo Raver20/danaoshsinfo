@@ -3,11 +3,11 @@
     <div class="dark-overlay fullheight max-600">
         <div class="container fullheight max-600">                   
             <div class="jumbotron">
-                <h1><small>We offer the</small><br>
+                <h1><small>We serve the</small><br>
                 Best Education</h1>
                 <p>
-                    <a class="btn btn-white btn-lg page-scroll" href="#about-us" role="button">Why?</a> 
-                    <a class="btn btn-lg btn-primary btn-green page-scroll" href="#our-team" role="button">Browse Courses</a>
+                    <a class="btn btn-white btn-lg page-scroll" href="<?= base_url()?>about_us/" role="button">Why?</a> 
+                    <a class="btn btn-lg btn-primary btn-green page-scroll" href="<?= base_url()?>schools/" role="button">Look for Schools</a>
                 </p>
             </div>
         </div>

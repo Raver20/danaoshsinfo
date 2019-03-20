@@ -79,6 +79,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <div class="form-line">
+                                    <p>Contact Person</p>
                                     <input type="text" class="form-control" name="contactperson" value="<?= $contactperson ?>" placeholder="Contact Person" />
                                 </div>
                             </div>

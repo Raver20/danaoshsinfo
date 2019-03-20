@@ -88,8 +88,6 @@ function update()
             //get the variables
 
             $data = $this->fetch_data_from_post();
-            
-            $data['school_name_url'] = url_title($data['schoolname']);
 
             if (is_numeric($update_id)) 
             {

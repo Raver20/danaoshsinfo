@@ -5,17 +5,37 @@ class About_us extends MX_Controller
 function __construct() {
 parent::__construct();
 }
+function sendemail(){
 
+    $config = Array( 
+    'protocol' => 'smtp', 
+    'smtp_host' => 'smtp.hostinger.ph', 
+    'smtp_port' => 	587, 
+    'smtp_user' => 'contact@danaoshs.ml', 
+    'smtp_pass' => 'contactpassword',
+    'mailtype' => 'html',
+    'charset' => 'iso-8859-1',
+    'wordmap' => TRUE ); 
+  
+    $this->load->library('email', $config); 
+    $email = $this->input->post('email', TRUE);
+    $name = $this->input->post('name', TRUE);
+    $msg = $this->input->post('comments', TRUE);
+
+    $this->email->set_newline("\r\n");
+    $this->email->from('contact@danaoshs.ml');
+    $this->email->to('contact@danaoshs.ml');
+    $this->email->reply_to($email); //User email submited in form
+    $this->email->subject('Contact Us - from '.$name); 
+    $this->email->message($msg);
+    if (!$this->email->send()) {
+      show_error($this->email->print_debugger()); }
+    else {
+      echo 'Your e-mail has been sent!';
+    }
+  }  
 function index()
 {
-    $this->load->library('email');
-    $this->email->from('email@example.com', 'Identification');
-    $this->email->to('emailto@example.com');
-    $this->email->subject('Send Email Codeigniter');
-    $this->email->message('The email send using codeigniter library');
-
-    $this->email->send();
-
     $data['view_module'] = "about_us";
     $data['view_file'] = "about_us";
     $this->load->module('templates');

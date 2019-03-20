@@ -11,12 +11,15 @@
                     <h3>Contact Us</h3>
                         <div id="message" class="col-sm-12"></div>
                         <div class="col-sm-12">
-                            <form method="post" action="sendemail.php" id="contactform" class="main-contact-form">
+                        <?php 
+                            $email_form = base_url().'about_us/sendemail'
+                        ?>
+                            <form method="post" action="<?= $email_form ?>" id="contactform" class="main-contact-form">
                                 <div class="form-group">
-                                    <input type="text" class="form-control col-md-4 mb20" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." />
-                                    <input type="text" class="form-control col-md-4 mb20" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
+                                    <input type="text" class="form-control col-md-4 mb20" name="name" placeholder="Your Name *" id="name"  data-validation-required-message="Please enter your name." />
+                                    <input type="text" class="form-control col-md-4 mb20" name="email" placeholder="Your Email *" id="email"  data-validation-required-message="Please enter your email address." />
                                 </div>
-                                <textarea name="comments" class="form-control mb20" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea name="comments" class="form-control mb20" id="comments" placeholder="Your Message *"  data-validation-required-message="Please enter a message."></textarea>
                                 <input class="btn btn-primary mt30 pull-right" type="submit" name="submit" value="Submit" />
                             </form>
                         </div>

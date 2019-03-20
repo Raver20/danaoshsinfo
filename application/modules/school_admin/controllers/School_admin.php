@@ -28,7 +28,7 @@ function login()
         redirect('school_facilities/manage');
     } 
     elseif (isset($this->session->userdata['admin'])){
-        redirect('strands/manage');
+        redirect('admin/dashboard');
     }
     else 
     {

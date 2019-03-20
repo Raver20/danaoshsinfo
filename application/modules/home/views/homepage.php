@@ -1,5 +1,5 @@
 
-<header id="home" class="backstretched fullheight max-600">
+<header id="home" class="fullheight max-600">
     <div class="dark-overlay fullheight max-600">
         <div class="container fullheight max-600">                   
             <div class="jumbotron">

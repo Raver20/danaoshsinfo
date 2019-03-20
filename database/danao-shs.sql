@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 08:26 AM
+-- Generation Time: Mar 20, 2019 at 05:17 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -31,15 +31,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `user` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL
+  `password` varchar(15) NOT NULL,
+  `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `user`, `password`) VALUES
-(1, 'admin', 'danaoinfo');
+INSERT INTO `admin` (`admin_id`, `user`, `password`, `email`) VALUES
+(1, 'admin', 'danaoinfo', 'danao.shs.info@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,7 @@ CREATE TABLE `school_facilites` (
 --
 
 INSERT INTO `school_facilites` (`school_id`, `facility_id`, `facility_name`, `facility_url`, `description`, `big_pic`, `small_pic`) VALUES
-(10, 7, 'Com Laboratory', 'Com-Laboratory', 'A Computer Laboratory', 'blog-3.jpg', 'blog-3.jpg'),
+(10, 7, 'Com Laboratory', 'Com-Laboratory', 'A Computer Laboratory', 'blog-6.jpg', 'blog-6.jpg'),
 (10, 8, 'Science Lab.', 'Science-Lab', 'A Science Laboratory', '15823278_1250177651729728_5366755261536348673_n1.jpg', '15823278_1250177651729728_5366755261536348673_n1.jpg'),
 (7, 9, 'Clinic', 'Clinic', 'A Clinic', 'blog-2.jpg', 'blog-2.jpg'),
 (7, 10, 'Social Hall', 'Social-Hall', 'A Social Hall', 'blog-31.jpg', 'blog-31.jpg'),
@@ -140,7 +141,7 @@ INSERT INTO `school_info` (`admin_id`, `school_id`, `schoolname`, `school_name_u
 (1, 7, 'Colegio de San Antonio de Padua (CSA)', 'Colegio-de-San-Antonio-de-Padua-CSA', 'csa', 'admin', 'Guinsay', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', ''),
 (1, 8, 'Sto. Tomas College (STC)', 'Sto-Tomas-College-STC', 'stc', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', ''),
 (1, 9, 'Rosemont Hills Montessori College', 'Rosemont-Hills-Montessori-College', 'rose', 'admin', 'Sabang', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', ''),
-(1, 10, 'Northeastern Cebu Colleges, Inc. (NCC)', 'Northeastern-Cebu-Colleges-Inc-NCC', 'ncc', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'asdasd', 'Semester', 8000, '', '');
+(0, 10, 'Northeastern Cebu Colleges, Inc. (NCC)', 'Northeastern-Cebu-Colleges-Inc-NCC', 'ncc1', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Public', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', '');
 
 -- --------------------------------------------------------
 
@@ -206,6 +207,28 @@ INSERT INTO `school_requirements` (`school_id`, `requirement_id`, `requirement_n
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `school_strands`
+--
+
+CREATE TABLE `school_strands` (
+  `school_id` int(11) NOT NULL,
+  `strand_id` int(11) NOT NULL,
+  `school_strand_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `school_strands`
+--
+
+INSERT INTO `school_strands` (`school_id`, `strand_id`, `school_strand_id`) VALUES
+(10, 19, 1),
+(10, 20, 3),
+(10, 18, 4),
+(10, 19, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `site_cookies`
 --
 
@@ -240,7 +263,7 @@ CREATE TABLE `strands` (
 INSERT INTO `strands` (`admin_id`, `strand_id`, `description`, `strand_name`, `strand_url`, `rcic`, `small_pic`, `big_pic`) VALUES
 (1, 17, 'The Science, Technology, Engineering and Math track or also known as STEM. STEM is the strand for students who wish to go into college with the following courses: Biology, Physics, Mathematics, Engineering, Computer Studies, Information Technology and so on and forth on the related courses. This strand is a very hands-on type of experience that would be good for students who have firmly decided their future college course and profession.', '(STEM) Science, Technology, Engineering and Math', 'STEM-Science-Technology-Engineering-and-Math', 'Bachelor of Science in Environmental Science (BSES)\r\nBachelor of Science in Geology (BS Geology)\r\nBachelor of Science in Biology (BS Biology)\r\nBachelor of Science in Molecular Biology (BS Molecular Biology)\r\nBachelor of Science in Physics (BS Physics)\r\nBachelor of Science in Applied Physics (BS Applied Physics)\r\n Bachelor of Science in Chemistry (BS Chemistry)\r\n Bachelor of Science in Food Technology (BS Food Tech)\r\n Bachelor of Science in Nutrition and Dietetics (BS Nutrition and Dietetics)\r\n Bachelor of Science in Medical Technology (BS Med Tech)\r\n Bachelor of Science in Midwifery (BS Midwifery)\r\n Bachelor of Science in Nursing (BSN) \r\nBachelor of Science in Occupational Therapy (BSOT)\r\nBachelor of Science in in Pharmacy (BS Pharmacy)\r\nBachelor of Science in Physical Therapy (BSPT)\r\nBachelor of Science in Radiologic Technology (BS Rad Tech)\r\nBachelor of Science in Respiratory Therapy (BSRT)\r\nBachelor of Science in Speech-Language Pathology\r\n', 'stem.png', 'stem.png'),
 (1, 18, 'The Humanities and Social Sciences or HUMSS. HUMSS is the strand for students who wish to go into college with the following courses: Political Science or International Studies, English or Filipino Literature, Mass Communication, Education, Performing Arts and other related courses.', '(HUMSS) Humanities and Social Sciences', 'HUMSS-Humanities-and-Social-Sciences', 'Bachelor of Arts in Philosophy (AB Philosophy)\r\nBachelor of Arts in English (AB English)\r\nBachelor of Arts in Linguistics (AB Linguistics)\r\nBachelor of Arts in Literature (AB Literature)\r\nBachelor of Arts in Filipino (AB Filipino)\r\nBachelor of Arts in Islamic Studies (AB Islamic Studies)', 'humms.png', 'humms.png'),
-(1, 19, 'The Accounting Business and Management or ABM. ABM is the strand for students who wish to go into college with the following courses: Human Resource, Tourism, Hotel and Restaurant Management, Accounting, Business Studies, Marketing, Real Estate, Export Management, Entrepreneurship and other related courses in this path. This is definitely a suggested strand for those who have their eyes set on creating a business in the future or working in the business sector.', '(ABM) Accounting Business and Management', 'ABM-Accounting-Business-and-Management', '- Bachelor of Science in Accountancy (BSA)\r\n- Bachelor of Science in Accounting Technology (BSAcT)\r\n- Bachelor of Science in Business Administration Major in Business Economics (BSBA)\r\n- Bachelor of Science in Business Administration Major in Financial Management (BSBA major in FM)\r\n- Bachelor of Science in Business Administration Major in Human Resource Development (BSBA major in HRDM)\r\n- Bachelor of Science in Business Administration Major in Marketing Management (BSBA major in MM)\r\n- Bachelor of Science in Business Administration Major in Operations Management (BSBA major in OM)\r\n- Bachelor of Science in Entrepreneurship (BS Entrep)\r\n- Bachelor of Science in Agribusiness (BS Agribusiness)\r\n- Bachelor of Science in Bachelor of Science in Hotel and Restaurant Management (BS HRM)\r\n- Bachelor of Science in Office Administration (BSOA) \r\n- Bachelor of Science in Real Estate Management (BS REM)\r\n- Bachelor of Science in Tourism Management (BSTM)\r\n- Bachelor of Science in Community Development (BS Community Development)\r\n- Bachelor of Science in Customs Administration (BSCA)\r\n- Bachelor of Science in Foreign Service (BS Foreign Service)\r\n- Bachelor of Science in International Studies (BSIS)\r\n- Bachelor of Public Administration (BPA)\r\n- Bachelor of Science in Public Safety (BSPS)\r\n- Bachelor of Science in Social Work (BS Social Work)', 'abm.png', 'abm.png'),
+(1, 19, 'The Accounting Business and Management or ABM. ABM is the strand for students who wish to go into college with the following courses: Human Resource, Tourism, Hotel and Restaurant Management, Accounting, Business Studies, Marketing, Real Estate, Export Management, Entrepreneurship and other related courses in this path. This is definitely a suggested strand for those who have their eyes set on creating a business in the future or working in the business sector.', '(ABM) Accounting Business and Management', 'ABM-Accounting-Business-and-Management', 'Bachelor of Science in Accountancy (BSA)\r\nBachelor of Science in Accounting Technology (BSAcT)\r\nBachelor of Science in Business Administration Major in Business Economics (BSBA)\r\nBachelor of Science in Business Administration Major in Financial Management (BSBA major in FM)\r\nBachelor of Science in Business Administration Major in Human Resource Development (BSBA major in HRDM)\r\nBachelor of Science in Business Administration Major in Marketing Management (BSBA major in MM)\r\nBachelor of Science in Business Administration Major in Operations Management (BSBA major in OM)\r\nBachelor of Science in Entrepreneurship (BS Entrep)\r\nBachelor of Science in Agribusiness (BS Agribusiness)\r\nBachelor of Science in Bachelor of Science in Hotel and Restaurant Management (BS HRM)\r\nBachelor of Science in Office Administration (BSOA) \r\nBachelor of Science in Real Estate Management (BS REM)\r\nBachelor of Science in Tourism Management (BSTM)\r\nBachelor of Science in Community Development (BS Community Development)\r\nBachelor of Science in Customs Administration (BSCA)\r\nBachelor of Science in Foreign Service (BS Foreign Service)\r\nBachelor of Science in International Studies (BSIS)\r\nBachelor of Public Administration (BPA)\r\nBachelor of Science in Public Safety (BSPS)\r\nBachelor of Science in Social Work (BS Social Work)', 'abm.png', 'abm.png'),
 (1, 20, 'The Academic track is the General Academic Strand or GAS. Now if you have some uncertainty or confusion in your mind on what specific path you would want to take, then GAS is the strand offered in this track. What makes this good is that the courses offered here are encompassing; meaning in all fields. The things that one can learn in this can help your uncertain mind explore your possible college options. To simply put, this strand is for all courses in college.', '(GA) General Academic', 'GA-General-Academic', '', 'gas.png', 'gas.png'),
 (1, 21, 'The TVL Track is the Agri-Fishery Arts Strand. The skills taught here are those that can be used in the agriculture and aquaculture field. Examples of lessons to be learned are rubber production, food processing, and such.', 'Agri-Fishery Arts', 'Agri-Fishery-Arts', '', 'Agri-Fishery_Arts_Strand.png', 'Agri-Fishery_Arts_Strand.png'),
 (1, 22, 'It focuses on teaching you skills that can be useful in livelihood projects. Professions that can be considered after taking this stand are stylists, makeup artists, tour guides, barista, baker, etc.', 'Home Economics', 'Home-Economics', '', 'Home_Economics_Strand.png', 'Home_Economics_Strand.png'),
@@ -315,6 +338,12 @@ ALTER TABLE `school_requirements`
   ADD PRIMARY KEY (`requirement_id`);
 
 --
+-- Indexes for table `school_strands`
+--
+ALTER TABLE `school_strands`
+  ADD PRIMARY KEY (`school_strand_id`);
+
+--
 -- Indexes for table `site_cookies`
 --
 ALTER TABLE `site_cookies`
@@ -385,6 +414,12 @@ ALTER TABLE `school_requirements`
   MODIFY `requirement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `school_strands`
+--
+ALTER TABLE `school_strands`
+  MODIFY `school_strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `site_cookies`
 --
 ALTER TABLE `site_cookies`
@@ -394,7 +429,7 @@ ALTER TABLE `site_cookies`
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `strand_categories`

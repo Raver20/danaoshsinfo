@@ -18,141 +18,26 @@
     <div class="section-inner">
         <div class="container">
 
-<section id="our-team">
-    <div class="section-inner">
         <div class="container">
-            <div class="row mb60 text-center">
-                <div class="col-sm-12">
-                    <h3 class="section-title">List of Strands</h3>
-                    <p class="section-sub-title">with its description and related course in college.</p>
+	<div class="row">
+		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+            <div class="MultiCarousel-inner">
+            <?php
+                foreach ($strand_query->result() as $row) {
+            ?>
+                <div class="item">
+                    <div class="pad15">
+                        <p><?= $row->strand_name ?></p>
+                        
+                        <a href="<?= base_url()."pages/strand/".$row->strand_url ?>"><button class="btn btn-primary">Read More</button></a>
+                    </div>
                 </div>
+             <?php } ?>    
             </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="music-carousel" class="carousel slide"> 
-                        <div class="carousel-inner">                                                
-                            <div class="item active">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-1.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Richard Smith</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-2.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Dave Edwards</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-3.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Lisa Rhymes</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-4.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Steve Kane</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                                             
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-1.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Richard Smith</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-2.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Dave Edwards</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-3.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Lisa Rhymes</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="hover-effect smoothie">
-                                            <a href="#" class="thumbnail smoothie">
-                                            <img src="<?php echo base_url() ?>public_bootstrap/assets/images/cover-4.jpg" alt="Image" class="smoothie"></a>
-                                            <div class="hover-caption dark-overlay smoothie text-center">
-                                                <div class="vertical-center-js">
-                                                    <h4>Steve Kane</h4>
-                                                    <p class="mb20"><small>Competently simplify viral platforms via goal-oriented web services. Collaboratively disintermediate.</small></p>
-                                                    <a href="single-team.html" class="btn btn-primary btn-green">View Profile</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                                                  
-                        </div>
-                        <a data-slide="prev" href="#music-carousel" class="left carousel-control"><i class="fa fa-long-arrow-left"></i></a>
-                        <a data-slide="next" href="#music-carousel" class="right carousel-control"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>                                             
-                </div>
-            </div>
+            <button class="btn btn-primary leftLst"><</button>
+            <button class="btn btn-primary rightLst">></button>
         </div>
-    </div>
-</section>
+	</div>
         </div>
     </div>
 </section>

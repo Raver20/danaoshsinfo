@@ -124,14 +124,19 @@
                                                                         <div class="panel panel-default">
                                                                             <div class="panel-heading smoothie" role="tab" id="headingOne">
                                                                                 <h4 class="panel-title">
-                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Strands</a>
+                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Strands Offered</a>
                                                                                 </h4>
                                                                             </div>
                                                                             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                                                                 <div class="panel-body">
-                                                                                    <div class="row">               
-                                                                                        <p>Strands</p>
-                                                                                    </div> 
+                                                                                    <?php
+                                                                                        foreach ($strands_by_query as $row) {
+                                                                                            
+                                                                                    ?>
+                                                                                    <ul>
+                                                                                    <li style="color: #707070" ><?= $row->strand_name ?></li>
+                                                                                    </ul>
+                                                                                    <?php } ?>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -147,7 +152,7 @@
                                                                                     foreach ($requirement_query->result() as $row) {
                                                                                         $requirement_id = $row->requirement_id;
                                                                                 ?>
-                                                                                <h5 style="color: #707070" class="mt0 mb40"><?= $row->requirement_name ?></h5>
+                                                                                <h5 style="color: #707070"><?= $row->requirement_name ?></h5>
                                                                                 <p class="mb20" style="text-align: justify; text-indent: 1em; "><small><?= nl2br($row->requirement_desc) ?></small></p>
                                                                                 <?php } ?>
                                                                                 </div>
@@ -165,7 +170,9 @@
                                                                                     foreach ($privilege_query->result() as $row) {
                                                                                         $privilege_id = $row->privilege_id;
                                                                                 ?>
-                                                                                <h5 style="color: #707070" class="mt0 mb40"><?= $row->privilege_name ?></h5>
+                                                                                 <ul>                                   
+                                                                                <li style="color: #707070"><?= $row->privilege_name ?></li>
+                                                                                 </ul>                                       
                                                                                 <?php } ?>
                                                                                 </div>
                                                                             </div>
@@ -182,7 +189,10 @@
                                                     <div class="row">
                                                         <div id="message" class="col-sm-12"></div>
                                                         <div class="col-sm-12">
-                                                            <form method="post" action="sendemail.php" id="contactform" class="main-contact-form">
+                                                        <?php
+                                                             $email_form = base_url().'school_info/sendemail'
+                                                        ?>
+                                                            <form method="post" action="<?= $email_form ?>" id="contactform" class="main-contact-form">
                                                                 <div class="form-group">
                                                                     <input type="text" class="form-control col-md-4 mb20" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." />
                                                                     <input type="text" class="form-control col-md-4 mb20" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />

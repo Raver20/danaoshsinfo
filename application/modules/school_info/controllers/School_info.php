@@ -5,23 +5,65 @@ class School_info extends MX_Controller
 function __construct() {
 parent::__construct();
 }
+function sendemail(){
 
+    $config = Array( 
+    'protocol' => 'smtp', 
+    'smtp_host' => 'smtp.hostinger.ph', 
+    'smtp_port' => 	587, 
+    'smtp_user' => 'inquire@danaoshs.ml', 
+    'smtp_pass' => 'inquirepassword',
+    'mailtype' => 'html',
+    'charset' => 'iso-8859-1',
+    'wordmap' => TRUE ); 
+  
+    $this->load->library('email', $config); 
+    $email = $this->input->post('email', TRUE);
+    $name = $this->input->post('name', TRUE);
+    $msg = $this->input->post('comments', TRUE);
+    $school_name_url = $this->uri->segment(3);
+    $school_id = $this->_get_emailaddress_from_school_name_url($school_name_url);
+
+    $about_us_query = $this->school_privileges->get_by_id($school_id);
+
+    echo $email."/".$name."/".$msg."/".$about_us_query; die();
+    $this->email->set_newline("\r\n");
+    $this->email->from('contact@danaoshs.ml');
+    $this->email->to($about_us_query);
+    $this->email->reply_to($email); //User email submited in form
+    $this->email->subject('Contact Us - from '.$name); 
+    $this->email->message($msg);
+    if (!$this->email->send()) {
+      show_error($this->email->print_debugger()); }
+    else {
+      echo 'Your e-mail has been sent!';
+    }
+  }
 
 function profile()
 {
     $this->load->module('school_facilities');
     $this->load->module('requirements');
     $this->load->module('school_privileges');
+    $this->load->module('school_strands');
+    $this->load->module('strands');
     
     $school_url = $this->uri->segment(3);
     $school_id = $this->_get_school_id_from_school_name_url($school_url);
     //query
-
+    
     $data = $this->fetch_data_from_db($school_id);
     $data['facility_query'] = $this->school_facilities->get_by_id($school_id);
     $data['requirement_query'] = $this->requirements->get_by_id($school_id);
     $data['privilege_query'] = $this->school_privileges->get_by_id($school_id);
-
+    $school_strands = $this->school_strands->get_by_school_id($school_id);
+    $strands_list = array();
+    foreach ($school_strands->result() as $row)
+    {
+       $strands = $this->strands->get_by_id($row->strand_id)->result()[0];
+       array_push($strands_list, $strands);
+    }
+    $data['strands_by_query'] = $strands_list;
     $data['view_module'] = "school_info";
     $data['view_file'] = "profile";
     $this->load->module('templates');
@@ -32,6 +74,20 @@ function _get_school_id_from_school_name_url($school_name_url)
 {
     $query = $this->get_where_custom('school_name_url', $school_name_url);
     foreach ($query->result() as $row) {
+        $school_id = $row->school_id;
+    }
+
+    if (!isset($school_id))
+    {
+        $school_id = 0;
+    }
+    return $school_id;
+}
+
+function _get_emailaddress_from_school_name_url($emailaddress)
+{
+    $email_query = $this->get_where_custom('emailaddress', $emailaddress);
+    foreach ($email_query->result() as $row) {
         $school_id = $row->school_id;
     }
 
@@ -316,6 +372,7 @@ function autogen()
     
     
 }
+
 function get_by_id($school_id)
 {
     $this->load->model('Mdl_school_info');

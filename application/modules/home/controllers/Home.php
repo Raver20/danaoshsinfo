@@ -7,9 +7,12 @@ parent::__construct();
 }
 
 function index()
-{
+{   
+    $this->load->module('strands');
+    $data['strand_query'] = $this->strands->get('strand_name');
+
     $data['view_module'] = "home";
-    $data['view_file'] = "homepage";
+    $data['view_file'] = "homepage";    
     $this->load->module('templates');
     $this->templates->public_bootstrap($data);
 }

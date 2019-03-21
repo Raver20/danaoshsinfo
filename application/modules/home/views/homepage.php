@@ -17,27 +17,33 @@
 <section>
     <div class="section-inner">
         <div class="container">
-
+        <h1 style="text-align: center;">Strands</h1>
         <div class="container">
-	<div class="row">
-		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
-            <div class="MultiCarousel-inner">
-            <?php
-                foreach ($strand_query->result() as $row) {
-            ?>
-                <div class="item">
-                    <div class="pad15">
-                        <p><?= $row->strand_name ?></p>
-                        
-                        <a href="<?= base_url()."pages/strand/".$row->strand_url ?>"><button class="btn btn-primary">Read More</button></a>
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                    <div class="MultiCarousel-inner">
+                    <?php
+                        foreach ($strand_query->result() as $row) {
+                    ?>
+                        <div class="hover-effect smoothie item">
+                            <a href="#" class="thumbnail smoothie">
+                            <img src="<?= base_url() ?>strand_pic/big_pic/<?= $row->big_pic ?>" alt="Image" class="smoothie"></a>
+                            <div class="hover-caption dark-overlay smoothie text-center">
+                                <div class="vertical-center-js">
+                                    <h6 style="color: black;"><?= $row->strand_name ?></h6>
+                                    
+                                    <a href="<?= base_url().'pages/strand/'.$row->strand_url ?>" class="btn btn-primary btn-green">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>    
                     </div>
+                   
+                    <button class="btn btn-primary leftLst"><</button>
+                    <button class="btn btn-primary rightLst">></button>
                 </div>
-             <?php } ?>    
             </div>
-            <button class="btn btn-primary leftLst"><</button>
-            <button class="btn btn-primary rightLst">></button>
         </div>
-	</div>
         </div>
     </div>
 </section>

@@ -18,21 +18,20 @@ function sendemail()
     'wordmap' => TRUE ); 
   
     $this->load->library('email', $config); 
-    $school_email = "raver.glen@gmail.com";
-    $email = $this->input->post('email', TRUE);
-    $name = $this->input->post('name', TRUE);
+    $schoolemail = $this->input->post('schoolemail', TRUE);
+    $email = $this->input->post('sendemail', TRUE);
+    $name = $this->input->post('sendname', TRUE);
     $msg = $this->input->post('comments', TRUE);
-
 
     $this->email->set_newline("\r\n");
     $this->email->from('inquire@danaoshs.ml');
-    $this->email->to($school_email);
+    $this->email->to($schoolemail);
     $this->email->reply_to($email); //User email submited in form
     $this->email->subject('Inquiry - from '.$name); 
     $this->email->message($msg);
     if (!$this->email->send()) 
     {
-        echo 'Your e-mail not sent!';
+        echo 'Email sending failed!';
     }
     else 
     {

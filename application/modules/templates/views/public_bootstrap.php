@@ -30,7 +30,7 @@
     <link href="<?php echo base_url() ?>public_bootstrap/assets/css/plugins.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public_bootstrap/style.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public_bootstrap/assets/css/alt-colors.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>public_bootstrap/stylerating.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>public_bootstrap/styerating.css" rel="stylesheet">
 
     
 

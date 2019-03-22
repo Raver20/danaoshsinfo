@@ -86,6 +86,27 @@ jQuery(document).ready(function() {
     return false;
   });
 
+  // INQUIRY FORM
+  $('#inquireform').submit(function() {
+    var action = $(this).attr('action');
+    $("#message").slideUp(750, function() {
+      $('#message').hide();
+      $('#submit').attr('disabled', 'disabled');
+      $.post(action, {
+        sendname: $('#sendname').val(),
+        sendemail: $('#sendemail').val(),
+        schoolemail: $('#schoolemail').val(),
+        comments: $('#comments').val()
+      }, function(data) {
+        document.getElementById('message').innerHTML = data;
+        $('#message').slideDown('slow');
+        $('#submit').removeAttr('disabled');
+        if (data.match('success') != null) $('#contactform').slideUp('slow');
+        $(window).trigger('resize');
+      });
+    });
+    return false;
+  });
   $('a.page-scroll').on('click', function(event) {
     var $anchor = $(this);
     $('html, body').stop().animate({

@@ -12,7 +12,9 @@
     
 
     <title>Danao SHS Info - <?= $view_module ?></title>
+    
     <link href="<?php echo base_url() ?>public_bootstrap/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -28,6 +30,9 @@
     <link href="<?php echo base_url() ?>public_bootstrap/assets/css/plugins.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public_bootstrap/style.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public_bootstrap/assets/css/alt-colors.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>public_bootstrap/stylerating.css" rel="stylesheet">
+
+    
 
 </head>
 
@@ -38,7 +43,7 @@
             <div class="container">      
                 <div class="row">
                     <div class="col-xs-3">
-                        <a class="logo" href="index.html"><img alt="" class="logo img-responsive" src="<?php echo base_url() ?>public_bootstrap/assets/images/logos.png"></a> 
+                        <a class="logo" href="<?php echo base_url(); ?>"><img alt="" class="logo img-responsive" src="<?php echo base_url() ?>public_bootstrap/assets/images/logos.png"></a> 
                     </div>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" aria-controls="navbar">
                           <span class="sr-only">Toggle navigation</span>

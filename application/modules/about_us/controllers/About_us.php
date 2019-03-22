@@ -11,8 +11,8 @@ function sendemail(){
     'protocol' => 'smtp', 
     'smtp_host' => 'smtp.hostinger.ph', 
     'smtp_port' => 	587, 
-    'smtp_user' => 'contact@danaoshs.ml', 
-    'smtp_pass' => 'contactpassword',
+    'smtp_user' => 'info@danaoshs.ml', 
+    'smtp_pass' => 'infopassword',
     'mailtype' => 'html',
     'charset' => 'iso-8859-1',
     'wordmap' => TRUE ); 
@@ -23,15 +23,15 @@ function sendemail(){
     $msg = $this->input->post('comments', TRUE);
 
     $this->email->set_newline("\r\n");
-    $this->email->from('contact@danaoshs.ml');
-    $this->email->to('contact@danaoshs.ml');
+    $this->email->from('info@danaoshs.ml');
+    $this->email->to('info@danaoshs.ml');
     $this->email->reply_to($email); //User email submited in form
     $this->email->subject('Contact Us - from '.$name); 
     $this->email->message($msg);
     if (!$this->email->send()) {
       show_error($this->email->print_debugger()); }
     else {
-      echo 'Your e-mail has been sent!';
+      echo "<p style='color: green;'>Your e-mail has been sent!</p>";
     }
   }  
 function index()

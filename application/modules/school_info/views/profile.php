@@ -68,50 +68,50 @@
                                                                             <div class="content sl">
                                                                                 <div class="group btmspace-50 demo">
                                                                        
-                                                                                <div class="one_third first ">
-                                                                                    <div class="col-sm-4 col-md-4 details">
-                                                                                        <div class="avatar" >
-                                                                                        <img alt="School Type" src="<?php echo base_url() ?>public_bootstrap/assets/public.png">
-                                                                                        </div>
-                                                                                        <div class="text">
-                                                                                        <h5 style="margin-left: 7px;">School Type</h5>
-                                                                                        <p  style="margin-left: 35px;"><?= $typeofschool ?></p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="one_third">
-                                                                                    <div class="col-sm-4 col-md-4 details">
-                                                                                        <div class="avatar"  style="margin-left: 20px;">
-                                                                                        <img alt="Academic Calendar" src="<?php echo base_url() ?>public_bootstrap/assets/calendar.png">
-                                                                                        </div>
-                                                                                        <div class="text">
-                                                                                        <h5>Academic Calendar</h5>
-                                                                                        <p  style="margin-left: 40px;"><?= $calendar ?></p>
+                                                                                    <div class="one_third first ">
+                                                                                        <div class="col-sm-4 col-md-4 details">
+                                                                                            <div class="avatar" >
+                                                                                            <img alt="School Type" src="<?php echo base_url() ?>public_bootstrap/assets/public.png">
+                                                                                            </div>
+                                                                                            <div class="text">
+                                                                                            <h5 style="margin-left: 7px;">School Type</h5>
+                                                                                            <p  style="margin-left: 35px;"><?= $typeofschool ?></p>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="one_third">
-                                                                                    <div class="col-sm-4 col-md-4 details">
-                                                                                        <div class="avatar"  style="margin-left: 20px;">
-                                                                                        <img alt="Average Tuition" src="<?php echo base_url() ?>public_bootstrap/assets/php.png">
+                                                                                    <div class="one_third">
+                                                                                        <div class="col-sm-4 col-md-4 details">
+                                                                                            <div class="avatar"  style="margin-left: 20px;">
+                                                                                            <img alt="Academic Calendar" src="<?php echo base_url() ?>public_bootstrap/assets/calendar.png">
+                                                                                            </div>
+                                                                                            <div class="text">
+                                                                                            <h5>Academic Calendar</h5>
+                                                                                            <p  style="margin-left: 40px;"><?= $calendar ?></p>
+                                                                                            </div>
                                                                                         </div>
-                                                                                        <div class="text">
-                                                                                        <h5>Average Tuition Fee</h5>
-                                                                                        <p style="margin-left: 50px;">
-                                                                                        <span>&#8369; <?= $avetuition ?></span>
-                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="one_third">
+                                                                                        <div class="col-sm-4 col-md-4 details">
+                                                                                            <div class="avatar"  style="margin-left: 20px;">
+                                                                                            <img alt="Average Tuition" src="<?php echo base_url() ?>public_bootstrap/assets/php.png">
+                                                                                            </div>
+                                                                                            <div class="text">
+                                                                                            <h5>Average Tuition Fee</h5>
+                                                                                            <p style="margin-left: 50px;">
+                                                                                            <span>&#8369; <?= $avetuition ?></span>
+                                                                                            </p>
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+                                                                            <div style="width: 100%">
+                                                                                <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=P.G%20Almendras%20St.%2C%20Danao%20City+(Your%20Business%20Name)&ie=UTF8&t=&z=16&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                                                                <a href="https://www.mapsdirections.info/en/custom-google-maps/">Create Google Map</a> by 
+                                                                                <a href="https://www.mapsdirections.info/en/">Measure area on map</a>
+                                                                                </iframe>
+                                                                            </div>
                                                                         </div>
-                                                                    <div style="width: 100%">
-                                                                        <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=P.G%20Almendras%20St.%2C%20Danao%20City+(Your%20Business%20Name)&ie=UTF8&t=&z=16&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                                                                        <a href="https://www.mapsdirections.info/en/custom-google-maps/">Create Google Map</a> by 
-                                                                        <a href="https://www.mapsdirections.info/en/">Measure area on map</a>
-                                                                        </iframe>
-                                                                    </div>
-                                                                </div>
                                                                         
                                                                     </div>
 

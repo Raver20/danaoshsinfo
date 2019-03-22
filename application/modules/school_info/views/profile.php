@@ -230,7 +230,7 @@
                                                         </div>
                                                         <br/>
                                                         <div class="col-lg-12 col-md-12 col-sm-12 p-0" style="margin-left: 40px;">
-                                                            <input type="text" name="writereview" class="form-control search-slt" placeholder="Write your review.">
+                                                            <textarea name="writereview" class="form-control mb20" id="writereview" placeholder="Write you review..."></textarea>                                                            
                                                         </div>
                                                        
                                                         <div class="col-lg-2 col-md-2 col-sm-12 p-0" style="margin-top:20px; margin-left:82%;">

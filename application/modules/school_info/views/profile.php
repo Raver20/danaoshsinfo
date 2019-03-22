@@ -204,7 +204,41 @@
                                                             </form>
                                                         </div>
                                                     </div>
-                                                </div>                   
+                                                </div>
+                                                <div class="col-sm-6 ">
+                                                    <div class="row">
+                                                        <h1 style="text-align: center;">Rate</h1>
+                                                        <div class="col-sm-3">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="rating">
+                                                                    <input type="radio" id="star10" name="rating" value="10" /><label for="star10" title="Rocks!">5 stars</label>
+                                                                    <input type="radio" id="star9" name="rating" value="9" /><label for="star9" title="Rocks!">4 stars</label>
+                                                                    <input type="radio" id="star8" name="rating" value="8" /><label for="star8" title="Pretty good">3 stars</label>
+                                                                    <input type="radio" id="star7" name="rating" value="7" /><label for="star7" title="Pretty good">2 stars</label>
+                                                                    <input type="radio" id="star6" name="rating" value="6" /><label for="star6" title="Meh">1 star</label>
+                                                                   
+                                                                </div>
+                                                                
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                        </div>
+                                                        <br/>
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 p-0" style="margin-left: 40px;">
+                                                            <input type="text" name="writereview" class="form-control search-slt" placeholder="Write your review.">
+                                                        </div>
+                                                       
+                                                        <div class="col-lg-2 col-md-2 col-sm-12 p-0" style="margin-top:20px; margin-left:82%;">
+                                                            <button type="submit" name="submit" value="Submit" class="btn btn-info wrn-btn">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>                            
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="facilities">
@@ -216,7 +250,7 @@
                                                             foreach ($facility_query->result() as $row) {
                                                                 $facility_id = $row->facility_id; 
                                                         ?>
-                                                            <div class="col-md-4 mb40 match-height">
+                                                            <div class="col-md-4 mb40">
                                                                 <div class="hover-effect smoothie">
                                                                     
                                                                     <img alt="Image" class="img-responsive smoothie" src="<?= base_url() ?>facility_pic/small_pic/<?= $row->small_pic ?>" alt="Profile image example"/>

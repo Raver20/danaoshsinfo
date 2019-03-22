@@ -121,13 +121,13 @@
                                                                 <div class="col-sm-4">
                                                                     
                                                                     <div class="panel-group styled-accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading smoothie" role="tab" id="headingOne">
+                                                                    <div class="panel panel-default">
+                                                                            <div class="panel-heading panel-open smoothie" role="tab" id="headingOne">
                                                                                 <h4 class="panel-title">
-                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Strands Offered</a>
+                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Strands Offered</a>
                                                                                 </h4>
                                                                             </div>
-                                                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                                                                 <div class="panel-body">
                                                                                     <?php
                                                                                         foreach ($strands_by_query as $row) {
@@ -187,15 +187,17 @@
                                                 <hr/>
                                                 <div class="col-sm-6 ">
                                                     <div class="row">
+                                                        <h1 style="text-align: center;">Inquiry</h1>
                                                         <div id="message" class="col-sm-12"></div>
                                                         <div class="col-sm-12">
                                                         <?php
-                                                             $email_form = base_url().'school_info/sendemail'
+                                                             $email_form = base_url().'school_info/sendemail';
                                                         ?>
                                                             <form method="post" action="<?= $email_form ?>" id="contactform" class="main-contact-form">
                                                                 <div class="form-group">
+                                                                    <input type="text" class="form-control col-md-4 mb20" name="school_email" value="<?= $emailaddress ?>" placeholder="Your Name *" id="school_email"  />
                                                                     <input type="text" class="form-control col-md-4 mb20" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." />
-                                                                    <input type="text" class="form-control col-md-4 mb20" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
+                                                                    <input type="text" class="form-control col-md-4 mb20" name="email" value="<?= $emailaddress ?>" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
                                                                 </div>
                                                                 <textarea name="comments" class="form-control mb20" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
                                                                 <input class="btn btn-primary mt30 pull-right" type="submit" name="submit" value="Submit" />

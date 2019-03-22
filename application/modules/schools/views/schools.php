@@ -45,7 +45,7 @@
         <div class="row">
         <?php
             foreach ($page_query->result() as $row) {
-                $school_url = base_url()."pages/school_profile/".$row->school_name_url;
+                $school_url = base_url()."school_info/profile/".$row->school_name_url;
         ?>
             <div class="col-sm-6 match-height mb40">
                 <div class="row">

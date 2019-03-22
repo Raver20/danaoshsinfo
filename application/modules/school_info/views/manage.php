@@ -33,7 +33,7 @@
                     	<?php
                     		foreach ($info_query->result() as $row) {
                                 $edit_info_url = base_url()."school_info/create/".$row->school_id;
-                                $delete_info_url = base_url()."school_info/delete/".$row->school_id;
+                                $delete_info_url = base_url()."school_info/deleteconf/".$row->school_id;
                                
                     	?>
                     

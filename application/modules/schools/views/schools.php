@@ -45,14 +45,15 @@
         <div class="row">
         <?php
             foreach ($page_query->result() as $row) {
-                $school_url = base_url()."pages/school_profile/".$row->school_name_url;
+                $school_url = base_url()."school_info/profile/".$row->school_name_url;
         ?>
             <div class="col-sm-6 match-height mb40">
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="hover-effect smoothie">
                             <a href="<?= $school_url ?>" class="smoothie">
-                                <img src="<?php echo base_url() ?>public_bootstrap/assets/images/blog-1.jpeg" alt="Image" class="img-responsive smoothie">
+                                <img src="<?= base_url() ?>school_logo/big_pic/<?= $row->big_pic ?>"onerror="this.onerror=null;this.src='<?php echo base_url(); ?>public_bootstrap/assets/images/school_logo.png';"
+                                 alt="School Logo" class="img-responsive smoothie">
                             </a>
                             <div class="hover-caption dark-overlay smoothie text-center">
                                 <div class="vertical-center-js">
@@ -66,6 +67,7 @@
                         <p><?= $row->address ?></p>
                         <p style="color: gray;">Telephone No.: <?= $row->telno ?></p>
                         <p style="color: gray;">Email: <?= $row->emailaddress ?></p>
+                        <p style="color: gray;">Ave. Tuition: <?= $row->avetuition ?></p>
                     </div>
                 </div>
             </div>    

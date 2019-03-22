@@ -5,8 +5,8 @@ class School_info extends MX_Controller
 function __construct() {
 parent::__construct();
 }
-function sendemail(){
-
+function sendemail()
+{
     $config = Array( 
     'protocol' => 'smtp', 
     'smtp_host' => 'smtp.hostinger.ph', 
@@ -21,24 +21,241 @@ function sendemail(){
     $email = $this->input->post('email', TRUE);
     $name = $this->input->post('name', TRUE);
     $msg = $this->input->post('comments', TRUE);
-    $school_name_url = $this->uri->segment(3);
-    $school_id = $this->_get_emailaddress_from_school_name_url($school_name_url);
 
-    $about_us_query = $this->school_privileges->get_by_id($school_id);
 
-    echo $email."/".$name."/".$msg."/".$about_us_query; die();
     $this->email->set_newline("\r\n");
-    $this->email->from('contact@danaoshs.ml');
-    $this->email->to($about_us_query);
+    $this->email->from('inquire@danaoshs.ml');
+    $this->email->to('inquire@danaoshs.ml');
     $this->email->reply_to($email); //User email submited in form
-    $this->email->subject('Contact Us - from '.$name); 
+    $this->email->subject('Inquiry - from '.$name); 
     $this->email->message($msg);
-    if (!$this->email->send()) {
-      show_error($this->email->print_debugger()); }
-    else {
-      echo 'Your e-mail has been sent!';
+    if (!$this->email->send()) 
+    {
+        echo 'Your e-mail not sent!';
     }
-  }
+    else 
+    {
+      echo "<p style='color: green;'>Your e-mail has been sent!</p>";
+    }
+}
+function _process_delete($update_id)
+{
+    //attempt to delete the facility options
+    //$this->load->module('module name');
+    //$this->module name->_delete_for_item($update_id);
+
+    //attempt to delete the facility big pic
+    //attempt to delete the facility small pic
+    $data = $this->fetch_data_from_db($update_id);
+    $big_pic = $data['big_pic'];
+    $small_pic = $data['small_pic'];
+
+    $big_pic_path = './school_logo/big_pic/'.$big_pic;
+    $small_pic_path = './school_logo/small_pic/'.$small_pic;  
+    
+    if (file_exists($big_pic_path))
+    {
+        unlink($big_pic_path);
+    }
+    if (file_exists($small_pic_path))
+    {
+        unlink($small_pic_path);
+    }
+    $this->_delete($update_id);
+
+    //delete the faciitiy record from store_items
+
+
+}
+function delete($update_id)
+{
+    if (!is_numeric($update_id))
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_admin();
+
+    $submit = $this->input->post('submit', TRUE);
+    if ($submit=="Cancel")
+    {
+        redirect('school_info/manage/');
+    }
+    elseif ($submit=="Yes - Delete School")
+    {   
+        
+        $this->_process_delete($update_id);
+        $flash_msg = "The school was successfully deleted";
+        $value = '<div class="alert alert-success" role="alert">'.$flash_msg.'</div>';
+        $this->session->set_flashdata('school_logo', $value);
+        redirect('school_info/manage');
+    }
+
+
+   
+}
+
+function deleteconf($update_id)
+{
+
+    if (!is_numeric($update_id))
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_admin();
+
+
+    $data['headline'] = "Delete School";
+    $data['update_id'] = $update_id;
+    $data['flash'] = $this->session->flashdata('school_logo');
+    $data['view_file'] = "deleteconf";
+    $this->load->module('templates');
+    $this->templates->schooladmin($data); 
+}
+
+function delete_image($update_id) 
+{
+    if (!is_numeric($update_id))
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_school_admin();
+
+    $data = $this->fetch_data_from_db($update_id);
+    $big_pic = $data['big_pic'];
+    $small_pic = $data['small_pic'];
+
+    $big_pic_path = './school_logo/big_pic/'.$big_pic;
+    $small_pic_path = './school_logo/small_pic/'.$small_pic;   
+
+
+    //attempt to remove the images
+    if (file_exists($big_pic_path))
+    {
+        unlink($big_pic_path);
+    }
+    if (file_exists($small_pic_path))
+    {
+        unlink($small_pic_path);
+    }
+
+    //update the database
+    unset($data);
+    $data['big_pic'] = "";
+    $data['small_pic'] = "";
+    $this->_update($update_id, $data);
+
+    $flash_msg = "The facility image was successfully deleted";
+                $value = '<div class="alert alert-success" role="alert">'.$flash_msg.'</div>';
+                $this->session->set_flashdata('school_logo', $value);
+    redirect('school_info/update/'.$update_id);
+
+}
+
+function _generate_thumbnail($file_name) 
+{
+    $config['image_library']    = 'gd2';
+    $config['source_image']     = './school_logo/big_pic/'.$file_name;
+    $config['new_image']        = './school_logo/small_pic/'.$file_name;
+    $config['maintain_ratio']   =  TRUE;
+    $config['width']            =  100;
+    $config['height']           =  100;
+
+    $this->load->library('image_lib', $config);
+    $this->image_lib->resize();
+}
+
+function do_upload($update_id)
+{
+    if (!is_numeric($update_id)) 
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_school_admin();
+
+
+    $submit = $this->input->post('submit', TRUE);
+
+    if ($submit=="Cancel")
+    {
+        redirect('school_info/update/'.$update_id);
+    }
+
+    $config['upload_path']      ='./school_logo/big_pic';
+    $config['allowed_types']    ='jpg|png';
+    $config['max_size']         = 1000;
+    $config['max_width']        = 600;
+    $config['max_height']       = 600;
+
+    $this->load->library('upload', $config);
+
+
+    if (!$this->upload->do_upload('userfile'))
+    {
+        $data['error'] = array('error' => $this->upload->display_errors("<p style='color: red; text-align: center;'>", "</p>"));
+        
+        $data['headline'] = "Upload Error";
+        $data['update_id'] = $update_id;
+        $data['flash'] = $this->session->flashdata('school_logo');
+        $data['view_file'] = "upload_image";
+        $this->load->module('templates');
+        $this->templates->schooladmin($data); 
+    }
+    else 
+    {   
+        //upload was successful
+        $data = array('upload_data' => $this->upload->data());
+        $upload_data = $data['upload_data'];
+        $file_name = $upload_data['file_name'];
+        $this->_generate_thumbnail($file_name);
+
+        //update the database
+        $update_data['big_pic'] = $file_name;
+        $update_data['small_pic'] = $file_name;
+        $this->_update($update_id, $update_data);
+        $data['headline'] = "Upload Success";
+        $data['update_id'] = $update_id;
+        $data['flash'] = $this->session->flashdata('school_logo');
+        $data['view_file'] = "upload_success";
+        $this->load->module('templates');
+        $this->templates->schooladmin($data); ;
+
+    }
+}
+function upload_image($update_id)
+{   
+
+    if (!is_numeric($update_id)) 
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_school_admin();
+
+    $update_id = $this->uri->segment(3);
+    $data['headline'] = "Upload School Logo";
+    $data['update_id'] = $update_id;
+    $data['flash'] =  $this->session->flashdata('school_logo');
+    $data['view_file'] = "upload_image";
+    $this->load->module('templates');
+    $this->templates->schooladmin($data);
+}
+
+
+
 
 function profile()
 {
@@ -48,8 +265,8 @@ function profile()
     $this->load->module('school_strands');
     $this->load->module('strands');
     
-    $school_url = $this->uri->segment(3);
-    $school_id = $this->_get_school_id_from_school_name_url($school_url);
+    $school_name_url = $this->uri->segment(3);
+    $school_id = $this->_get_school_id_from_school_name_url($school_name_url);
     //query
     
     $data = $this->fetch_data_from_db($school_id);
@@ -151,7 +368,7 @@ function update()
                 $this->_update($update_id, $data);
                 $flash_msg = "The school info details were successfully updated";
                 $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
-                $this->session->set_flashdata('school_info', $value);
+                $this->session->set_flashdata('school', $value);
                 redirect('school_info/update/'.$update_id);
                 
 
@@ -180,7 +397,7 @@ function update()
     
 
     $data['update_id'] = $update_id;
-    $data['flash'] =  $this->session->flashdata('school_info');
+    $data['flash'] =  $this->session->flashdata('school');
     $data['view_module'] = "school_info";
     $data['view_file'] = "update";
     $this->load->module('templates');
@@ -199,7 +416,7 @@ function create()
     
     if ($submit=="Cancel")
     {
-        redirect('school_info/manage');
+        redirect('school/manage');
     }
 
     if ($submit=="Submit")
@@ -234,7 +451,7 @@ function create()
                 $this->_update($update_id, $data);
                 $flash_msg = "The school info details were successfully updated";
                 $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
-                $this->session->set_flashdata('school_info', $value);
+                $this->session->set_flashdata('school', $value);
                 redirect('school_info/create/'.$update_id);
                 
 
@@ -245,7 +462,7 @@ function create()
                 $update_id = $this->get_max(); //get the idof the new strand
                 $flash_msg = "A new school info were successfully added";
                 $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
-                $this->session->set_flashdata('school_info', $value);
+                $this->session->set_flashdata('school', $value);
                 redirect('school_info/create/'.$update_id);
             }
         }
@@ -276,7 +493,7 @@ function create()
     
 
     $data['update_id'] = $update_id;
-    $data['flash'] =  $this->session->flashdata('school_info');
+    $data['flash'] =  $this->session->flashdata('school');
     $data['view_module'] = "school_info";
     $data['view_file'] = "create";
     $this->load->module('templates');
@@ -334,8 +551,8 @@ function fetch_data_from_db($update_id)
         $data['locationurl'] = $row->locationurl;
         $data['calendar'] = $row->calendar;
         $data['avetuition'] = $row->avetuition;
-        $data['logoname'] = $row->logoname;
-        $data['slogoname'] = $row->slogoname;
+        $data['big_pic'] = $row->big_pic;
+        $data['small_pic'] = $row->small_pic;
 
     }
     if (!isset($data))

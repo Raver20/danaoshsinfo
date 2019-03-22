@@ -5,7 +5,7 @@
         
             <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                    <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                    <img alt="User Pic" src="<?= base_url() ?>school_logo/big_pic/<?= $big_pic ?>"onerror="this.onerror=null;this.src='<?php echo base_url(); ?>public_bootstrap/assets/images/school_logo.png';" id="profile-image1" class="img-square img-responsive"> 
                 </div>
                 <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
                     <div class="container" >
@@ -121,13 +121,13 @@
                                                                 <div class="col-sm-4">
                                                                     
                                                                     <div class="panel-group styled-accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading smoothie" role="tab" id="headingOne">
+                                                                    <div class="panel panel-default">
+                                                                            <div class="panel-heading panel-open smoothie" role="tab" id="headingOne">
                                                                                 <h4 class="panel-title">
-                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Strands Offered</a>
+                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Strands Offered</a>
                                                                                 </h4>
                                                                             </div>
-                                                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                                                                 <div class="panel-body">
                                                                                     <?php
                                                                                         foreach ($strands_by_query as $row) {
@@ -187,15 +187,17 @@
                                                 <hr/>
                                                 <div class="col-sm-6 ">
                                                     <div class="row">
+                                                        <h1 style="text-align: center;">Inquiry</h1>
                                                         <div id="message" class="col-sm-12"></div>
                                                         <div class="col-sm-12">
                                                         <?php
-                                                             $email_form = base_url().'school_info/sendemail'
+                                                             $email_form = base_url().'school_info/sendemail';
                                                         ?>
                                                             <form method="post" action="<?= $email_form ?>" id="contactform" class="main-contact-form">
                                                                 <div class="form-group">
+                                                                    <input type="text" class="form-control col-md-4 mb20" name="school_email" value="<?= $emailaddress ?>" placeholder="Your Name *" id="school_email"  />
                                                                     <input type="text" class="form-control col-md-4 mb20" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." />
-                                                                    <input type="text" class="form-control col-md-4 mb20" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
+                                                                    <input type="text" class="form-control col-md-4 mb20" name="email" value="<?= $emailaddress ?>" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
                                                                 </div>
                                                                 <textarea name="comments" class="form-control mb20" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
                                                                 <input class="btn btn-primary mt30 pull-right" type="submit" name="submit" value="Submit" />
@@ -205,16 +207,14 @@
                                                 </div>                   
                                             </div>
                                         </div>
-                                    
-                                        <!-- facilities SECTION -->
-                                        <div role="tabpanel" class="tab-pane fade" id="facilities">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="facilities">
                                             <div class="tab-inner">
-                                                <div class="row">
-                                                    <div class="col-sm-12 mb40">
-                                                        <div class="row">
-                                                        <section id="our-courses">
-                                                            <div class="section-inner">
-                                                                <div class="container">
+                                                <section id="our-courses">
+                                                    <div class="section-inner">
+                                                        <div class="container">
+                                                        
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
                                                                     <div class="row">
                                                                     <?php
                                                                         foreach ($facility_query->result() as $row) {
@@ -237,16 +237,19 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <?php } ?>
+                                                                    <?php } ?>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
-                                                        </section>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div> 
-                                        </div>
+                                                </section>     
+                                                <hr/>
+                                                                 
+                                            </div>
+                                        </div>                                                    
+                                       
                         
                                         <!-- End of tabpanel -->                                 
                                     </div>

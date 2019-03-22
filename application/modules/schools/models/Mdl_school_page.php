@@ -32,6 +32,7 @@ function get_school_search($order_by_key,$schoolname, $typeofschool)
     {
         $this->db->like('schoolname', $schoolname);
     }
+    
 
     $query=$this->db->get($table);
     return $query;

@@ -1,7 +1,7 @@
 <section>
     <div class="section-inner">
         <div class="container">
-<section class="search-sec" style="margin-left: 100px; margin-top: 80px;">
+<section class="search-sec" style="margin-top: 80px;">
     <div class="container">
     <?php
         $school_url = base_url()."schools/search";
@@ -10,19 +10,31 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12 p-0">
-                            <input type="text" name="search" class="form-control search-slt" placeholder="Enter School Name">
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                            <input type="text" name="search" value="<?= $search_schoolname ?>" class="form-control search-slt" placeholder="Enter School Name">
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                        <div class="col-lg-2 col-md-2 col-sm-12 p-0">
                             <select name="typeofschool" class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option value="">Filter by</option>
-                                <option value="public">Public</option>
-                                <option value="private">Private</option>
+                                <option value="">Filter by Type</option>
+                                <option value="public" <?= $search_typeofschool == 'public' ? 'selected' : '' ?> >Public</option>
+                                <option value="private" <?= $search_typeofschool == 'private' ? 'selected' : '' ?> >Private</option>
                             </select>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                        <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                            <select name="strand" class="form-control search-slt" id="exampleFormControlSelect1">
+                                <option value="">Filter by Strand</option>
+                            <?php
+                                foreach ($school_strands_query->result() as $row) {
+                            ?>
+                                <option value="<?= $row->strand_id ?>" <?= $search_strand == $row->strand_id ? 'selected' : '' ?>><?= $row->strand_name ?></option>
+                            <?php } ?>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 p-0">
                             <button type="submit" name="submit" value="Submit" class="btn btn-danger wrn-btn">Search</button>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -44,7 +56,7 @@
         
         <div class="row">
         <?php
-            foreach ($page_query->result() as $row) {
+            foreach ($page_query as $row) {
                 $school_url = base_url()."school_info/profile/".$row->school_name_url;
         ?>
             <div class="col-sm-6 match-height mb40">

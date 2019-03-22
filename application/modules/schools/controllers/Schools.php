@@ -13,18 +13,54 @@ function search()
     {
         $typeofschool = $this->input->post('typeofschool', TRUE);
         $search = $this->input->post('search', TRUE);
-        redirect('schools?type='.$typeofschool."&search=".$search);
+        $search_strand = $this->input->post('strand', TRUE);
+        redirect('schools?type='.$typeofschool."&search=".$search."&strand=".$search_strand);
     }
 }
 
 function index()
 {
     $this->load->module('school_info');
+    $this->load->module('school_strands');
+    $this->load->module('strands');
     
     $typeofschool = $this->input->get('type', TRUE);
     $schoolname = $this->input->get('search', TRUE);
+    $strand_id_search = $this->input->get('strand', TRUE);
+    $school_results = $this->get_school_search('schoolname', $schoolname, $typeofschool)->result();
+
+    $search_results = array();
+
+    if ($strand_id_search)
+    {
+        foreach ($school_results as $school_row)
+        {
+            $strands = $this->school_strands->get_by_school_id($school_row->school_id)->result();
+            
+            if($strands)
+            {
+                    foreach ($strands as $strand_row)
+                    {
+                        if ($strand_row->strand_id == (int)$strand_id_search)
+                        {
+                            array_push($search_results,$school_row);
+                        }
+                    }
+            }
+
+        }
+    }
+    else
+    {
+        $search_results = $school_results;
+    }
     
-    $data['page_query'] = $this->get_school_search('schoolname', $schoolname, $typeofschool);
+    
+    $data['school_strands_query'] = $this->strands->get('strand_name');
+    $data['page_query']= $search_results;
+    $data['search_typeofschool']= $typeofschool;
+    $data['search_schoolname']= $schoolname;
+    $data['search_strand']= $strand_id_search;
     $data['view_module'] = "schools";
     $data['view_file'] = "schools";
     $this->load->module('templates');

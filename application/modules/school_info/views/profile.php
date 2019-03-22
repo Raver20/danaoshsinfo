@@ -193,11 +193,11 @@
                                                         <?php
                                                              $email_form = base_url().'school_info/sendemail';
                                                         ?>
-                                                            <form method="post" action="<?= $email_form ?>" id="contactform" class="main-contact-form">
+                                                            <form method="post" action="<?= $email_form ?>" id="inquireform" class="main-contact-form">
                                                                 <div class="form-group">
-                                                                    <input type="text" class="form-control col-md-4 mb20" name="school_email" value="<?= $emailaddress ?>" placeholder="Your Name *" id="school_email"  />
-                                                                    <input type="text" class="form-control col-md-4 mb20" name="name" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name." />
-                                                                    <input type="text" class="form-control col-md-4 mb20" name="email" value="<?= $emailaddress ?>" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
+                                                                    <input type="hidden" class="form-control col-md-4 mb20" name="schoolemail" value="<?= $emailaddress ?>" placeholder="Your Name *" id="schoolemail"  />
+                                                                    <input type="text" class="form-control col-md-4 mb20" name="sendname" placeholder="Your Name *" id="sendname" required data-validation-required-message="Please enter your name." />
+                                                                    <input type="text" class="form-control col-md-4 mb20" name="sendemail"placeholder="Your Email *" id="sendemail" required data-validation-required-message="Please enter your email address." />
                                                                 </div>
                                                                 <textarea name="comments" class="form-control mb20" id="comments" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
                                                                 <input class="btn btn-primary mt30 pull-right" type="submit" name="submit" value="Submit" />

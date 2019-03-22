@@ -18,6 +18,7 @@ function sendemail()
     'wordmap' => TRUE ); 
   
     $this->load->library('email', $config); 
+    $school_email = "raver.glen@gmail.com";
     $email = $this->input->post('email', TRUE);
     $name = $this->input->post('name', TRUE);
     $msg = $this->input->post('comments', TRUE);
@@ -25,7 +26,7 @@ function sendemail()
 
     $this->email->set_newline("\r\n");
     $this->email->from('inquire@danaoshs.ml');
-    $this->email->to('inquire@danaoshs.ml');
+    $this->email->to($school_email);
     $this->email->reply_to($email); //User email submited in form
     $this->email->subject('Inquiry - from '.$name); 
     $this->email->message($msg);
@@ -416,7 +417,7 @@ function create()
     
     if ($submit=="Cancel")
     {
-        redirect('school/manage');
+        redirect('school_info/manage');
     }
 
     if ($submit=="Submit")

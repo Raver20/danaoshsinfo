@@ -5,7 +5,7 @@
         
             <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                    <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                    <img alt="User Pic" src="<?= base_url() ?>school_logo/big_pic/<?= $big_pic ?>"onerror="this.onerror=null;this.src='<?php echo base_url(); ?>public_bootstrap/assets/images/school_logo.png';" id="profile-image1" class="img-square img-responsive"> 
                 </div>
                 <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
                     <div class="container" >
@@ -207,16 +207,14 @@
                                                 </div>                   
                                             </div>
                                         </div>
-                                    
-                                        <!-- facilities SECTION -->
-                                        <div role="tabpanel" class="tab-pane fade" id="facilities">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="facilities">
                                             <div class="tab-inner">
-                                                <div class="row">
-                                                    <div class="col-sm-12 mb40">
-                                                        <div class="row">
-                                                        <section id="our-courses">
-                                                            <div class="section-inner">
-                                                                <div class="container">
+                                                <section id="our-courses">
+                                                    <div class="section-inner">
+                                                        <div class="container">
+                                                        
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
                                                                     <div class="row">
                                                                     <?php
                                                                         foreach ($facility_query->result() as $row) {
@@ -239,16 +237,19 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <?php } ?>
+                                                                    <?php } ?>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
-                                                        </section>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div> 
-                                        </div>
+                                                </section>     
+                                                <hr/>
+                                                                 
+                                            </div>
+                                        </div>                                                    
+                                       
                         
                                         <!-- End of tabpanel -->                                 
                                     </div>

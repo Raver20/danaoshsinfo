@@ -2,7 +2,6 @@
 <div class="col-md-12 mb40">
 	<div class="row">
         <div class="col-xs-12">
-        	
             <h1 style="color: #707070" class="mt0 mb40">Welcome to Dashboard <?= $schoolname ?></h1>
             <!-- Widgets -->
             <div class="row clearfix">
@@ -50,9 +49,57 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
             <!-- #END# Widgets -->
                
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        <span class="label label-success"><?= $totalratings ?></span> Review(s)
+                    </h2>
+                    
+                </div>
+                <div class="body table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Review</th>
+                                <th>Rating</th>
+                      
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                foreach ($ratings->result() as $row) {
+                             
+                            ?>
+                            <tr>
+                                <td><?= $row->review ?></td>
+
+                                <td>
+                                    <?php  
+                                        for ($x = 1; $x <= 5; $x++) {
+                                            if($x<=$row->rate)
+                                            {
+                                                echo '<span class="glyphicon glyphicon-star" style="color:yellow;"></span>';
+                                            }
+                                            else
+                                            {
+                                                echo '<span class="glyphicon glyphicon-star"></span>';
+                                            }
+                                        }
+                                    ?>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
        
     </div>

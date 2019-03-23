@@ -44,6 +44,69 @@
                 </div>
             </div>
         </div>
+        
+        <section id="our-courses" style="padding-top: 50px; text-align:center;">
+            <div class="section-inner">
+                <div class="container">
+                    <div class="row">
+                        <h1> Top 3 Most Rated School</h1>
+                        <div class="col-md-4 mb40 match-height">
+                            <div class="hover-effect smoothie">
+                                <a href="#" class="smoothie">
+                                <img src="<?php echo base_url() ?>public_bootstrap/assets/images/blog-1.jpeg" alt="Image" class="img-responsive smoothie"></a>
+                                <div class="hover-overlay smoothie text-center">
+                                    <div class="vertical-center-js">
+                                        <h4>Student Reaches Goal</h4>
+                                    </div>
+                                </div>
+                                <div class="hover-caption dark-overlay smoothie text-center">
+                                    <div class="vertical-center-js">
+                                        <p class="mb20"><small>Credibly monetize empowered portals before distinctive methodologies. Distinctively customize multifunctional metrics before accurate technologies. Energistically matrix cooperative sources rather than virtual supply chains.</small></p>
+                                        <a href="single-team.html" class="btn btn-primary btn-green">View Article</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb40 match-height">
+                            <div class="hover-effect smoothie">
+                                <a href="#" class="smoothie">
+                                <img src="<?php echo base_url() ?>public_bootstrap/assets/images/blog-2.jpg" alt="Image" class="img-responsive smoothie"></a>
+                                <div class="hover-overlay smoothie text-center">
+                                    <div class="vertical-center-js">
+                                        <h4>Unique Skills</h4>
+                                    </div>
+                                </div>
+                                <div class="hover-caption dark-overlay smoothie text-center">
+                                    <div class="vertical-center-js">
+                                        <p class="mb20"><small>Credibly monetize empowered portals before distinctive methodologies. Distinctively customize multifunctional metrics before accurate technologies. Energistically matrix cooperative sources rather than virtual supply chains.</small></p>
+                                        <a href="single-team.html" class="btn btn-primary btn-green">View Article</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb40 match-height">
+                            <div class="hover-effect smoothie">
+                                <a href="#" class="smoothie">
+                                <img src="<?php echo base_url() ?>public_bootstrap/assets/images/blog-3.jpg" alt="Image" class="img-responsive smoothie"></a>
+                                <div class="hover-overlay smoothie text-center">
+                                    <div class="vertical-center-js">
+                                        <h4>Summer Jams</h4>
+                                    </div>
+                                </div>
+                                <div class="hover-caption dark-overlay smoothie text-center">
+                                    <div class="vertical-center-js">    
+                                        <p class="mb20"><small>Credibly monetize empowered portals before distinctive methodologies. Distinctively customize multifunctional metrics before accurate technologies. Energistically matrix cooperative sources rather than virtual supply chains.</small></p>
+                                        <a href="single-team.html" class="btn btn-primary btn-green">View Article</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
         </div>
     </div>
 </section>

@@ -21,6 +21,7 @@
                                     <select class="form-control show-tick" name="strand_id" data-live-search="true">
                                     <?php
                                         foreach ($school_strands_query->result() as $row) {
+                                            
                                     ?>
                                         <option value="<?= $row->strand_id ?>"><?= $row->strand_name ?></option>
                                     <?php } ?>
@@ -63,14 +64,14 @@
                     <tbody>
                     	<?php
                     		foreach ($strands_by_query as $row) {
-                               
+                            $delete_requiremtns_url = base_url()."school_strands/delete/".$row->school_strand_id;
                              
                     	?>
                     
                         <tr>
                            	<td><?= $row->strand_name; ?></td>
                             <td>
-                                <a href=""><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
+                                <a href="<?= $delete_requiremtns_url ?>"><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
                             </td>
                         </tr>
                     	<?php } ?>

@@ -106,7 +106,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div style="width: 100%">
-                                                                                <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=P.G%20Almendras%20St.%2C%20Danao%20City+(Your%20Business%20Name)&ie=UTF8&t=&z=16&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                                                                <iframe width="100%" height="400" src="<?= $locationurl ?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                                                                                 <a href="https://www.mapsdirections.info/en/custom-google-maps/">Create Google Map</a> by 
                                                                                 <a href="https://www.mapsdirections.info/en/">Measure area on map</a>
                                                                                 </iframe>
@@ -229,12 +229,17 @@
                                                         <div class="col-sm-3">
                                                         </div>
                                                         <br/>
+                                                        <br/>
+                                                        <br/>
+                                                        <br/>
+                                                        <br/>
+                                                        
                                                         <div class="col-lg-12 col-md-12 col-sm-12 p-0" style="margin-left: 40px;">
-                                                            <textarea name="writereview" class="form-control mb20" id="writereview" placeholder="Write you review..."></textarea>                                                            
+                                                            <textarea name="writereview" class="form-control mb20" id="writereview" placeholder="Write your review..."></textarea>                                                            
                                                         </div>
                                                        
-                                                        <div class="col-lg-2 col-md-2 col-sm-12 p-0" style="margin-top:20px; margin-left:82%;">
-                                                            <button type="submit" name="submit" value="Submit" class="btn btn-info wrn-btn">Submit</button>
+                                                        <div class="col-lg-2 col-md-2 col-sm-12 p-0" style="margin-left:82%;">
+                                                            <button type="submit" name="submit" value="Submit" class="btn btn-primary wrn-btn">Submit</button>
                                                         </div>
                                                     </div>
                                                     

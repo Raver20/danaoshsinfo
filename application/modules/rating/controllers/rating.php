@@ -5,14 +5,42 @@ class Rating extends MX_Controller
 function __construct() {
 parent::__construct();
 }
+function school_rate()
+{
+    
+    $submitRate = $this->input->post('submit_rate', TRUE);
+
+    if ($submitRate=="SubmitRate")
+    {
+        //process the form
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('rating', "Rate", 'required|trim');
+        $this->form_validation->set_rules('review', "Review", 'required|trim');
+        $school_name_url = $this->input->post("school_name_url", TRUE);
+        if ($this->form_validation->run() == TRUE)
+        {
+            //get the variables
+            $data = $this->fetch_data_from_post();
+            //update the strand details
+            $this->_insert($data);
+            $flash_msg = "Your review were successfully submitted.";
+            $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
+            
+            redirect('school_info/profile/'.$school_name_url."?ratingStatus=success#rateForm");
+
+        }
+    }
+    
+    redirect('school_info/profile/'.$school_name_url."#rateForm");
+}
 
 
 function fetch_data_from_post()
-{
-    $admin_id = ($this->session->userdata['admin']['userid']);
-    $data['admin_id'] = $admin_id;
-    $data['rating'] = $this->input->post('rating', TRUE);
-    $data['writereview'] = $this->input->post('writereview', TRUE);
+{   
+
+    $data['school_id'] = $this->input->post('school_id', TRUE);
+    $data['rate'] = $this->input->post('rating', TRUE);
+    $data['review'] = $this->input->post('review', TRUE);
     
     return $data;
 }

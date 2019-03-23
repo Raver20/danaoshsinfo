@@ -209,8 +209,21 @@
                                                         <?php
                                                             $register = base_url()."rating/school_rate";
                                                         ?>
-                                                        <form method="post" action="<?= $register ?>">
+                                                        <form id="rateForm" method="post" action="<?= $register ?>">
                                                         <h1 style="text-align: center;">WRITE A REVIEW</h1>
+                                                        <? $ratingStatus ?>
+                                                        <?php
+                                                            if ($ratingStatus == "success")
+                                                            {
+                                                        ?>
+                                                            <div class="alert alert-success">
+                                                                <!-- you missed this line of code -->
+                                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                                <strong>Success!</strong> Your review were successfully submitted.
+                                                            </div>
+                                                        <?php
+                                                            }
+                                                        ?>
                                                         <div class="col-sm-3">
                                                         </div>
                                                         <div class="col-sm-6">
@@ -234,10 +247,11 @@
                                                         <br/>
                                                         <br/>
                                                         <br/>
-                                                        
+                                                        <input type="hidden" name="school_id" value="<?= $school_id ?>"/>
+                                                        <input type="hidden" name="school_name_url" value="<?= $school_name_url ?>"/>
                                                         <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-                                                            <textarea name="writereview" class="form-control mb20" id="writereview" placeholder="Write your review..."></textarea> 
-                                                            <button type="submit" name="submit" value="Submit" class="btn btn-primary wrn-btn pull-right">Submit</button>                                                           
+                                                            <textarea name="review" class="form-control mb20" id="review" placeholder="Write your review..."></textarea> 
+                                                            <button type="submit" name="submit_rate" value="SubmitRate" class="btn btn-primary wrn-btn pull-right">Submit</button>                                                           
                                                         </div>
                                                         </form>
                                                     

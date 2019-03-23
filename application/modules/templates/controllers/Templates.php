@@ -37,8 +37,6 @@ function schooladmin($data) {
         $data['view_module'] = $this->uri->segment(1);
     }
     
-    $this->load->module('school_info');
-    $data['school_logo'] = $this->school_info->get_by_id('school_id');
     $this->load->view('schooladmin', $data);
 }
 function login($data) {

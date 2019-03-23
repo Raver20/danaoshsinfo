@@ -71,10 +71,11 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="<?php echo base_url(); ?>adminfiles/assets/images/user.png" width="48" height="48" alt="User" />
+                    <img src="<?php echo base_url().'school_logo/small_pic/'.$_SESSION['schooladmin']['small_pic']?>" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                  
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['schooladmin']['emailaddress'] ?></div>
 
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>

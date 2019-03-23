@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Mdl_login extends CI_Model
+class Mdl_rating extends CI_Model
 {
 
 function __construct() {
@@ -7,30 +7,8 @@ parent::__construct();
 }
 
 function get_table() {
-    $table = "school_info";
+    $table = "rating";
     return $table;
-}
-
-function check_user()
-{
-    $q = array();
-
-    $this->db->where("user",$this->user);
-    $this->db->where("password",$this->password);
-    $c = $this->db->get('school_info');
-  
-    if($c->num_rows() > 0 ){
-        $q = array(
-            'username' => $c->row()->username,
-            'school_id' => $c->row()->school_id,
-            'emailaddress' => $c->row()->emailaddress,
-            'schoolname' => $c->row()->schoolname,
-            'small_pic' => $c->row()->small_pic,
-        );
-        
-
-    }
-    return $q;
 }
 
 function get($order_by){

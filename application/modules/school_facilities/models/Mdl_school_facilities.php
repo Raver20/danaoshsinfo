@@ -92,7 +92,7 @@ function get_max() {
 }
 
 function _custom_facility_query($mysql_facility_query) {
-    $facility_query = $this->db->facility_query($mysql_facility_query);
+    $facility_query = $this->db->query($mysql_facility_query);
     return $facility_query;
 }
 

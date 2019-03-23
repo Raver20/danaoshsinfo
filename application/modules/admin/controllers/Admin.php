@@ -53,6 +53,7 @@ public function auth()
             $user = $this->input->post("user");
             $password = $this->input->post("password");
             
+            
             $this->load->model("mdl_login");
             $this->mdl_login->user = $user;
             $this->mdl_login->password = $password;

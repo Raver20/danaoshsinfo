@@ -1,5 +1,13 @@
 <h1>Manage Schools Strands</h1>
+<?= Validation_errors("<p style='color: red;'>", "</p>") ?>
 
+<?php
+	if (isset($flash))
+	{
+		echo $flash;
+	}
+
+?>
 
 <?php
 	$add_school_strand_url = base_url()."school_strands/manage";
@@ -64,13 +72,18 @@
                     <tbody>
                     	<?php
                     		foreach ($strands_by_query as $row) {
-                            $delete_school_strands = base_url()."school_strands/delete/".$row->school_strand_id;
+                               
+
+                                
+                            $delete_school_strands = base_url()."school_strands/delete/".$row['school_strand'];
+
+                                
                              
                     	?>
                     
                         <tr>
-                           	<td><?= $row->strand_name; ?></td>
-                            <td>
+                           	<td><?php  echo $row['strand_name']; ?></td>
+                           	<td>
                                 <a href="<?= $delete_school_strands ?>"><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
                             </td>
                         </tr>

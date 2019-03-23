@@ -52,8 +52,9 @@ public function auth()
         {
            
             $user = $this->input->post("user");
-            $password = $this->input->post("password");
-            
+            $password = $this->input->post('password');
+            $password = base64_encode(md5($password, true));
+
             $this->load->model("mdl_login");
             $this->mdl_login->user = $user;
             $this->mdl_login->password = $password;

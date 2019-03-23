@@ -40,7 +40,11 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <div class="form-line">
+                                   <?php if($update_id) { ?>
                                     <input type="password" class="form-control" name="password" value="<?= $password ?>" placeholder="Password" />
+                                   <?php } else{ ?>
+                                    <input type="password" class="form-control" name="password" value="" placeholder="Password" />
+                                   <?php }?>
                                 </div>
                             </div>
                         </div>

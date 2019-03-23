@@ -48,7 +48,7 @@ function update_pword()
     $this->site_security->_make_sure_is_school_admin();
   
     $update_id = $this->uri->segment(3);
-    $submit = $this->input->post('submit', TRUE);
+    $submit = $this->input->post('update_info', TRUE);
     
     if (!is_numeric($update_id))
     {
@@ -59,21 +59,21 @@ function update_pword()
         redirect('school_info/update');
     }
 
-    if ($submit=="Submit")
+    if ($submit=="Submit")  
     {
         //process the form
        
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('password', "Password" , 'required|min_length[5|max_length[35]');
-        $this->form_validation->set_rules('repeat_password', "Repeat Password" , 'required|matched[password]');
+        $this->form_validation->set_rules('password', "Password" , 'required|max_length[35]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 
 
         if ($this->form_validation->run() == TRUE)
         {
             //get the variables
-
-            $data['password'] = $this->input->post('password', TRUE);
-            
+            $password = $this->input->post('password');
+            $password = base64_encode(md5($password, true));
+            $data['password'] = $password;
 
                 //update the strand details
                 $this->_update($update_id, $data);
@@ -481,7 +481,6 @@ function update()
         $this->load->library('form_validation');
         $this->form_validation->set_rules('schoolname', "School Name" , 'required|trim');
         $this->form_validation->set_rules('user', "User" , 'required|trim');
-        $this->form_validation->set_rules('password', "Password" , 'required|trim');
         $this->form_validation->set_rules('address', "Address" , 'required|trim');
         $this->form_validation->set_rules('telno', "Telephone Number" , 'required|trim');
         $this->form_validation->set_rules('emailaddress', "Email Address" , 'required|trim');
@@ -496,7 +495,7 @@ function update()
         {
             //get the variables
 
-            $data = $this->fetch_data_from_post();
+            $data = $this->fetch_input_school_info();
 
             if (is_numeric($update_id)) 
             {
@@ -652,7 +651,30 @@ function fetch_data_from_post()
     $data['admin_id'] = $admin_id;
     $data['schoolname'] = $this->input->post('schoolname', TRUE);
     $data['user'] = $this->input->post('user', TRUE);
-    $data['password'] = $this->input->post('password', TRUE);
+
+    $password = $this->input->post('password', TRUE);
+    $password = base64_encode(md5($password, true));
+
+    $data['password'] = $password;
+    $data['address'] = $this->input->post('address', TRUE);
+    $data['telno'] = $this->input->post('telno', TRUE);
+    $data['emailaddress'] = $this->input->post('emailaddress', TRUE);
+    $data['typeofschool'] = $this->input->post('typeofschool', TRUE);
+    $data['contactperson'] = $this->input->post('contactperson', TRUE);
+    $data['principal'] = $this->input->post('principal', TRUE);
+    $data['locationurl'] = $this->input->post('locationurl', TRUE);
+    $data['calendar'] = $this->input->post('calendar', TRUE);
+    $data['avetuition'] = $this->input->post('avetuition', TRUE);
+    
+    return $data;
+}
+
+function fetch_input_school_info()
+{
+    $admin_id = ($this->session->userdata['admin']['userid']);
+    $data['admin_id'] = $admin_id;
+    $data['schoolname'] = $this->input->post('schoolname', TRUE);
+    $data['user'] = $this->input->post('user', TRUE);
     $data['address'] = $this->input->post('address', TRUE);
     $data['telno'] = $this->input->post('telno', TRUE);
     $data['emailaddress'] = $this->input->post('emailaddress', TRUE);

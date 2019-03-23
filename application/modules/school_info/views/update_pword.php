@@ -45,7 +45,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password" />
+                                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" />
                                 </div>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                         </div>
                     </div>
                     
-                    <button class="btn btn-primary waves-effect" type="submit" name="submit" value="Submit">SUBMIT</button>
-                    <button class="btn btn-default waves-effect" type="submit" name="submit" value="Cancel">CANCEL</button>
+                    <button class="btn btn-primary waves-effect" type="submit" name="update_info" value="Submit">SUBMIT</button>
+                    <button class="btn btn-default waves-effect" type="submit" name="update_info" value="Cancel">CANCEL</button>
                 </form>
             </div>
         </div>

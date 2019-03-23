@@ -205,23 +205,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6 ">
+                                                <div class="col-sm-6 bg-color-whitesmoke">
                                                     <div class="row">
-                                                        <h1 style="text-align: center;">Rate</h1>
+                                                        <h1 style="text-align: center;">WRITE A REVIEW</h1>
                                                         <div class="col-sm-3">
                                                         </div>
                                                         <div class="col-sm-6">
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="rating">
-                                                                    <input type="radio" id="star10" name="rating" value="10" /><label for="star10" title="Rocks!">5 stars</label>
-                                                                    <input type="radio" id="star9" name="rating" value="9" /><label for="star9" title="Rocks!">4 stars</label>
-                                                                    <input type="radio" id="star8" name="rating" value="8" /><label for="star8" title="Pretty good">3 stars</label>
-                                                                    <input type="radio" id="star7" name="rating" value="7" /><label for="star7" title="Pretty good">2 stars</label>
-                                                                    <input type="radio" id="star6" name="rating" value="6" /><label for="star6" title="Meh">1 star</label>
-                                                                   
+                                                                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                                                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Rocks!">4 stars</label>
+                                                                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Pretty good">3 stars</label>
+                                                                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Pretty good">2 stars</label>
+                                                                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Meh">1 star</label>
                                                                 </div>
-                                                                
 
                                                                 </div>
                                                             </div>
@@ -234,13 +232,12 @@
                                                         <br/>
                                                         <br/>
                                                         
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 p-0" style="margin-left: 40px;">
-                                                            <textarea name="writereview" class="form-control mb20" id="writereview" placeholder="Write your review..."></textarea>                                                            
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                                                            <textarea name="writereview" class="form-control mb20" id="writereview" placeholder="Write your review..."></textarea> 
+                                                            <button type="submit" name="submit" value="Submit" class="btn btn-primary wrn-btn pull-right">Submit</button>                                                           
                                                         </div>
                                                        
-                                                        <div class="col-lg-2 col-md-2 col-sm-12 p-0" style="margin-left:82%;">
-                                                            <button type="submit" name="submit" value="Submit" class="btn btn-primary wrn-btn">Submit</button>
-                                                        </div>
+                                                    
                                                     </div>
                                                     
                                                 </div>                            

@@ -6,6 +6,16 @@ function __construct() {
 parent::__construct();
 }
 
+function _process_delete($update_id)
+{
+    //attempt to delete the facility options
+
+    $data = $this->fetch_data_from_db($update_id);
+   
+    $this->_delete($update_id);
+
+    //delete the faciitiy record from store_items
+}
 function delete($update_id)
 {
     if (!is_numeric($update_id))

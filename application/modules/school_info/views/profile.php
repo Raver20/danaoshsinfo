@@ -1,4 +1,3 @@
-
 <div class="container">    
     <div class="row">
         <div class="panel panel-default">
@@ -207,6 +206,10 @@
                                                 </div>
                                                 <div class="col-sm-6 bg-color-whitesmoke">
                                                     <div class="row">
+                                                        <?php
+                                                            $register = base_url()."rating/school_rate";
+                                                        ?>
+                                                        <form method="post" action="<?= $register ?>">
                                                         <h1 style="text-align: center;">WRITE A REVIEW</h1>
                                                         <div class="col-sm-3">
                                                         </div>
@@ -236,7 +239,7 @@
                                                             <textarea name="writereview" class="form-control mb20" id="writereview" placeholder="Write your review..."></textarea> 
                                                             <button type="submit" name="submit" value="Submit" class="btn btn-primary wrn-btn pull-right">Submit</button>                                                           
                                                         </div>
-                                                       
+                                                        </form>
                                                     
                                                     </div>
                                                     

@@ -57,6 +57,7 @@ public function auth()
             $this->load->model("mdl_login");
             $this->mdl_login->user = $user;
             $this->mdl_login->password = $password;
+            $this->mdl_login->small_pic = $small_pic;
             if($this->mdl_login->check_user())
                 {
 

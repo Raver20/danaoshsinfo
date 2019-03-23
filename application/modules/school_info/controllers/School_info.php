@@ -5,6 +5,7 @@ class School_info extends MX_Controller
 function __construct() {
 parent::__construct();
 }
+
 function sendemail()
 {
     $config = Array( 
@@ -312,7 +313,38 @@ function upload_image($update_id)
     $this->templates->schooladmin($data);
 }
 
+function school_rate()
+{
+    $update_id = $this->uri->segment(3);
+    $submit = $this->input->post('submit', TRUE);
 
+
+    if ($submit=="Submit")
+    {
+        //process the form
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('rating', "Rate" , 'required|trim');
+        $this->form_validation->set_rules('writereview', "Review" , 'required|trim');
+
+        if ($this->form_validation->run() == TRUE)
+        {
+            //get the variables
+
+            $data = $this->fetch_data_from_post();
+            $ip = $_SERVER['REMOTE_ADDR'];
+
+            echo '192.168.0.'. $_SERVER['REMOTE_ADDR']; die();
+            
+                //update the strand details
+                $this->_update($update_id, $data);
+                $flash_msg = "The strand details were successfully updated";
+                $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
+                $this->session->set_flashdata('strand', $value);
+                redirect('Strands/create/'.$update_id);
+           
+        }
+    }
+}
 
 
 function profile()
@@ -376,8 +408,54 @@ function _get_emailaddress_from_school_name_url($emailaddress)
 function dashboard()
 {
     $this->load->module('site_security');
-    $this->site_security->_make_sure_is_school_admin();
+    $this->load->module('requirements');
+    $this->load->module('school_strands');
+    $this->load->module('school_privileges');
+    $this->load->module('school_facilities');
 
+    $this->site_security->_make_sure_is_school_admin();
+    //facilities
+    $mysql_facility_query = "select * from school_facilites where school_id=".$this->session->userdata['schooladmin']['school_id'];
+    $facility_query = $this->school_facilities->_custom_facility_query($mysql_facility_query);
+    $fid = 0;
+    foreach ($facility_query->result() as $row) {
+        if($row->school_id){
+         $fid++;
+        }
+    }
+     //school_strands
+     $mysql_strands_query = "select * from school_strands where school_id=".$this->session->userdata['schooladmin']['school_id'];
+     $school_strands = $this->school_strands->_custom_query($mysql_strands_query);
+     $sid = 0;
+     foreach ($school_strands->result() as $row) {
+         if($row->school_id){
+          $sid++;
+         }
+     }
+
+     //school_requirements
+     $mysql_requirements_query = "select * from school_requirements where school_id=".$this->session->userdata['schooladmin']['school_id'];
+     $school_requirements = $this->requirements->_custom_query($mysql_requirements_query);
+     $rid = 0;
+     foreach ($school_requirements->result() as $row) {
+        if($row->school_id){
+        $rid++;
+        }
+     }
+
+     //school_privileges
+     $mysql_previligies_query = "select * from school_privileges where school_id=".$this->session->userdata['schooladmin']['school_id'];
+     $school_privileges = $this->school_privileges->_custom_query($mysql_previligies_query);
+     $pid = 0;
+     foreach ($school_privileges->result() as $row) {
+        if($row->school_id){
+        $pid++;
+        }
+     }
+    $data['totalfacilities'] = $fid;
+    $data['totalschoolstrands'] = $sid;
+    $data['totalschoolrequirements'] = $rid;
+    $data['totalschoolpreviligies'] = $pid;
     $data['schoolname'] = $this->session->userdata['schooladmin']['schoolname'];
     $data['view_module'] = "school_info";
     $data['view_file'] = "dashboard";

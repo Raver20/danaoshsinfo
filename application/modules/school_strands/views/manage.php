@@ -64,14 +64,14 @@
                     <tbody>
                     	<?php
                     		foreach ($strands_by_query as $row) {
-                            $delete_requiremtns_url = base_url()."school_strands/delete/".$row->school_strand_id;
+                            $delete_school_strands = base_url()."school_strands/delete/".$row->school_strand_id;
                              
                     	?>
                     
                         <tr>
                            	<td><?= $row->strand_name; ?></td>
                             <td>
-                                <a href="<?= $delete_requiremtns_url ?>"><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
+                                <a href="<?= $delete_school_strands ?>"><button type="button" class="btn btn-danger waves-effect"><i class="material-icons">close</i></button></a>
                             </td>
                         </tr>
                     	<?php } ?>

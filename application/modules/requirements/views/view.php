@@ -5,6 +5,7 @@
 <div class="col-md-12 mb40">
 	<div class="row">
         <div class="col-xs-8">
+            <h1>FAQ's</h1>
         	<?php
         		foreach ($requirement_query->result() as $row) {
         			$requirement_id = $row->requirement_id;

@@ -6,6 +6,24 @@ function __construct() {
 parent::__construct();
 }
 
+function delete($update_id)
+{
+    if (!is_numeric($update_id))
+    {
+        redirect('site_security/not_allowed');
+    }
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_school_admin();
+        
+    $flash_msg = "The school strand was successfully deleted";
+    $value = '<div class="alert alert-success" role="alert">'.$flash_msg.'</div>';
+    $this->session->set_flashdata('school_strands', $value);
+    $this->_process_delete($update_id);
+    redirect('school_strands/manage');
+   
+}
 function manage()
 {
     $this->load->module('site_security');

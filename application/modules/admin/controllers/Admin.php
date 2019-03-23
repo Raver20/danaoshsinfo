@@ -27,7 +27,7 @@ function login()
         redirect('school_info/dashboard');
     } 
     elseif (isset($this->session->userdata['admin'])){
-        redirect('strands/manage');
+        redirect('admin/dashboard');
     }
     else 
     {
@@ -65,7 +65,7 @@ public function auth()
                 'userid' => $this->mdl_login->check_user(),
                 );
                 $this->session->set_userdata("admin",$session_data);
-                redirect('strands/manage');
+                redirect('admin/dashboard');
 
                 }
             else

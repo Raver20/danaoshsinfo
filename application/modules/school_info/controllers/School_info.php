@@ -38,6 +38,64 @@ function sendemail()
       echo "<p style='color: green;'>Your e-mail has been sent!</p>";
     }
 }
+
+function update_pword()
+{   
+
+    $this->load->library('session');
+    $this->load->module('site_security');
+    $this->site_security->_make_sure_is_school_admin();
+  
+    $update_id = $this->uri->segment(3);
+    $submit = $this->input->post('submit', TRUE);
+    
+    if (!is_numeric($update_id))
+    {
+        redirect('school_info/update');
+    }
+    elseif ($submit=="Cancel")
+    {
+        redirect('school_info/update');
+    }
+
+    if ($submit=="Submit")
+    {
+        //process the form
+       
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('password', "Password" , 'required|min_length[5|max_length[35]');
+        $this->form_validation->set_rules('repeat_password', "Repeat Password" , 'required|matched[password]');
+
+
+        if ($this->form_validation->run() == TRUE)
+        {
+            //get the variables
+
+            $data['password'] = $this->input->post('password', TRUE);
+            
+
+                //update the strand details
+                $this->_update($update_id, $data);
+                $flash_msg = "The school account password were successfully updated";
+                $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
+                $this->session->set_flashdata('update_pword', $value);
+                redirect('school_info/update_pword/'.$update_id);
+   
+        }
+    }
+
+     $data['headline'] = "Update School Account Password";
+   
+    
+
+    $data['update_id'] = $update_id;
+    $data['flash'] =  $this->session->flashdata('update_pword');
+    $data['view_module'] = "school_info";
+    $data['view_file'] = "update_pword";
+    $this->load->module('templates');
+    $this->templates->schooladmin($data);
+}
+
 function _process_delete($update_id)
 {
     //attempt to delete the facility options

@@ -27,7 +27,7 @@
             <?php        
                 } 
             ?>
-            <a href=""><button class="btn btn-primary waves-effect" type="submit" name="submit" value="Submit">Update Password</button></a>
+            <a href="<?= base_url() ?>school_info/update_pword/<?= $update_id ?>"><button class="btn btn-primary waves-effect" type="submit" name="submit" value="Submit">Update Password</button></a>
                 
             </div>
         </div>

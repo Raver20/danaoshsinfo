@@ -9,8 +9,27 @@ parent::__construct();
 function index()
 {   
     $this->load->module('strands');
+    $this->load->module('rating');
     $data['strand_query'] = $this->strands->get('strand_name');
 
+    $mysql_rating_query = "select school_id, SUM(rate) AS review FROM rating GROUP BY school_id ORDER By review DESC LIMIT 3";
+    $school_requirements = $this->rating->_custom_query($mysql_rating_query);
+    $requirement_results = array();
+    foreach ($school_requirements->result() as $row) {
+    //    echo "aaa";
+    //    echo $row->school_id; 
+        $mysql_schoolinfo_query = "select * from school_info where school_id=".$row->school_id;
+        $school_infos = $this->rating->_custom_query($mysql_schoolinfo_query);
+        foreach ($school_infos->result() as $srow) {
+            // echo 'uiii';
+            // echo $srow->schoolname;
+            // echo $row->school_name_url;
+            array_push($requirement_results,$srow);
+        }
+    }
+    // print_r($requirement_results);
+    // die;
+    $data['most_rated'] = $requirement_results;
     $data['view_module'] = "home";
     $data['view_file'] = "homepage";    
     $this->load->module('templates');

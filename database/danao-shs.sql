@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2019 at 05:17 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Generation Time: Mar 23, 2019 at 05:59 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.2.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -104,8 +104,7 @@ INSERT INTO `school_facilites` (`school_id`, `facility_id`, `facility_name`, `fa
 (10, 7, 'Com Laboratory', 'Com-Laboratory', 'A Computer Laboratory', 'blog-6.jpg', 'blog-6.jpg'),
 (10, 8, 'Science Lab.', 'Science-Lab', 'A Science Laboratory', '15823278_1250177651729728_5366755261536348673_n1.jpg', '15823278_1250177651729728_5366755261536348673_n1.jpg'),
 (7, 9, 'Clinic', 'Clinic', 'A Clinic', 'blog-2.jpg', 'blog-2.jpg'),
-(7, 10, 'Social Hall', 'Social-Hall', 'A Social Hall', 'blog-31.jpg', 'blog-31.jpg'),
-(10, 11, 'Science Lab.', 'Science-Lab', 'asd', 'blog-21.jpg', 'blog-21.jpg');
+(7, 10, 'Social Hall', 'Social-Hall', 'A Social Hall', 'blog-31.jpg', 'blog-31.jpg');
 
 -- --------------------------------------------------------
 
@@ -129,19 +128,19 @@ CREATE TABLE `school_info` (
   `locationurl` varchar(255) NOT NULL,
   `calendar` varchar(20) NOT NULL,
   `avetuition` int(30) NOT NULL,
-  `logoname` varchar(255) NOT NULL,
-  `slogoname` varchar(255) NOT NULL
+  `big_pic` varchar(255) NOT NULL,
+  `small_pic` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `school_info`
 --
 
-INSERT INTO `school_info` (`admin_id`, `school_id`, `schoolname`, `school_name_url`, `user`, `password`, `address`, `telno`, `emailaddress`, `typeofschool`, `contactperson`, `principal`, `locationurl`, `calendar`, `avetuition`, `logoname`, `slogoname`) VALUES
-(1, 7, 'Colegio de San Antonio de Padua (CSA)', 'Colegio-de-San-Antonio-de-Padua-CSA', 'csa', 'admin', 'Guinsay', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', ''),
-(1, 8, 'Sto. Tomas College (STC)', 'Sto-Tomas-College-STC', 'stc', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', ''),
-(1, 9, 'Rosemont Hills Montessori College', 'Rosemont-Hills-Montessori-College', 'rose', 'admin', 'Sabang', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', ''),
-(0, 10, 'Northeastern Cebu Colleges, Inc. (NCC)', 'Northeastern-Cebu-Colleges-Inc-NCC', 'ncc1', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Public', 'Glenn Jopia', 'Glenn Jopia', 'asdasdasdasd', 'Semester', 8000, '', '');
+INSERT INTO `school_info` (`admin_id`, `school_id`, `schoolname`, `school_name_url`, `user`, `password`, `address`, `telno`, `emailaddress`, `typeofschool`, `contactperson`, `principal`, `locationurl`, `calendar`, `avetuition`, `big_pic`, `small_pic`) VALUES
+(1, 7, 'Colegio de San Antonio de Padua (CSA)', 'Colegio-de-San-Antonio-de-Padua-CSA', 'csa', 'admin', 'Guinsay', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=padua%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, 'csa.jpg', 'csa.jpg'),
+(1, 8, 'Sto. Tomas College (STC)', 'Sto-Tomas-College-STC', 'stc', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=stc%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, '', ''),
+(1, 9, 'Rosemont Hills Montessori College', 'Rosemont-Hills-Montessori-College', 'rose', 'admin', 'Sabang', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=rosemont hills&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, '', ''),
+(0, 10, 'Northeastern Cebu Colleges, Inc. (NCC)', 'Northeastern-Cebu-Colleges-Inc-NCC', 'ncc1', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Public', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=ncc%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, 'ncc8.png', 'ncc8.png');
 
 -- --------------------------------------------------------
 
@@ -176,7 +175,6 @@ CREATE TABLE `school_privileges` (
 --
 
 INSERT INTO `school_privileges` (`school_id`, `privilege_id`, `privilege_name`, `privilege_url`) VALUES
-(10, 5, 'asdasd', 'asdasd'),
 (7, 6, 'zxczxczx', 'zxczxczx'),
 (10, 9, 'DSWD', 'DSWD');
 
@@ -198,7 +196,6 @@ CREATE TABLE `school_requirements` (
 --
 
 INSERT INTO `school_requirements` (`school_id`, `requirement_id`, `requirement_name`, `requirement_desc`) VALUES
-(10, 2, 'asdasd', 'asdasd'),
 (10, 3, 'BIRTH', '1123123'),
 (6, 4, 'NSO', 'Need NSO'),
 (6, 5, '2x2 Picture', 'A 2x2 Picture'),
@@ -387,7 +384,7 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `school_facilites`
 --
 ALTER TABLE `school_facilites`
-  MODIFY `facility_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `facility_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `school_info`
@@ -429,7 +426,7 @@ ALTER TABLE `site_cookies`
 -- AUTO_INCREMENT for table `strands`
 --
 ALTER TABLE `strands`
-  MODIFY `strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `strand_categories`

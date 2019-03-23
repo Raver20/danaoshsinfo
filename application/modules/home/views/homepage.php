@@ -65,7 +65,7 @@
                                 <div class="hover-caption dark-overlay smoothie text-center">
                                     <div class="vertical-center-js">
                                         <h4><?= $data->schoolname ?></h4>
-                                        <a href="<?= base_url().'school_info/profile/'.$data->school_name_url ?>" class="btn btn-primary btn-green">View Article</a>
+                                        <a href="<?= base_url().'school_info/profile/'.$data->school_name_url ?>" class="btn btn-primary btn-green">View School</a>
                                     </div>
                                 </div>
                             </div>

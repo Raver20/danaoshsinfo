@@ -313,39 +313,6 @@ function upload_image($update_id)
     $this->templates->schooladmin($data);
 }
 
-function school_rate()
-{
-    $update_id = $this->uri->segment(3);
-    $submit = $this->input->post('submit', TRUE);
-
-
-    if ($submit=="Submit")
-    {
-        //process the form
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('rating', "Rate" , 'required|trim');
-        $this->form_validation->set_rules('writereview', "Review" , 'required|trim');
-
-        if ($this->form_validation->run() == TRUE)
-        {
-            //get the variables
-
-            $data = $this->fetch_data_from_post();
-            $ip = $_SERVER['REMOTE_ADDR'];
-
-            echo '192.168.0.'. $_SERVER['REMOTE_ADDR']; die();
-            
-                //update the strand details
-                $this->_update($update_id, $data);
-                $flash_msg = "The strand details were successfully updated";
-                $value = '<div class="alert alert-success">'.$flash_msg.'</div>';
-                $this->session->set_flashdata('strand', $value);
-                redirect('Strands/create/'.$update_id);
-           
-        }
-    }
-}
-
 
 function profile()
 {
@@ -354,11 +321,10 @@ function profile()
     $this->load->module('school_privileges');
     $this->load->module('school_strands');
     $this->load->module('strands');
-    
+    $ratingStatus = $this->input->get("ratingStatus");
     $school_name_url = $this->uri->segment(3);
     $school_id = $this->_get_school_id_from_school_name_url($school_name_url);
     //query
-    
     $data = $this->fetch_data_from_db($school_id);
     $data['facility_query'] = $this->school_facilities->get_by_id($school_id);
     $data['requirement_query'] = $this->requirements->get_by_id($school_id);
@@ -370,7 +336,9 @@ function profile()
        $strands = $this->strands->get_by_id($row->strand_id)->result()[0];
        array_push($strands_list, $strands);
     }
+
     $data['strands_by_query'] = $strands_list;
+    $data['ratingStatus'] = $ratingStatus;
     $data['view_module'] = "school_info";
     $data['view_file'] = "profile";
     $this->load->module('templates');

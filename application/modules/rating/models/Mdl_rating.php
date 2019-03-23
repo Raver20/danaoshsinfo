@@ -26,9 +26,9 @@ function get_with_limit($limit, $offset, $order_by) {
     return $query;
 }
 
-function get_where($id){
+function get_where($rate_id){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('rate_id', $rate_id);
     $query=$this->db->get($table);
     return $query;
 }
@@ -45,15 +45,15 @@ function _insert($data){
     $this->db->insert($table, $data);
 }
 
-function _update($id, $data){
+function _update($rate_id, $data){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('rate_id', $rate_id);
     $this->db->update($table, $data);
 }
 
-function _delete($id){
+function _delete($rate_id){
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('rate_id', $rate_id);
     $this->db->delete($table);
 }
 
@@ -74,11 +74,11 @@ function count_all() {
 
 function get_max() {
     $table = $this->get_table();
-    $this->db->select_max('id');
+    $this->db->select_max('rate_id');
     $query = $this->db->get($table);
     $row=$query->row();
-    $id=$row->id;
-    return $id;
+    $rate_id=$row->rate_id;
+    return $rate_id;
 }
 
 function _custom_query($mysql_query) {

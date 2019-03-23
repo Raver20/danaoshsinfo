@@ -380,6 +380,7 @@ function dashboard()
     $this->load->module('school_strands');
     $this->load->module('school_privileges');
     $this->load->module('school_facilities');
+    $this->load->module('rating');
 
     $this->site_security->_make_sure_is_school_admin();
     //facilities
@@ -420,6 +421,11 @@ function dashboard()
         $pid++;
         }
      }
+    
+    $school_id = $this->session->userdata['schooladmin']['school_id']; 
+    $ratings_query = $this->rating->get_by_school_id($school_id);
+    $data['totalratings'] = count($ratings_query->result());
+    $data['ratings'] = $ratings_query;
     $data['totalfacilities'] = $fid;
     $data['totalschoolstrands'] = $sid;
     $data['totalschoolrequirements'] = $rid;

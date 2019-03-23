@@ -72,6 +72,13 @@ function get($order_by)
     return $query;
 }
 
+function get_by_school_id($school_id)
+{
+    $this->load->model('mdl_rating');
+    $query = $this->mdl_rating->get_by_school_id($school_id);
+    return $query;
+}
+
 function get_with_limit($limit, $offset, $order_by) 
 {
     if ((!is_numeric($limit)) || (!is_numeric($offset))) {

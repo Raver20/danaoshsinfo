@@ -89,12 +89,7 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li>
-                        <a href="<?php echo base_url(); ?>admin/dashboard">
-                            <i class="material-icons">home</i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
+                 
                     <li>
                         <a href="<?php echo base_url(); ?>strands/manage">
                             <i class="material-icons">assignment</i>

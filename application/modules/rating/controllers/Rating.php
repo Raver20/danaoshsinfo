@@ -37,7 +37,37 @@ function school_rate()
 
 function fetch_data_from_post()
 {   
-
+    $ipaddress = '';
+    if ($_SERVER['HTTP_CLIENT_IP'])
+    {
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    }
+    else if($_SERVER['HTTP_X_FORWARDED_FOR'])
+    {
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+    else if($_SERVER['HTTP_X_FORWARDED'])
+    {
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        }
+    else if($_SERVER['HTTP_FORWARDED_FOR'])
+    {
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        }
+    else if($_SERVER['HTTP_FORWARDED'])
+    {
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        }
+    else if($_SERVER['REMOTE_ADDR'])
+    {
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+        }
+    else
+    {
+        $ipaddress = 'UNKNOWN';
+        }
+    
+    $data['ipaddress'] = $ipaddress;
     $data['school_id'] = $this->input->post('school_id', TRUE);
     $data['rate'] = $this->input->post('rating', TRUE);
     $data['review'] = $this->input->post('review', TRUE);

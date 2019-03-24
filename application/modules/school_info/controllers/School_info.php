@@ -336,7 +336,8 @@ function profile()
        $strands = $this->strands->get_by_id($row->strand_id)->result()[0];
        array_push($strands_list, $strands);
     }
-
+   
+  
     $data['strands_by_query'] = $strands_list;
     $data['ratingStatus'] = $ratingStatus;
     $data['view_module'] = "school_info";

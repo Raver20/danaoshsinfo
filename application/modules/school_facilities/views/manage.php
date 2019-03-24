@@ -5,7 +5,7 @@
 	$create_facility_url = base_url()."school_facilities/create";
 ?>
 <p style="margin-bottom: 10px;">
-<a href="<?= $create_facility_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">add</i><span>Add New Strands</span></button></a>
+<a href="<?= $create_facility_url ?>"><button type="button" class="btn btn-primary waves-effect"><i class="material-icons">add</i><span>Add New Facility</span></button></a>
 </p>
 
 

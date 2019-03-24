@@ -27,7 +27,7 @@ function login()
         redirect('school_info/dashboard');
     } 
     elseif (isset($this->session->userdata['admin'])){
-        redirect('admin/dashboard');
+        redirect('strands/manage');
     }
     else 
     {
@@ -66,7 +66,7 @@ public function auth()
                 'userid' => $this->mdl_login->check_user(),
                 );
                 $this->session->set_userdata("admin",$session_data);
-                redirect('admin/dashboard');
+                redirect('strands/manage');
 
                 }
             else
@@ -74,7 +74,7 @@ public function auth()
                 $flash_msg = "You entered incorrect username and/or password";
                 $value = '<div class="alert alert-danger" role="alert">'.$flash_msg.'</div>';
                 $this->session->set_flashdata('login', $value);
-                redirect('admin/login');
+                redirect('strands/admin');
             }
 
         }

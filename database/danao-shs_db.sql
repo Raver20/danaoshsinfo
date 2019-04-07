@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2019 at 05:59 AM
+-- Generation Time: Apr 04, 2019 at 12:43 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.2.16
 
@@ -31,16 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `user` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `password` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `user`, `password`, `email`) VALUES
-(1, 'admin', 'danaoinfo', 'danao.shs.info@gmail.com');
+INSERT INTO `admin` (`admin_id`, `user`, `password`) VALUES
+(1, 'admin', 'danaoinfo');
 
 -- --------------------------------------------------------
 
@@ -79,6 +78,32 @@ INSERT INTO `faq` (`admin_id`, `faq_id`, `faq_title`, `faq_ans`) VALUES
 (1, 8, 'Will K to 12 change TESDA Technical Vocational Education and Training (TVET) programs?', 'No. TESDA will continue to offer TVET programs. Students may also be eligible for NC I\r\nand NC II through Junior High School and Senior High School, respectively'),
 (1, 14, 'What will happen to the curriculum? What subjects will be added and removed?', 'There is a continuum from Kindergarten to Grade 12 and to technical-vocational and\r\nhigher education.\r\n\r\nThe current curriculum has been enhanced and has been given more focus to allow\r\nmastery of learning.\r\n\r\nIn Grades 11 and 12, core subjects like Mathematics, Science, and Languages will\r\nbe strengthened. Specializations in students’ areas of interest will also be offered.'),
 (1, 21, 'What happens to high school graduates of the old basic education curriculum who intend to enroll by AY 2018-2019 onwards?', 'High school graduates of the old basic education curriculum who did not go through Senior High School may enroll for AY 2018-2019 under the new higher education curricula. However, given that the Revised General Education Curriculum in college will be implemented nationwide starting AY 2018-2019, these students may need to undergo bridging programs as implemented by the admitting colleges and universities.\r\n\r\nThose who have previously taken college units may have these units credited subject to the relevant HEI policies. Those who have work experience may have their competencies assessed under existing CHED rules and regulations through the Expanded Tertiary Education Equivalency and Accreditation Program (ETEEAP).');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `school_id` int(11) NOT NULL,
+  `rate_id` int(11) NOT NULL,
+  `rate` int(1) NOT NULL,
+  `review` varchar(1000) NOT NULL,
+  `ipaddress` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`school_id`, `rate_id`, `rate`, `review`, `ipaddress`) VALUES
+(10, 19, 3, 'asd', '::1'),
+(10, 20, 3, 'sdsad', '::1'),
+(10, 21, 2, 'asd', '::1'),
+(7, 22, 3, 'asdasd', '::1'),
+(9, 23, 2, 'sadas', '::1'),
+(10, 24, 5, 'Panel', '::1');
 
 -- --------------------------------------------------------
 
@@ -137,10 +162,12 @@ CREATE TABLE `school_info` (
 --
 
 INSERT INTO `school_info` (`admin_id`, `school_id`, `schoolname`, `school_name_url`, `user`, `password`, `address`, `telno`, `emailaddress`, `typeofschool`, `contactperson`, `principal`, `locationurl`, `calendar`, `avetuition`, `big_pic`, `small_pic`) VALUES
-(1, 7, 'Colegio de San Antonio de Padua (CSA)', 'Colegio-de-San-Antonio-de-Padua-CSA', 'csa', 'admin', 'Guinsay', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=padua%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, 'csa.jpg', 'csa.jpg'),
-(1, 8, 'Sto. Tomas College (STC)', 'Sto-Tomas-College-STC', 'stc', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=stc%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, '', ''),
-(1, 9, 'Rosemont Hills Montessori College', 'Rosemont-Hills-Montessori-College', 'rose', 'admin', 'Sabang', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=rosemont hills&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, '', ''),
-(0, 10, 'Northeastern Cebu Colleges, Inc. (NCC)', 'Northeastern-Cebu-Colleges-Inc-NCC', 'ncc1', 'admin', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Public', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=ncc%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, 'ncc8.png', 'ncc8.png');
+(1, 7, 'Colegio de San Antonio de Padua (CSA)', 'Colegio-de-San-Antonio-de-Padua-CSA', 'csa', 'ISMvKXpXpadDiUoOSoAfww==', 'Guinsay', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=padua%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, 'csa.jpg', 'csa.jpg'),
+(1, 8, 'Sto. Tomas College (STC)', 'Sto-Tomas-College-STC', 'stc', 'ISMvKXpXpadDiUoOSoAfww==', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=stc%20danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, '', ''),
+(1, 9, 'Rosemont Hills Montessori College', 'Rosemont-Hills-Montessori-College', 'rose', 'ISMvKXpXpadDiUoOSoAfww==', 'Sabang', 2147483647, 'raver.glen@gmail.com', 'Private', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=rosemont hills&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 8000, '', ''),
+(0, 10, 'Northeastern Cebu Colleges, Inc. (NCC)', 'Northeastern-Cebu-Colleges-Inc-NCC', 'ncc', 'e/gCEdS4l8esCJSAMuzf5Q==', 'Poblacion', 2147483647, 'raver.glen@gmail.com', 'Public', 'Glenn Jopia', 'Glenn Jopia', 'https://maps.google.com/maps?q=ncc danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'a', 8000, 'ncc8.png', 'ncc8.png'),
+(1, 11, 'sti', 'sti', 'sti', 'ISMvKXpXpadDiUoOSoAfww==', 'sti', 1234567, 'test@gmail.com', 'test', '1234567', 'test', 'test', 'Semestersqa', 0, '', ''),
+(1, 12, 'Guinsay National High School', 'Guinsay-National-High-School', 'guinsay', 'ISMvKXpXpadDiUoOSoAfww==', 'Guinsay', 1234, 'guinsay@gmail.com', 'Public', 'Kier Lienz', 'Brix Vincent', 'https://maps.google.com/maps?q=guinsay national danao&t=&z=13&ie=UTF8&iwloc=&output=embed', 'Semester', 10000, '', '');
 
 -- --------------------------------------------------------
 
@@ -218,10 +245,12 @@ CREATE TABLE `school_strands` (
 --
 
 INSERT INTO `school_strands` (`school_id`, `strand_id`, `school_strand_id`) VALUES
-(10, 19, 1),
-(10, 20, 3),
-(10, 18, 4),
-(10, 19, 5);
+(10, 20, 35),
+(10, 17, 37),
+(10, 19, 39),
+(10, 24, 40),
+(7, 19, 41),
+(7, 20, 42);
 
 -- --------------------------------------------------------
 
@@ -269,19 +298,6 @@ INSERT INTO `strands` (`admin_id`, `strand_id`, `description`, `strand_name`, `s
 (1, 25, 'The Arts and Designs Track. It provides students the know-how on the different arts and design forms, materials, media, and production in the creative industries. If you think you would want to have a job in the art field then this track is good for you. It has a curriculum catered to enhance and encourage your creativity. It is a good platform to express yourself. Concepts around the globe will be taught to you to make you more immersed and competitive in this field. If your interest falls under music, theatres arts, photography, fashion design, and such, this is the advisable track for you.', 'Arts and Design', 'Arts-and-Design', '', 'art_design.png', 'art_design.png'),
 (1, 26, 'If you excel in sports, whatever it may be, then you would enjoy it here. You will be able to learn concepts on positive attitude, teamwork and competitiveness because this teaches you about how sports management and leadership work in this type of setting. There will be subjects on human anatomy and physiology, plus you will also learn first aid. Whether or not your end goal is to become a professional athlete, trainer, P.E. teacher, instructors, game officials or anything under the field of sports, the Sports track has a curriculum that equips you with the knowledge you would need to prepare you for the future.', 'Sports', 'Sports', '', 'sports.png', 'sports.png');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `strand_categories`
---
-
-CREATE TABLE `strand_categories` (
-  `admin_id` int(11) NOT NULL,
-  `cat_id` int(11) NOT NULL,
-  `cat_title` varchar(255) NOT NULL,
-  `parent_cat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Indexes for dumped tables
 --
@@ -303,6 +319,12 @@ ALTER TABLE `contactus`
 --
 ALTER TABLE `faq`
   ADD PRIMARY KEY (`faq_id`);
+
+--
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`rate_id`);
 
 --
 -- Indexes for table `school_facilites`
@@ -353,12 +375,6 @@ ALTER TABLE `strands`
   ADD PRIMARY KEY (`strand_id`);
 
 --
--- Indexes for table `strand_categories`
---
-ALTER TABLE `strand_categories`
-  ADD PRIMARY KEY (`cat_id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -381,6 +397,12 @@ ALTER TABLE `faq`
   MODIFY `faq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `rate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `school_facilites`
 --
 ALTER TABLE `school_facilites`
@@ -390,7 +412,7 @@ ALTER TABLE `school_facilites`
 -- AUTO_INCREMENT for table `school_info`
 --
 ALTER TABLE `school_info`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `school_inquiry`
@@ -414,7 +436,7 @@ ALTER TABLE `school_requirements`
 -- AUTO_INCREMENT for table `school_strands`
 --
 ALTER TABLE `school_strands`
-  MODIFY `school_strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `school_strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `site_cookies`
@@ -427,12 +449,6 @@ ALTER TABLE `site_cookies`
 --
 ALTER TABLE `strands`
   MODIFY `strand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT for table `strand_categories`
---
-ALTER TABLE `strand_categories`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

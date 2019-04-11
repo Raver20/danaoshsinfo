@@ -112,7 +112,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    Location URL<input type="text" class="form-control" name="locationurl" value="<?= $locationurl ?>" placeholder="Location Url"  />
+                                    Location URL<input type="text" class="form-control" name="locationurl" value="<?= $locationurl ?>" placeholder="Location Url" readonly />
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,7 @@
 <div class="col-md-2">
 </div>
 <div class="col-md-8">
-<h1 style="text-align: center;">FAQ's</h1>
+<h1 style="text-align: center;">Frequently Asked Questions</h1>
 <?php
     foreach ($faq_query->result() as $row) {
         $faq_id = $row->faq_id;
@@ -17,7 +17,8 @@
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<?= $row->faq_id ?>" aria-expanded="false" aria-controls="collapseOne"><?= $row->faq_title ?></a>
                 </h6>
             </div>
-            <div id="collapseOne<?= $row->faq_id ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+           
+            <div id="collapseOne<?= $row->faq_id ?>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                     <p><?= nl2br($row->faq_ans) ?></p>
                 </div>
